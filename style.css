@@ -48,6 +48,7 @@ h1 {
   font-weight: 700;
   color: #1a1a1a;
   margin-bottom: 1.5rem;
+  font-size: 1rem;
 }
 
 /* CTA Button */
@@ -66,10 +67,28 @@ h1 {
   background-color: #690c3f;
 }
 
-/* Section content */
+/* Section Content */
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
 .content p {
-  margin-bottom: 1.2rem;
-  max-width: 750px;
+  margin-bottom: 1.6rem;
+  font-size: 18px;
+  color: #1a1a1a;
+}
+
+/* Links inside content */
+.content a {
+  color: #46072b;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.content a:hover {
+  text-decoration: none;
 }
 
 /* Footer */
@@ -88,8 +107,4 @@ footer a {
 
 footer a:hover {
   text-decoration: underline;
-}
-  .strong {
-    font-size: 1rem;
-  }
 }
