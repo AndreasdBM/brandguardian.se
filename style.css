@@ -3,63 +3,52 @@
 
 body {
   font-family: 'Chivo', sans-serif;
-  background-color: #fffdfb;
-  color: #1a1a1a;
+  background-color: #fdfaf7;
+  color: #1c1c1c;
   margin: 0;
   padding: 0;
 }
 
 .hero {
-  padding: 6rem 2rem;
-  max-width: 700px;
+  padding: 4rem 2rem;
+  max-width: 800px;
   margin: 0 auto;
-}
-
-.hero-content {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
 }
 
 h1 {
   font-size: 3rem;
   font-weight: 900;
-  line-height: 1.1;
-  margin: 0;
-  color: #460c33; /* deep plum */
+  color: #7d294b; /* Purple headline */
+  line-height: 1.2;
+  margin-bottom: 1rem;
 }
 
 .subheading {
   font-size: 1.25rem;
   font-weight: 400;
-  color: #222;
-  margin: 0;
+  margin-bottom: 0.5rem;
 }
 
 .strong {
-  font-size: 1.2rem;
-  font-weight: 600;
-  line-height: 1.5;
-  color: #333;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
 }
 
 .cta-button {
   display: inline-block;
-  margin-top: 1.5rem;
+  background-color: #7d294b;
+  color: #fff;
   padding: 0.75rem 1.5rem;
-  border: 3px solid #460c33;
-  background: #fffdfb;
-  color: #460c33;
-  font-weight: 900;
-  text-transform: uppercase;
-  font-size: 1rem;
-  letter-spacing: 0.5px;
   text-decoration: none;
-  box-shadow: 4px 4px 0 #460c33;
-  transition: all 0.2s ease;
+  font-weight: 700;
+  border-radius: 4px;
+  box-shadow: 4px 4px 0 #3b0a24;
+  transition: all 0.15s ease-in-out;
 }
 
 .cta-button:hover {
-  box-shadow: 2px 2px 0 #460c33;
-  transform: translate(2px, 2px);
+  background-color: #5c1e39;
+  box-shadow: 2px 2px 0 #3b0a24;
 }
