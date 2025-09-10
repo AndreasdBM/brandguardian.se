@@ -4,154 +4,126 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kvalitetssäkrad copy på engelska</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700;800&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, sans-serif;
+      padding: 2rem;
+      font-family: 'Rubik', sans-serif;
+      background-color: #f9f6f2;
+      color: #1d1d1d;
       line-height: 1.6;
-      color: #111;
-      background-color: #fff;
     }
 
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 3rem 1rem;
-    }
-
-    .text-content {
-      flex: 1 1 500px;
-      padding-right: 2rem;
-    }
-
-    .text-content h1 {
+    h1 {
       font-size: 2rem;
-      font-weight: 700;
-      line-height: 1.2;
+      font-weight: 800;
       margin-bottom: 0.5rem;
     }
 
-    .text-content h2 {
-      font-size: 1.5rem;
+    h2 {
+      font-size: 1.25rem;
       font-weight: 700;
+      margin-top: 0;
+    }
+
+    p {
+      font-size: 1.125rem;
+      max-width: 750px;
+    }
+
+    a.cta-button {
+      position: relative;
+      display: inline-block;
+      text-decoration: none;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #7b2045;
+      border: 2px solid #7b2045;
+      background-color: white;
+      padding: 14px 28px;
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
       margin-top: 2rem;
     }
 
-    .text-content p {
-      margin: 1rem 0;
+    a.cta-button::after {
+      content: "";
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      width: 100%;
+      height: 100%;
+      background-color: #7b2045;
+      border-radius: 6px;
+      z-index: -1;
+      transition: top 0.2s ease, left 0.2s ease;
     }
 
-    .cta-button {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.75rem 1.5rem;
-      background-color: #0057ff;
-      color: white;
-      text-decoration: none;
-      border-radius: 4px;
-      font-weight: bold;
+    a.cta-button:hover {
+      transform: translateY(-2px);
     }
 
-    .image-side {
-      flex: 1 1 400px;
+    a.cta-button:hover::after {
+      top: 3px;
+      left: 3px;
+    }
+
+    .cta-container {
       display: flex;
-      align-items: flex-start;
-      justify-content: center;
+      justify-content: flex-end;
     }
 
-    .image-side img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
+    img {
       margin-top: 1rem;
+      max-width: 300px;
     }
 
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
-      background-color: #f5f5f5;
-    }
-
-    footer a {
-      color: #0057ff;
-      text-decoration: none;
-    }
-
-    @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
-        padding: 2rem 1rem;
-      }
-
-      .text-content {
-        padding-right: 0;
-      }
+    strong {
+      font-weight: 700;
     }
   </style>
 </head>
+
 <body>
 
-  <section class="container">
-    <div class="text-content">
-      <h1>Kvalitetssäkrad copy<br>för svenska företag<br>med globala ambitioner</h1>
-      <p>Jag hjälper dig att undvika språkliga snedsteg, förbättra din kommunikation och bygga trovärdighet på engelska.</p>
-      <a href="#kontakt" class="cta-button">Kontakta mig</a>
+  <h1>Kvalitetssäkrad copy<br>för svenska företag<br>med globala ambitioner</h1>
 
-      <p>Sverige är ett land med stor internationell aptit. Denna aptit omfattar allt från populärkultur till företagliga ambitioner. Av detta följer en hög engelskakompetens jämfört med andra länder – men också ett överdrivet språkligt självförtroende.</p>
+  <p>Jag hjälper dig att undvika språkliga snedsteg, förbättra din kommunikation och bygga trovärdighet på engelska.</p>
 
-      <p>En obekväm sanning är att svenskar generellt sett inte är riktigt så bra på engelska som de tror att de är. Språkbrott begås regelbundet och helt omedvetet – det kan handla om ordspråk som nästan används i rätt sammanhang, betoningar som hamnar fel i en mening, eller ord som böjs på sätt de aldrig borde.</p>
+  <div class="cta-container">
+    <a href="#kontakt" class="cta-button">Boka ett möte</a>
+  </div>
 
-      <p>Svenska copywriters, marknadschefer och kommunikatörer är inte undantagna från detta språkliga övermod. De skulle till och med kunna vara hårdare drabbade än genomsnittet. Det kan ju bli så när man trots allt jobbar med kommunikation.</p>
+  <p><a href="#kontakt">Kontakta mig</a><br />
+  <img src="https://via.placeholder.com/300x200" alt="Andreas de Boer Moran – språkexpert" /><br />
+  Andreas de Boer Moran – språkexpert</p>
 
-      <p>“Ja, det kanske du har rätt i, men det gäller inte mig,” tänker du (särskilt om du är copywriter). “Jag har ju sett alla säsonger av Friends och OC. Jag har till och med läst Hemingway på engelska, och jag fick faktiskt VG+ i engelska på gymnasiet,” och så vidare.</p>
+  <p>Sverige är ett land med stor internationell aptit. Denna aptit omfattar allt från populärkultur till företagliga ambitioner. Av detta följer en hög engelska­kompetens jämfört med andra länder – men också ett stort språk­ligt självförtroende.</p>
 
-      <p>Problemet är att det är omöjligt att identifiera och undvika misstag man inte vet att man gör. Och vet du vad? Det är helt okej. Det är inte rimligt att förvänta sig modersmålskompetens av någon som inte har engelska som modersmål. I vardagliga sammanhang kan det till och med vara charmigt att prata svengelska utan att veta om det.</p>
+  <p>En obekväm sanning är att svenskar generellt sett inte är riktigt så bra på engelska som de tror att de är. Språkbrott begås regelbundet och helt omedvetet – det kan handla om ordspråk som nästan använts rätt, ord i fel sammanhang, betoningar som hamnar fel i en mening, eller ord som böjs på sätt de aldrig borde.</p>
 
-      <p>I affärssammanhang däremot – det är en annan femma.</p>
+  <p>Svenska copywriters, marknadschefer och kommunikatörer är inte undantagna från detta språk­liga övermod. De skulle till och med kunna vara hårdare drabbade än genomsnittet. Det kan ju bli så när man dagligen jobbar med kommunikation.</p>
 
-      <p>Engelskakompetensen i ditt marknadsföringsteam kan var väldigt hög – men problem som svensktalande oundvikligen är blinda för, både grövre och mer subtila, är smärtsamt uppenbara för dina engelskspråkiga kunder, intressenter och samarbetspartner.</p>
+  <p>”Ja, det kanske du har rätt i, men det gäller inte mig,” tänker du (särskilt om du är copywriter). “Jag har ju sett alla säsonger av Friends och OC. Jag har till och med läst Hemingway på engelska, och jag fick VG+ i engelska på gymnasiet,” och så vidare.</p>
 
-      <p>Det kan alltså vara så att din copy på engelska nästan håller måttet – men “nästan” håller inte måttet – inte i professionella sammanhang.</p>
+  <p>Problemet är att det är omöjligt att identifiera och undvika misstag man inte vet att man gör. Och vet du vad? Det är helt okej. Det är inte rimligt att förvänta sig modersmåls­kompetens av någon som inte har engelska som modersmål. I vardagliga sammanhang kan det till och med vara charmigt att prata svengelska utan att veta om det.</p>
 
-      <p>När du kommunicerar på den internationella marknaden kan det vara helt avgörande att du uppfattas som seriös, trovärdig och kompetent – och att du faktiskt kommunicerar det du tror att du kommunicerar.</p>
+  <p>I affärssammanhang däremot – det är en annan femma.</p>
 
-      <p>Du betalar bra pengar för din copy – och dina copywriters, interna som externa, ägnar tid och tankekraft åt att skriva texter som fungerar för dig. Så snubbla inte på mållinjen.</p>
+  <p>Engelska­kompetensen i ditt marknadsföringsteam kan var väldigt hög – men problem som svensktalande oundvikligen är blinda för, både grövre och mer subtila, är smärtsamt uppenbara för dina engelsktalande intressenter och samarbetspartners.</p>
 
-      <p>Om du har svenska copywriters som skriver copy på engelska så måste du ha en Brand Guardian som kan validera dina texter.</p>
+  <p>Det kan alltså vara så att din copy på engelska nästan håller måttet – men “nästan” håller inte måttet – inte i professionella sammanhang.</p>
 
-      <p><strong>Skaffa dig en Brand Guardian.</strong></p>
+  <p>När du kommunicerar på den internationella marknaden kan det vara helt avgörande att du uppfattas som seriös, trovärdig och kompetent – och att du faktiskt kommunicerar det du tror att du kommunicerar.</p>
 
-      <h2>Vad är en Brand Guardian?</h2>
+  <p>Du betalar bra pengar för din copy – och dina copywriters, interna som externa, ägnar tid och tankekraft åt att skriva texter som fungerar för dig. Så snubbla inte på mållinjen.</p>
 
-      <p>Som Brand Guardian lär jag känna ert varumärke. Jag gör mig införstådd med era marknadsföringsmål. Jag granskar sedan era marknadsföringstexter på engelska och säkerställer delvis att ni kommunicerar på korrekt engelska, men också till att ni uppfattas så som ni vill uppfattas, med hänsyn till ton och målgrupp OCH att era texter håller en inhemsk nivå.</p>
+  <p>Om du har svenska copywriters som skriver copy på engelska så måste du ha en Brand Guardian som kan validera dina texter.</p>
 
-      <p>Jag är vad man skulle kunna kalla för bikulturell; till en tredjedel britt, en tredjedel amerikan och en tredjedel svensk (det blir kanske trikulturell), vilket innebär att jag har en fot i två världar kulturellt – både den engelskspråkiga och den svenska.</p>
-
-      <p>I snart ett decennium har jag specialiserat mig på att hjälpa företag att kommunicera med en internationell publik. Jag har lokaliserat och redigerat närmare 2.5 miljoner källord av copy och andra typer av marknadsföringstexter åt företag som bland andra, Google, TikTok, Amazon, Wix och Film i Väst.</p>
-
-      <p>I kombination med min erfarenhet, har jag alltså lite av en superkraft: jag kan skriva copy på modersmålsnivå, både på svenska och engelska.</p>
-
-      <p><strong>Ta kontakt med mig.</strong><br>
-      Jag granskar cirka 1000 ord, till exempel er “About You”-sida, helt kostnadsfritt.</p>
-
-      <p>Om jag identifierar några problem så beskriver jag precis vad problemen är och varför det behöver åtgärdas på ett lättbegripligt sätt – sedan kommer jag med konkreta förslag på hur texten kan förbättras.</p>
-
-      <p>Om ni tycker att mina förbättringsförslag låter rimliga så hjälper jag er gärna vidare.</p>
-
-      <p id="kontakt"><strong>Kontakta mig:</strong> <a href="mailto:andreas@brandguardian.se">andreas@brandguardian.se</a></p>
-    </div>
-
-    <div class="image-side">
-      <img src="your-image.jpg" alt="Andreas de Boer Moran – språkexpert" />
-    </div>
-  </section>
-
-  <footer>
-    &copy; 2025 Brand Guardian. Alla rättigheter förbehållna.
-  </footer>
+  <p><strong>Skaffa dig en Brand Guardian.</strong></p>
+  <p><strong>Vad är en Brand Guardian?</strong></p>
 
 </body>
 </html>
