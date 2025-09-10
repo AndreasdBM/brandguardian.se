@@ -7,69 +7,66 @@ body {
   color: #1a1a1a;
   margin: 0;
   padding: 4rem 2rem;
-  max-width: 900px;
+  max-width: 1000px;
   line-height: 1.6;
 }
 
+/* Hero section layout */
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+
+.hero-left {
+  flex: 1.2;
+}
+
+.hero-right {
+  flex: 1;
+}
+
+/* Headline */
 h1 {
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: 900;
   line-height: 1.1;
-  margin-bottom: 1rem;
+  margin: 0;
 }
 
-h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-top: 3rem;
-  margin-bottom: 1rem;
-}
-
-p {
+/* Subheading */
+.subheading {
   font-size: 1.25rem;
-  margin-bottom: 1.5rem;
-  max-width: 42rem;
+  margin: 0 0 1.5rem;
 }
 
-strong {
+/* Highlighted statement */
+p.strong {
   font-weight: 700;
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
 }
 
-.contact-button {
-  background-color: #7c2045;
-  color: white;
-  padding: 1rem 2rem;
-  border-radius: 12px;
-  font-weight: 700;
-  font-size: 1.125rem;
-  text-decoration: none;
+/* Button styling */
+a.button {
   display: inline-block;
-  margin-top: 1rem;
-  box-shadow: 5px 5px 0 #e3c8d0;
-  transition: all 0.2s ease;
+  background-color: #1a1a1a;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  font-weight: 700;
+  border-radius: 0.4rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
 }
 
-.contact-button:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 7px 7px 0 #d9a9bb;
-  background-color: #661a38;
-}
-
-@media (max-width: 600px) {
-  body {
-    padding: 2rem 1.5rem;
-  }
-
-  h1 {
-    font-size: 2.2rem;
-  }
-
-  p {
-    font-size: 1.1rem;
-  }
-
-  .contact-button {
-    font-size: 1rem;
-    padding: 0.8rem 1.5rem;
-  }
+a.button:hover {
+  background-color: #444;
 }
