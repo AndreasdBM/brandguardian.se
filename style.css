@@ -1,62 +1,75 @@
-/* style.css */
-
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700;800&display=swap');
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;900&display=swap');
 
 body {
+  font-family: 'Chivo', sans-serif;
+  background-color: #fffdfb;
+  color: #1a1a1a;
   margin: 0;
-  font-family: 'Work Sans', sans-serif;
-  background-color: #f9f9f9;
-  color: #1a1a1a;
+  padding: 4rem 2rem;
+  max-width: 900px;
+  line-height: 1.6;
 }
 
-.hero {
-  padding: 5em 1.5em;
-  background-color: #f9f9f9;
-  display: flex;
-  justify-content: center;
+h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 1rem;
 }
 
-.hero-content {
-  max-width: 750px;
-}
-
-.hero h1 {
-  font-size: 2.8em;
-  font-weight: 800;
-  color: #1a1a1a;
-  margin-bottom: 0.4em;
-}
-
-.subline {
-  font-size: 1.4em;
-  font-weight: 400;
-  margin-bottom: 1.2em;
-  color: #333;
-}
-
-.strongline {
-  font-size: 1.4em;
-  font-weight: 600;
-  line-height: 1.5;
-  margin-bottom: 2em;
-  color: #000;
-}
-
-.hero-button {
-  display: inline-block;
-  background: #111;
-  color: white;
-  border: none;
-  padding: 0.9em 1.8em;
+h2 {
+  font-size: 2rem;
   font-weight: 700;
-  border-radius: 10px;
-  font-size: 1.1em;
-  text-decoration: none;
-  box-shadow: 6px 6px 0 #444;
-  transition: all 0.2s ease-in-out;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
 }
 
-.hero-button:hover {
-  background: #444;
-  box-shadow: 6px 6px 0 #000;
+p {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  max-width: 42rem;
+}
+
+strong {
+  font-weight: 700;
+}
+
+.contact-button {
+  background-color: #7c2045;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1.125rem;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 1rem;
+  box-shadow: 5px 5px 0 #e3c8d0;
+  transition: all 0.2s ease;
+}
+
+.contact-button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0 #d9a9bb;
+  background-color: #661a38;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 2rem 1.5rem;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  p {
+    font-size: 1.1rem;
+  }
+
+  .contact-button {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+  }
 }
