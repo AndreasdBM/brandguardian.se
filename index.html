@@ -6,7 +6,28 @@
   <title>Kvalitetssäkrad copy på engelska</title>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700;800&display=swap" rel="stylesheet" />
   <style>
-    
+
+.hero-flex {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 3rem; /* spacing between h1 and p */
+  max-width: 1200px;
+  margin: 0 auto 2rem auto;
+  flex-wrap: wrap; /* allows wrapping on smaller screens */
+}
+
+.hero-heading {
+  flex: 1;
+  min-width: 300px;
+  text-align: left;
+}
+
+.hero-subtext {
+  flex: 1;
+  min-width: 300px;
+  text-align: left;
+}    
 .handdrawn-underline {
   position: relative;
   display: inline-block;
@@ -134,9 +155,14 @@
 </head>
 
 <body>
-  <h1>Kvalitetssäkrad copy<br>för svenska företag<br>med globala ambitioner</h1>
-  <div class="intro">
-  <p>Jag hjälper svenska företag att undvika språkliga snedsteg, förbättra sin kommunikation och bygga trovärdighet på engelska.</p>
+  <div class="hero-flex">
+  <h1 class="hero-heading">
+    Kvalitetssäkrad copy<br>för svenska företag<br>med globala ambitioner
+  </h1>
+  <p class="hero-subtext">
+    Jag hjälper svenska företag att undvika språkliga snedsteg, förbättra sin kommunikation och bygga trovärdighet på engelska.
+  </p>
+</div>
   <h2>Nyfiken på om ni gör bort er på engelska?</h2>
   <p>
   Låt mig granska ert innehåll – 
