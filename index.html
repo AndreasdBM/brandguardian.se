@@ -6,6 +6,24 @@
   <title>Kvalitetssäkrad copy på engelska</title>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700;800&display=swap" rel="stylesheet" />
   <style>
+   .underline {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+}
+
+.underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 6px;
+  background: url('https://cdn.jsdelivr.net/gh/andreasbm/web-sketches/underline.svg') no-repeat center;
+  background-size: contain;
+  pointer-events: none;
+  z-index: -1;
+}
    .arrow {
   font-size: 2rem;
   margin: 0.5rem 0 0.2rem;
@@ -112,7 +130,7 @@
   <h1>Kvalitetssäkrad copy<br>för svenska företag<br>med globala ambitioner</h1>
   <p>Jag hjälper svenska företag att undvika språkliga snedsteg, förbättra sin kommunikation och bygga trovärdighet på engelska.</p>
   <h2>Nyfiken på om ni gör bort er på engelska?</h2>
-  <p>Låt mig granska ert innehåll – helt kostnadsfritt.</p>
+  <p>Låt mig granska ert innehåll – <span class="underline">helt kostnadsfritt</span>.</p>
   <p class="arrow">↓</p>
   <div class="cta-container">
     <a href="#kontakt" class="cta-button">Boka ett möte</a>
