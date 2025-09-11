@@ -10,18 +10,19 @@
   display: inline-block;
   position: relative;
   z-index: 1;
-  padding-bottom: 6px;
+  padding-bottom: 4px; /* space for underline */
 }
 
 .underline::after {
   content: '';
   position: absolute;
   left: 0;
-  bottom: 2px;
+  bottom: 0;
   width: 100%;
-  height: 12px;
-  background: url('https://raw.githubusercontent.com/naptha/sketchy/master/underline1.svg') no-repeat center;
-  background-size: contain;
+  height: 4px;
+  background-color: #7b2045;
+  opacity: 0.6;
+  transform: skewX(-10deg) scaleX(1);
   pointer-events: none;
   z-index: 0;
 }
