@@ -6,48 +6,20 @@
   <title>Kvalitetssäkrad copy på engelska</title>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700;800&display=swap" rel="stylesheet" />
   <style>
-
-.hero-flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 4rem;
-  max-width: 1200px;
-  margin: 0 auto 2rem auto;
-  flex-wrap: nowrap;
-}
-
-.hero-heading {
-  flex: 1;
-  text-align: left;
-}
-
-.hero-subtext {
-  flex: 1;
-  text-align: left;
-  display: flex;
-  align-items: flex-start;
-}
-
-@media (max-width: 768px) {
-  .hero-flex {
-    flex-direction: column;
-  }
-}
-
+    
 .handdrawn-underline {
   position: relative;
   display: inline-block;
-  z-index: 0;
+  z-index: 0; /* Keeps text above the line */
 }
 
 .handdrawn-underline::after {
   content: "";
   position: absolute;
   left: 0%;
-  bottom: -6px;
+  bottom: -6px; /* adjust if needed */
   width: 100%;
-  height: 14px;
+  height: 14px; /* tweak based on how tall you want the underline effect */
   background: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201412%20136'%3E%3Cpath%20d='M2.9%2051.31c1.54%201.59%203.55%202.42%205.67%202.93%209.55%202.69%2012.36%204.04%2030.44%207.8-3%20.3-5.73%20.44-8.57%203.08a9.83%209.83%200%200%200-2.07%2010.92c.83%202.7%203.33%204.22%205.31%206.05%2010.97%209.24%2037.74%2012.54%2057.74%2016.6%2028.32%205.7%2056.66%2011.52%2085.37%2014.86%2023.26%2011.61%2080.27%2014.32%20103.75%2015.4%2034.52%202.19%2069.08%203.36%20103.65%203.76%20121.04%206.36%20242.43.51%20363.58.82%20271.97-15.76%20111.74-7.14%20354.24-27.85%2046.28-2.18%2092.54-4.84%20138.71-8.85%2012.39-1.12%2031.77-2.4%2034.68-3.76%203.32-1.16%205.52-4.34%206.02-7.77%20123.48-7.79%20121.13-7.18%20123.45-8.4%204.59-1.61%207.1-7.14%205.79-11.8a10.12%2010.12%200%200%200-9.64-7.34c-46.89.01-33.59-2.78-103.06%203.46l10.94-1.87c1.99-.76%204.08-1.67%205.19-3.58%204.19-4.72%202.14-13.98-5.64-15.77-3.38-2.63-6.42-2-14.13-2.11-4.56-.7-9.13-1.34-13.72-1.81%2034.64-5.34%2046.49-8.03%2055.99-12.31%202.43-1.11%204.63-2.64%206.94-3.97%2014.45-7.01%203.34-24.98-8.18-18.36-2.71%201.43-5.2%203.25-7.94%204.62-11.02%204.17-22.83%205.68-34.36%207.85-36.51%206.23-65.21%209.47-105.27%2013.24-39.97%203.44-79.94%207.17-120.01%209.1-112.89%206.65-225.89%2010.72-338.92%2013.94-139.42%204.28-72.29%202.74-238.74%203.83-152.12.02-105.22.84-209.3-3.14-24.84-.9-33.26-1.91-65.79-4.63-17.2-1.82-43.29-7.05-66.97-9.27-4.21-.16-8.68-1.39-12.64.37a9.33%209.33%200%200%200-5.97%207.81l-.03.26c-68.56-8.07-86.97-8.7-119.44-11.18a7.6%207.6%200%200%200-3.85.86%209.31%209.31%200%200%200-5.97%207.81c-.59%203.07.64%206.15%202.75%208.4Z'%20fill='%237B2045'/%3E%3C/svg%3E") 
   no-repeat center bottom;  
   background-size: 230% 14px;
@@ -55,7 +27,7 @@
   z-index: -1;
 }
 
-.arrow {
+   .arrow {
   font-size: 2rem;
   margin: 0.5rem 0 0.2rem;
   animation: bounce 1.5s infinite;
@@ -63,115 +35,170 @@
 }
 
 @keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(6px); }
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
 }
-
-.intro {
+    .intro {
   text-align: center;
   max-width: 750px;
   margin: 0 auto;
 }
-
+    /* More specific: only affects the first heading */
 .intro h1 {
   text-align: left;
   margin-left: 0;
   width: 100%;
 }
+    body {
+      margin: 0;
+      padding: 2rem;
+      font-family: 'Rubik', sans-serif;
+      background-color: #f9f6f2;
+      color: #1d1d1d;
+      line-height: 1.6;
+    }
 
-body {
-  margin: 0;
-  padding: 2rem;
-  font-family: 'Rubik', sans-serif;
-  background-color: #f9f6f2;
-  color: #1d1d1d;
-  line-height: 1.6;
-}
+    h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
 
-h1 {
-  font-size: 2rem;
-  font-weight: 800;
-  margin-bottom: 0.5rem;
-}
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-top: 0;
+    }
 
-h2 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-top: 0;
-}
+    p {
+      font-size: 1.125rem;
+      max-width: 750px;
+    }
 
-p {
-  font-size: 1.125rem;
-  max-width: 750px;
-}
+    a.cta-button {
+      position: relative;
+      display: inline-block;
+      text-decoration: none;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #7b2045;
+      border: 2px solid #7b2045;
+      background-color: white;
+      padding: 14px 28px;
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      margin-top: 2rem;
+    }
 
-a.cta-button {
-  position: relative;
-  display: inline-block;
-  text-decoration: none;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #7b2045;
-  border: 2px solid #7b2045;
-  background-color: white;
-  padding: 14px 28px;
-  border-radius: 6px;
-  font-size: 1rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  margin-top: 2rem;
-}
+    a.cta-button::after {
+      content: "";
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      width: 100%;
+      height: 100%;
+      background-color: #7b2045;
+      border-radius: 6px;
+      z-index: -1;
+      transition: top 0.2s ease, left 0.2s ease;
+    }
 
-a.cta-button::after {
-  content: "";
-  position: absolute;
-  top: 6px;
-  left: 6px;
-  width: 100%;
-  height: 100%;
-  background-color: #7b2045;
-  border-radius: 6px;
-  z-index: -1;
-  transition: top 0.2s ease, left 0.2s ease;
-}
+    a.cta-button:hover {
+      transform: translateY(-2px);
+    }
 
-a.cta-button:hover {
-  transform: translateY(-2px);
-}
+    a.cta-button:hover::after {
+      top: 3px;
+      left: 3px;
+    }
 
-a.cta-button:hover::after {
-  top: 3px;
-  left: 3px;
-}
+    .cta-container {
+      display: flex;
+      justify-content: center;
+    }
 
-.cta-container {
-  display: flex;
-  justify-content: center;
-}
+    img {
+      margin-top: 1rem;
+      max-width: 300px;
+    }
 
-img {
-  margin-top: 1rem;
-  max-width: 300px;
-}
-
-strong {
-  font-weight: 700;
-}
+    strong {
+      font-weight: 700;
+    }
   </style>
 </head>
 
 <body>
-
-  <div class="hero-flex">
-    <h1 class="hero-heading">
-      Kvalitetssäkrad copy<br>för svenska företag<br>med globala ambitioner
-    </h1>
-    <p class="hero-subtext">
-      Jag hjälper svenska företag att undvika språkliga snedsteg, förbättra sin kommunikation och bygga trovärdighet på engelska.
-    </p>
+  <h1>Kvalitetssäkrad copy<br>för svenska företag<br>med globala ambitioner</h1>
+  <div class="intro">
+  <p>Jag hjälper svenska företag att undvika språkliga snedsteg, förbättra sin kommunikation och bygga trovärdighet på engelska.</p>
+  <h2>Nyfiken på om ni gör bort er på engelska?</h2>
+  <p>
+  Låt mig granska ert innehåll – 
+  <span class="handdrawn-underline">helt kostnadsfritt</span>
+</p>
+  <p class="arrow">↓</p>
+  <div class="cta-container">
+    <a href="#kontakt" class="cta-button">Boka ett möte</a>
   </div>
+</div>
 
-  <!-- The rest of your HTML remains unchanged -->
-  <!-- Just make sure the hero section above is near the top of your body -->
+  <p><a href="#kontakt">Kontakta mig</a><br />
+  <img src="https://via.placeholder.com/300x200" alt="Andreas de Boer Moran – språkexpert" /><br />
+  Andreas de Boer Moran – språkexpert</p>
 
-</body>
+  <p>Sverige är ett land med stor internationell aptit. Denna aptit omfattar allt från populärkultur till företagliga ambitioner. Av detta följer en hög engelska­kompetens jämfört med andra länder – men också ett stort språk­ligt självförtroende.</p>
+
+  <p>En obekväm sanning är att svenskar generellt sett inte är riktigt så bra på engelska som de tror att de är. Språkbrott begås regelbundet och helt omedvetet – det kan handla om ordspråk som nästan använts rätt, ord i fel sammanhang, betoningar som hamnar fel i en mening, eller ord som böjs på sätt de aldrig borde.</p>
+
+  <p>Svenska copywriters, marknadschefer och kommunikatörer är inte undantagna från detta goda språk­liga självförtroende. De skulle till och med kunna vara hårdare drabbade än genomsnittet. Det kan ju bli så när man dagligen jobbar med kommunikation.</p>
+
+  <p>”Ja, det kanske du har rätt i, men det gäller inte mig,” tänker du (särskilt om du är copywriter). “Jag har ju sett alla säsonger av Friends och OC. Jag har till och med läst Hemingway på engelska, och jag fick VG+ i engelska på gymnasiet,” och så vidare.</p>
+
+  <p>Problemet är att det är omöjligt att identifiera och undvika misstag man inte vet att man gör. Och vet du vad? Det är helt okej. Det är inte rimligt att förvänta sig modersmåls­kompetens av någon som inte har engelska som modersmål. I vardagliga sammanhang kan det till och med vara charmigt att prata svengelska utan att veta om det.</p>
+
+  <p>I affärssammanhang däremot – det är en annan femma.</p>
+
+  <p>Engelska­kompetensen i ditt marknadsföringsteam kan var väldigt hög – men problem som svensktalande oundvikligen är blinda för, både grövre och mer subtila, är smärtsamt uppenbara för dina engelsktalande intressenter och samarbetspartners.</p>
+
+  <p>Det kan alltså vara så att din copy på engelska nästan håller måttet – men “nästan” håller inte måttet – inte i professionella sammanhang.</p>
+
+  <p>När du kommunicerar på den internationella marknaden kan det vara helt avgörande att du uppfattas som seriös, trovärdig och kompetent – och att du faktiskt kommunicerar det du tror att du kommunicerar.</p>
+
+  <p>Du betalar bra pengar för din copy – och dina copywriters, interna som externa, ägnar tid och tankekraft åt att skriva texter som fungerar för dig. Så snubbla inte på mållinjen.</p>
+
+  <p>Om du har svenska copywriters som skriver copy på engelska så måste du ha en Brand Guardian som kan validera dina texter.</p>
+
+  <p><strong>Skaffa dig en Brand Guardian.</strong></p>
+
+      <p><strong>Vad är en Brand Guardian?</strong></p>
+
+      <p>Som Brand Guardian lär jag känna ert varumärke. Jag gör mig införstådd med era marknadsföringsmål. Jag granskar sedan era marknadsföringstexter på engelska och säkerställer delvis att ni kommunicerar på korrekt engelska, men också till att ni uppfattas så som ni vill uppfattas, med hänsyn till ton och målgrupp OCH att era texter håller en inhemsk nivå.</p>
+
+      <p>Jag är vad man skulle kunna kalla för bikulturell; till en tredjedel britt, en tredjedel amerikan och en tredjedel svensk (det blir kanske trikulturell), vilket innebär att jag har en fot i två världar kulturellt – både den engelskspråkiga och den svenska.</p>
+
+      <p>I snart ett decennium har jag specialiserat mig på att hjälpa företag att kommunicera med en internationell publik. Jag har lokaliserat och redigerat närmare 2.5 miljoner källord av copy och andra typer av marknadsföringstexter åt företag som bland andra, Google, TikTok, Amazon, Wix och Film i Väst.</p>
+
+      <p>I kombination med min erfarenhet, har jag alltså lite av en superkraft: jag kan skriva copy på modersmålsnivå, både på svenska och engelska.</p>
+
+      <p><strong>Ta kontakt med mig.</strong><br>
+        Jag granskar cirka 1000 ord, till exempel er “About You”-sida, helt kostnadsfritt.
+      </p>
+
+      <p>Om jag identifierar några problem så beskriver jag precis vad problemen är och varför det behöver åtgärdas på ett lättbegripligt sätt – sedan kommer jag med konkreta förslag på hur texten kan förbättras.</p>
+
+      <p>Om ni tycker att mina förbättringsförslag låter rimliga så hjälper jag er gärna vidare.</p>
+    </section>
+
+    <footer id="kontakt">
+      <p>Kontakta mig: <a href="mailto:andreas@brandguardian.se">andreas@brandguardian.se</a></p>
+    </footer>
+
+    <!-- trigger rebuild -->
+  </body>
 </html>
