@@ -296,13 +296,13 @@ footer {
   left: 0;
   right: 0;
   bottom: -6px;              /* position just below text */
-  height: 8px;               /* thinner stroke */
-  /* Straighter marker stroke with rounded ends and minimal wobble */
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 8' preserveAspectRatio='none'%3E%3Cpath d='M2 4 C25 4.15 50 3.9 75 4.1 L98 4' stroke='%230f766e' stroke-width='4' stroke-linecap='round' fill='none'/%3E%3C/svg%3E");
+  height: 10px;              /* overall stroke box */
+  /* Confident marker stroke: soft bleed underlay + crisp core, rounded ends, minimal wobble */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10' preserveAspectRatio='none'%3E%3C!-- soft bleed underlay --%3E%3Cpath d='M3 5 C24 5.3 49 4.7 74 5.1 L97 5' stroke='%230f766e' stroke-width='8' stroke-linecap='round' opacity='0.18' fill='none'/%3E%3C!-- crisp core stroke --%3E%3Cpath d='M3 5 C24 5.2 49 4.8 74 5.05 L97 5' stroke='%230f766e' stroke-width='5' stroke-linecap='round' fill='none'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: center bottom;
-  background-size: 100% 8px;  /* stretch to text width, keep thin */
-  opacity: 0.96;
+  background-size: 100% 10px;  /* stretch to text width */
+  opacity: 0.98;
 }
 
 .arrow {
@@ -1382,4 +1382,54 @@ body::before {
   content: none !important;
   display: none !important;
 }
+
+/* RESET: remove all custom underline for the offer callout highlight */
+.offer-callout .handdrawn-underline,
+.offer-callout p .handdrawn-underline {
+  background: none !important;
+  padding-bottom: 0 !important;
+  position: static !important;
+  display: inline !important;
+}
+.offer-callout .handdrawn-underline::before,
+.offer-callout .handdrawn-underline::after,
+.offer-callout p .handdrawn-underline::before,
+.offer-callout p .handdrawn-underline::after {
+  content: none !important;
+  background: none !important;
+}
+
+/* SINGLE RULE underline: slight arch, slight tilt, tapered ends, subtle variation (robust) */
+.offer-callout p .handdrawn-underline {
+  position: relative !important;
+  display: inline-block !important;
+  padding-bottom: 14px !important;          /* ample space for underline */
+  text-decoration: none !important;         /* avoid clashes */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10' preserveAspectRatio='none'%3E%3C!-- soft underlay for variable thickness --%3E%3Cpath d='M2 6 Q50 3 98 6' stroke='%230f766e' stroke-width='9' stroke-linecap='round' opacity='0.16' fill='none'/%3E%3C!-- crisp core stroke (rounded ends) --%3E%3Cpath d='M2 6 Q50 3 98 6' stroke='%230f766e' stroke-width='5' stroke-linecap='round' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat !important;
+  background-position: center calc(100% - 2px) !important; /* sit clearly below baseline */
+  background-size: 102% 10px !important;   /* tiny overshoot for natural ends */
+}
+/* Ensure no pseudo underline competes */
+.offer-callout p .handdrawn-underline::before,
+.offer-callout p .handdrawn-underline::after { content: none !important; }
+
+/* ULTRA-SPECIFIC: visible curved marker underline on the span itself */
+.offer-callout p > .handdrawn-underline {
+  position: relative !important;
+  display: inline-block !important;
+  padding-bottom: 15px !important;          /* spacing for underline */
+  background-origin: padding-box !important;
+  background-clip: padding-box !important;
+  background-repeat: no-repeat !important;
+  background-position: center calc(100% - 6px) !important; /* current vertical position */
+  background-size: 102% 10px !important;     /* slight overshoot */
+  /* Filled ribbon with gentle arch and tapered ends (narrower at tips) */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10' preserveAspectRatio='none'%3E%3Cpath d='M0 6 C8 4.5 22 5.2 50 4.6 C78 4.2 92 5.0 100 6 L100 8 C92 7.2 78 7.9 50 8.4 C22 8.8 8 8.1 0 8 Z' fill='%230f766e'/%3E%3C/svg%3E") !important;
+}
+/* Ensure no pseudo-element underlines interfere */
+.offer-callout p > .handdrawn-underline::before,
+.offer-callout p > .handdrawn-underline::after { content: none !important; }
+/* Ensure container does not clip the underline */
+.offer-callout { overflow: visible !important; }
 
