@@ -285,13 +285,13 @@ footer {
 
 /* ====== Clients Section ====== */
 .clients-section {
-  padding: 3rem 2rem;
+  padding: 2rem 1rem;
   text-align: center;
-  background: #fff7ec;
-  margin: 0 0 2rem 0;
+  background: transparent;
+  margin: 2rem 0 0 0;
   border-radius: 1rem;
   position: relative;
-  transform: translateY(-6rem);
+  transform: none;
 }
 
 /* Burst lines positioned around perimeter */
@@ -426,57 +426,94 @@ footer {
   text-align: center;
   background: none;
   border-radius: 1rem;
-  padding: 3.5rem 2rem;
+  padding: 3.5rem 0;
   width: 100%;
-  max-width: 680px;
+  max-width: 100%;
   margin-bottom: 2rem;
   position: relative;
   z-index: 1;
 }
 
-/* Rectangle shape in top 50% */
-.intro-layout::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 51%;
-  background: #fff7ec;
-  border-radius: 12px 12px 0 0;
-  z-index: 1;
-  box-shadow: 0 10px 24px rgba(0,0,0,0.06);
-}
-
-/* Cone shape in bottom 50% */
-.intro-layout::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 51%;
-  background: #fff7ec;
-  border-radius: 0 0 8px 8px;
-  clip-path: polygon(-5% 0%, 105% 0%, 65% 100%, 35% 100%);
-  z-index: 1;
-  box-shadow: 0 10px 24px rgba(0,0,0,0.06);
-}
 
 /* Ensure content sits above the cone background */
 .intro-layout > * { position: relative; z-index: 2; }
 
+/* Content box for H1, speech bubble, profile */
+.content-box {
+  background: #fff;
+  border-radius: 12px;
+  padding: 2.6rem 2rem 2rem 3.125rem;
+  margin-bottom: 2rem;
+  position: relative;
+  box-shadow: 
+    0 6px 18px rgba(0, 0, 0, 0.1),
+    inset 0 1px 3px rgba(0,0,0,0.5);
+  overflow: visible;
+  text-align: center;
+  width: auto;
+  max-width: 100%;
+
+  /* Much softer horizontal lines like notebook paper */
+  background-image: repeating-linear-gradient(
+    to bottom,
+    #fff,
+    #fff 39px,
+    rgba(0, 0, 0, 0.05) 40px
+  );
+}
+
+
+/* Notebook holes - positioned naturally along left edge */
+.holes {
+  position: absolute;
+  left: 16px;
+  top: 0;
+  width: 20px;
+  height: 100%;
+  pointer-events: none;
+}
+
+.hole {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #000;
+  border-radius: 50%;
+  box-shadow:
+    inset 0 0 3px rgba(0, 0, 0, 0.5),
+    1px 1px 3px rgba(0, 0, 0, 0.2);
+  filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.25));
+}
+
+/* Removed hole mask shadow overlay */
+
+/* CTA box for heading, offer, button */
+.cta-box {
+  background: #fff7ec;
+  border-radius: 12px;
+  padding: 2.6rem;
+  text-align: center;
+  width: 100%;
+  max-width: 100%;
+}
+
+
+
 .intro-left {
   flex: 0 1 auto;
   text-align: center;
+  width: auto;
+  max-width: 750px;
+  margin: 0 auto;
 }
 
 .intro-right {
-  flex: 0 1 auto;
+  flex: 1 1 100%;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
   justify-content: center;
   min-height: 0;
 }
@@ -618,7 +655,7 @@ h1:hover::before {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: -1rem 0 1.5rem 0;
+  margin: 1rem 0 1.5rem 0;
   position: relative;
   gap: 1.5rem;
   flex-wrap: wrap;
@@ -1304,14 +1341,12 @@ strong {
   content: '';
   position: absolute;
   inset: 0 0 0 0;
-  background-image: url('../images/Background2.png');
-  background-repeat: no-repeat;
+  background-image: url('../images/Background4.png');
+  background-repeat: repeat;
   background-size: 100% auto;
   background-position: center -20px;
   opacity: 1;
   pointer-events: none;
-  -webkit-clip-path: inset(0 0 10% 0);
-  clip-path: inset(0 0 10% 0);
   z-index: 0;
 }
 
@@ -1543,4 +1578,3 @@ strong {
   background-size: 135% 7px !important;  /* thinner stroke, wide length */
   padding-bottom: 16px !important;       /* restore spacing so it doesn't look smaller */
 }
-
