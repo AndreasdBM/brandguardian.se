@@ -268,6 +268,7 @@ footer {
   max-width: 1000px;
   margin: 0 auto;
   position: relative;
+  transform: translateY(-1rem);
 }
 
 
@@ -287,9 +288,10 @@ footer {
   padding: 3rem 2rem;
   text-align: center;
   background: #fff7ec;
-  margin: -3rem 0 2rem 0;
+  margin: 0 0 2rem 0;
   border-radius: 1rem;
   position: relative;
+  transform: translateY(-6rem);
 }
 
 /* Burst lines positioned around perimeter */
@@ -767,53 +769,39 @@ h1:hover::before {
   display: flex;
   justify-content: center;
   gap: 3rem;
-  margin-bottom: 3rem;
+  margin: 2rem 0 3rem 0;
   animation: fadeInUp 0.8s ease-out 0.4s both;
 }
 
 .stat-item {
   text-align: center;
   padding: 2rem 2rem;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(249, 246, 243, 0.9) 100%);
-  border-radius: 1rem;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12), 0 0 20px rgba(15, 118, 110, 0.1);
-  border: 2px solid rgba(15, 118, 110, 0.2);
+  background: #fff7ec;
+  border-radius: 1.5rem;
+  box-shadow: 3px 3px 0 #812D52;
+  border: 2px dashed #812D52;
   transition: all 0.4s ease;
   min-width: 120px;
   position: relative;
   overflow: hidden;
 }
 
-.stat-item::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(15, 118, 110, 0.05) 0%, rgba(217, 119, 6, 0.05) 100%);
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  border-radius: 1rem;
-}
 
 
 .stat-item:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15), 0 0 30px rgba(15, 118, 110, 0.2);
-  border-color: rgba(15, 118, 110, 0.4);
+  transform: translateY(-2px) translateX(-1px);
+  box-shadow: 4px 4px 0 #812D52;
+  background: #fff7ec;
 }
 
-.stat-item:hover::before {
-  opacity: 1;
-}
+
 
 .stat-number {
   display: block;
   font-family: 'Chivo', sans-serif;
   font-size: 2.2rem;
   font-weight: 900;
-  color: #d97706;
+  color: #812D52;
   line-height: 1;
   margin-bottom: 0.5rem;
 }
@@ -822,8 +810,8 @@ h1:hover::before {
   display: block;
   font-family: 'Inter', sans-serif;
   font-size: 0.9rem;
-  color: #666;
-  font-weight: 500;
+  color: #333;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }

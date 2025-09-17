@@ -247,5 +247,110 @@
     </footer>
 
     <!-- trigger rebuild -->
+    
+    <script>
+      // Counter animation for stats
+      function animateCounter(element, start, end, duration, suffix = '') {
+        const startTime = performance.now();
+        
+        function updateCounter(currentTime) {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          
+          // Easing function for smooth animation
+          const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+          const current = Math.floor(start + (end - start) * easeOutQuart);
+          
+          element.textContent = current.toLocaleString('sv-SE') + suffix;
+          
+          if (progress < 1) {
+            requestAnimationFrame(updateCounter);
+          }
+        }
+        
+        requestAnimationFrame(updateCounter);
+      }
+      
+      // Counter animation for millions (0.0 to 2.5)
+      function animateCounterMillions(element, start, end, duration) {
+        const startTime = performance.now();
+        
+        function updateCounter(currentTime) {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          
+          // Easing function for smooth animation
+          const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+          const current = start + (end - start) * easeOutQuart;
+          
+          // Format as decimal with 1 decimal place, then add M
+          element.textContent = current.toFixed(1).replace('.', ',') + 'M';
+          
+          if (progress < 1) {
+            requestAnimationFrame(updateCounter);
+          }
+        }
+        
+        requestAnimationFrame(updateCounter);
+      }
+      
+      // Smooth counter animation for whole numbers with decimal precision
+      function animateCounterSmooth(element, start, end, duration, suffix = '') {
+        const startTime = performance.now();
+        
+        function updateCounter(currentTime) {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          
+          // Linear easing for more consistent speed
+          const current = start + (end - start) * progress;
+          
+          // Show as whole number but with smooth decimal progression
+          element.textContent = Math.floor(current) + suffix;
+          
+          if (progress < 1) {
+            requestAnimationFrame(updateCounter);
+          }
+        }
+        
+        requestAnimationFrame(updateCounter);
+      }
+      
+      // Intersection Observer to trigger animation when stats come into view
+      const observerOptions = {
+        threshold: 0.5,
+        rootMargin: '0px 0px -100px 0px'
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const statNumbers = entry.target.querySelectorAll('.stat-number');
+            
+            // Animate each stat with different values and durations
+            statNumbers.forEach((stat, index) => {
+              const originalText = stat.textContent;
+              
+              if (originalText.includes('2,5M')) {
+                animateCounterMillions(stat, 0, 2.5, 2000);
+              } else if (originalText.includes('100+')) {
+                animateCounterSmooth(stat, 0, 100, 2000, '+');
+              } else if (originalText.includes('9 års')) {
+                animateCounterSmooth(stat, 0, 9, 2000, ' års');
+              }
+            });
+            
+            // Stop observing after animation
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+      
+      // Start observing the stats section
+      const statsSection = document.querySelector('.hero-stats');
+      if (statsSection) {
+        observer.observe(statsSection);
+      }
+    </script>
   </body>
 </html>
