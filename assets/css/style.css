@@ -656,7 +656,7 @@ h1:hover::before {
 }
 
 .speech-bubble-content {
-  background-color: #fff7ec;
+  background-color: #ffffff;
   color: #812D52;
   border: 2px solid #812D52;
   box-shadow: 6px 6px 0 #812D52;
