@@ -462,6 +462,106 @@ footer {
   );
 }
 
+/* Notebook variant: draw the paper on a pseudo-element so we can punch holes
+   without affecting layout or shadows. */
+.content-box.notebook {
+  background: none; /* let ::before provide the paper */
+
+  /* Hole layout variables (shared by ::before and ::after) */
+  --hole-x: 22px;       /* center of holes from the left edge */
+  --hole-gap: 60px;     /* vertical spacing between holes */
+  --hole-start-y: 80px; /* offset from top for first hole */
+  --tile-w: 20px;       /* tile width to center the circle */
+  --hole-r: 6px;        /* hole radius */
+  --ring-w: 1px;        /* inner shadow ring width (subtle) */
+}
+
+.content-box.notebook::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 0; /* sits under the content */
+
+  /* Solid paper with subtle texture */
+  background-color: #ffffff;
+  background-image:
+    /* very subtle grain via SVG turbulence */
+    url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'>\
+  <filter id='n'>\
+    <feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/>\
+  </filter>\
+  <rect width='100%' height='100%' filter='url(%23n)' opacity='0.025'/>\
+</svg>"),
+    /* gentle vignette for depth */
+    radial-gradient(120% 90% at 40% 20%, rgba(0,0,0,0.04) 0%, rgba(0,0,0,0.02) 40%, rgba(0,0,0,0) 70%);
+  background-size: 220px 220px, cover;
+  background-repeat: repeat, no-repeat;
+  background-position: 0 0, center;
+  background-blend-mode: multiply, normal;
+
+}
+
+/* Use masking to punch real transparent holes in the paper layer (only).
+   We provide both the standard and WebKit forms. The approach is:
+   - Start with a full-rect white mask.
+   - XOR with a column of white circles, leaving 0-alpha (holes) where they overlap. */
+@supports (mask-composite: exclude) or (-webkit-mask-composite: xor) {
+  .content-box.notebook::before {
+    /* Standard syntax */
+    mask:
+      linear-gradient(#fff 0 0),
+      radial-gradient(circle var(--hole-r), #fff 98%, transparent 100%)
+        calc(var(--hole-x) - var(--tile-w) / 2) var(--hole-start-y) / var(--tile-w) var(--hole-gap) repeat-y;
+    mask-composite: exclude; /* full rect XOR circles -> circles become holes */
+
+    /* WebKit syntax */
+    -webkit-mask:
+      linear-gradient(#fff 0 0),
+      radial-gradient(circle var(--hole-r), #fff 98%, transparent 100%)
+        calc(var(--hole-x) - var(--tile-w) / 2) var(--hole-start-y) / var(--tile-w) var(--hole-gap) repeat-y;
+    -webkit-mask-composite: xor;
+  }
+
+  /* Hide the placeholder dots when real holes are supported */
+  .content-box.notebook .holes,
+  .content-box.notebook .hole {
+    display: none !important;
+  }
+}
+
+/* Subtle inner shadow/highlight around holes for realism */
+.content-box.notebook::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1; /* above paper, below content text */
+  /* Two background layers: shadow ring, slight highlight ring */
+  background-image:
+    radial-gradient(
+      circle at center,
+      transparent calc(var(--hole-r) - var(--ring-w)),
+      rgba(0, 0, 0, 0.10) var(--hole-r),
+      rgba(0, 0, 0, 0) calc(var(--hole-r) + 5px)
+    ),
+    radial-gradient(
+      circle at center,
+      transparent calc(var(--hole-r) - var(--ring-w) - 1px),
+      rgba(255, 255, 255, 0.18) var(--hole-r),
+      rgba(255, 255, 255, 0) calc(var(--hole-r) + 4px)
+    );
+  background-size: var(--tile-w) var(--hole-gap), var(--tile-w) var(--hole-gap);
+  background-position:
+    calc(var(--hole-x) - var(--tile-w) / 2 + 0.5px) calc(var(--hole-start-y) + 0.5px),
+    calc(var(--hole-x) - var(--tile-w) / 2 - 0.5px) calc(var(--hole-start-y) - 0.5px);
+  background-repeat: repeat-y, repeat-y;
+  background-blend-mode: multiply, screen;
+  opacity: 0.25;
+}
+
 
 /* Notebook holes - positioned naturally along left edge */
 .holes {
