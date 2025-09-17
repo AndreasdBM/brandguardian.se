@@ -270,17 +270,6 @@ footer {
   position: relative;
 }
 
-.logo-bar::after {
-  content: '';
-  position: absolute;
-  bottom: -1.5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(15, 118, 110, 0.4), transparent);
-  opacity: 0.8;
-}
 
 .logo-bar img {
   height: 40px;
@@ -300,7 +289,19 @@ footer {
   background: #fff7ec;
   margin: -3rem 0 2rem 0;
   border-radius: 1rem;
+  position: relative;
 }
+
+/* Burst lines positioned around perimeter */
+.client-burst-line {
+  position: absolute;
+  width: 4px;
+  height: 30px;
+  background-color: #661e43;
+  z-index: 1;
+  border-radius: 2px;
+}
+
 
 .client-heading {
   font-size: 1.5rem;
@@ -859,29 +860,6 @@ h2 {
   text-align: center;
 }
 
-h2::before {
-  content: '';
-  position: absolute;
-  top: -2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, #0f766e, #d97706, #0f766e, transparent);
-  opacity: 0.8;
-}
-
-h2::after {
-  content: '';
-  position: absolute;
-  bottom: -1.5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #d97706, transparent);
-  opacity: 0.6;
-}
 
 p {
   font-family: 'Inter', sans-serif;
@@ -974,17 +952,6 @@ a.cta-button:hover::after {
   position: relative;
 }
 
-.client-heading::before {
-  content: '';
-  position: absolute;
-  top: -1.5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #0f766e, transparent);
-  opacity: 0.6;
-}
 
 .how-it-works {
   max-width: 1000px;
