@@ -4,6 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kvalitetssäkrad copy på engelska</title>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700;800&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700;800&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -53,6 +59,27 @@
       </ul>
     </div>
   </nav>
+
+  <!-- Hidden SVG filters for stamp roughening -->
+  <svg aria-hidden="true" focusable="false" width="0" height="0" style="position:absolute;left:-9999px;overflow:hidden">
+    <defs>
+      <!-- Subtle roughen: light edge warp -->
+      <filter id="stamp-roughen-subtle" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7" result="noise"/>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.6" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+      <!-- Medium roughen: more visible distortion -->
+      <filter id="stamp-roughen-medium" x="-7%" y="-7%" width="114%" height="114%">
+        <feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="11" result="noise"/>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.4" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+      <!-- Bold roughen: strong edge wobble -->
+      <filter id="stamp-roughen-bold" x="-10%" y="-10%" width="120%" height="120%">
+        <feTurbulence type="fractalNoise" baseFrequency="1.6" numOctaves="2" seed="17" result="noise"/>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="3.6" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+    </defs>
+  </svg>
   
   <div class="intro">
     <div class="intro-layout">
@@ -75,9 +102,10 @@
           </div>
           
           <h1>
-            <span class="h1-line-1">Kvalitetssäkrad copy</span><br>
-            <span class="h1-line-2">för svenska företag</span><br>
-            <span class="h1-line-3">med globala ambitioner</span>
+            <span class="h1-line-1"><span class="stamp-text">Kvalitetssäkrad</span></span><br>
+            <span class="h1-line-2">COPY</span><br>
+            <span class="h1-line-3">för svenska företag</span><br>
+            <span class="h1-line-4">med globala ambitioner</span>
           </h1>
           
           <div class="speech-bubble">
@@ -85,6 +113,8 @@
               <p>Jag hjälper svenska företag att undvika <span class="highlight-phrase">språkliga snedsteg</span>, förbättra sin kommunikation och bygga <span class="handwritten">trovärdighet</span> på engelska.</p>
             </div>
           </div>
+
+          
           
           <div class="intro-profile-section">
             <div class="intro-profile-right">
@@ -361,6 +391,36 @@
       if (statsSection) {
         observer.observe(statsSection);
       }
+
+      // Subtle parallax for hero wallpaper (respects reduced motion)
+      (function() {
+        const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReducedMotion) return;
+        const intro = document.querySelector('.intro');
+        if (!intro) return;
+        let ticking = false;
+
+        function updateParallax() {
+          const rect = intro.getBoundingClientRect();
+          const viewportH = window.innerHeight || document.documentElement.clientHeight;
+          // Offset based on section's center relative to viewport center
+          const midDelta = (rect.top + rect.height / 2) - (viewportH / 2);
+          const offset = -midDelta * 0.09; // slightly stronger: ~9% of movement
+          intro.style.setProperty('--bg-offset', offset.toFixed(2) + 'px');
+          ticking = false;
+        }
+
+        function onScroll() {
+          if (!ticking) {
+            window.requestAnimationFrame(updateParallax);
+            ticking = true;
+          }
+        }
+
+        updateParallax();
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', updateParallax, { passive: true });
+      })();
     </script>
   </body>
 </html>

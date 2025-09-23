@@ -256,6 +256,8 @@ footer {
   .intro-right h2 {
     font-size: 1.8rem;
   }
+
+  /* (reverted) */
 }
 /* ====== Moved from inline <style> in index.html ====== */
 .logo-bar {
@@ -487,20 +489,28 @@ footer {
   /* Solid paper with subtle texture */
   background-color: #ffffff;
   background-image:
-    /* very subtle grain via SVG turbulence */
+    /* very subtle grain via SVG turbulence (slightly stronger) */
     url("data:image/svg+xml;utf8,\
 <svg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'>\
   <filter id='n'>\
     <feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/>\
   </filter>\
-  <rect width='100%' height='100%' filter='url(%23n)' opacity='0.025'/>\
+  <rect width='100%' height='100%' filter='url(%23n)' opacity='0.035'/>\
+</svg>"),
+    /* secondary grain tile with different scale/seed for natural variation */
+    url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'>\
+  <filter id='n2'>\
+    <feTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='2' seed='9' stitchTiles='stitch'/>\
+  </filter>\
+  <rect width='100%' height='100%' filter='url(%23n2)' opacity='0.02'/>\
 </svg>"),
     /* gentle vignette for depth */
     radial-gradient(120% 90% at 40% 20%, rgba(0,0,0,0.04) 0%, rgba(0,0,0,0.02) 40%, rgba(0,0,0,0) 70%);
-  background-size: 220px 220px, cover;
-  background-repeat: repeat, no-repeat;
-  background-position: 0 0, center;
-  background-blend-mode: multiply, normal;
+  background-size: 220px 220px, 320px 320px, cover;
+  background-repeat: repeat, repeat, no-repeat;
+  background-position: 0 0, 40px 30px, center;
+  background-blend-mode: multiply, multiply, normal;
 
 }
 
@@ -603,8 +613,16 @@ footer {
   flex: 0 1 auto;
   text-align: center;
   width: auto;
-  max-width: 750px;
+  max-width: 790px; /* +40px total (~20px per side) for more breathing room */
   margin: 0 auto;
+}
+
+/* Visibly widen the white notebook card on desktop */
+@media (min-width: 1024px) {
+  .intro-left { max-width: 900px; }
+  .intro-left .content-box { width: 100%; }
+  /* Optical centering: nudge notebook slightly right to balance hole gutter */
+  .intro-left .content-box.notebook { transform: translateX(-18px); }
 }
 
 .intro-right {
@@ -617,6 +635,8 @@ footer {
   justify-content: center;
   min-height: 0;
 }
+
+/* (reverted) */
 
 /* Readability card for right column */
 .intro-right-card {
@@ -693,14 +713,14 @@ body {
 }
 
 h1 {
-  font-family: 'Inter', sans-serif;
-  font-size: 2.8rem;
-  font-weight: 900;
-  margin-top: -0.5rem;
+  font-family: 'Staatliches', sans-serif;
+  font-size: 3.2rem;
+  font-weight: 400;
+  margin-top: 0.5rem;
   margin-bottom: 3rem;
-  line-height: 1.1;
+  line-height: 1.22;
   color: #000;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-shadow: none;
   position: relative;
   text-transform: uppercase;
@@ -715,10 +735,171 @@ h1 {
   box-shadow: none;
 }
 
-/* H1 per-line sizing: lines 2 and 3 at 50% of line 1 */
+/* H1 per-line sizing (original) */
 .h1-line-1 { display: inline-block; font-size: 1em; }
-.h1-line-2, .h1-line-3 { display: inline-block; font-size: 0.7em; }
+.h1-line-2, .h1-line-3 { display: block; }
+.h1-line-4 { display: block; }
 
+/* Use block layout for lines and hide manual <br> to let margins work */
+h1 br { display: none; }
+
+/* Add a little extra gap after line 1 only and balance sizes/tracking */
+.h1-line-2 {
+  margin-top: 0 !important;
+  padding-top: 0.4rem;
+  font-size: 1.30em; /* increased emphasis */
+  letter-spacing: 0.12em; /* slightly wider tracking for longer look */
+  font-family: 'Staatliches', sans-serif;
+  font-weight: 400;
+  color: #000;
+  /* underline container sizing without affecting layout flow */
+  display: block;               /* keep stacking below the stamp */
+  position: relative;
+  width: fit-content;           /* size to text width */
+  margin: 0 auto;               /* center under the stamp */
+}
+
+/* Remove underline for COPY */
+.h1-line-2::after { content: none; }
+
+@media (max-width: 480px) {
+  .h1-line-2::after { content: none; }
+}
+.h1-line-3, .h1-line-4 {
+  font-size: 0.74em;
+  letter-spacing: 0.015em;
+  color: #111827; /* slightly darker for contrast */
+  text-transform: none;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 700;
+  display: block;              /* keep normal stacking */
+  padding: 0;                  /* no label padding */
+  position: static;            /* no positioned container */
+  /* Text-only stamp feel: subtle ink roughness */
+  text-shadow:
+    0.4px 0 rgba(0, 0, 0, 0.25),
+   -0.4px 0 rgba(0, 0, 0, 0.20),
+    0 0.4px rgba(0, 0, 0, 0.20),
+    0 -0.4px rgba(0, 0, 0, 0.18);
+  filter: url(#stamp-roughen-subtle);
+}
+.h1-line-3 { margin-top: 0 !important; padding-top: 0.55rem; }
+.h1-line-4 { margin-top: 0.1rem; }
+
+/* Remove any frames/borders on lines 3–4 */
+.h1-line-3::before, .h1-line-4::before,
+.h1-line-3::after, .h1-line-4::after { content: none; }
+
+/* Boxed rubber stamp style for first line */
+.h1-line-1 {
+  position: relative;
+  padding: 0.18rem 0.74rem; /* wider horizontally only (height unchanged) */
+  color: #000; /* stamp text back to black */
+  letter-spacing: 0.10em; /* slightly wider tracking for clarity */
+  transform: none; /* remove tilt */
+  /* clean look: no blend or heavy shadows */
+  margin-bottom: 0.8rem; /* ensure visible gap before line 2 */
+}
+
+.h1-line-1::before {
+  content: '';
+  position: absolute;
+  inset: -3px -8px; /* widen left/right only (top/bottom unchanged) */
+  border: 3px solid #000;
+  border-radius: 4px;
+  pointer-events: none;
+  /* Ink spread: very faint outer glow */
+  box-shadow:
+    0 0 10px rgba(0,0,0,0.07),
+    0 2px 8px rgba(0,0,0,0.05),
+    inset 0 0 0 1px rgba(0,0,0,0.5); /* thin inner border */
+  /* Defaults for scallop sizing */
+  --sc-r: 3px;         /* scallop radius */
+  --sc-step: 12px;     /* spacing between scallops */
+}
+
+/* Perforation/scallop mask + worn edge (where supported) */
+@supports (mask-composite: exclude) or (-webkit-mask-composite: xor) {
+  .h1-line-1::before {
+    /* Base solid mask */
+    mask:
+      linear-gradient(#000 0 0),
+      radial-gradient(circle var(--sc-r), #000 98%, transparent 100%) top / var(--sc-step) 100% repeat-x,
+      radial-gradient(circle var(--sc-r), #000 98%, transparent 100%) bottom / var(--sc-step) 100% repeat-x,
+      radial-gradient(circle var(--sc-r), #000 98%, transparent 100%) left / 100% var(--sc-step) repeat-y,
+      radial-gradient(circle var(--sc-r), #000 98%, transparent 100%) right / 100% var(--sc-step) repeat-y;
+    mask-composite: exclude, exclude, exclude, exclude;
+    -webkit-mask:
+      linear-gradient(#000 0 0),
+      radial-gradient(circle var(--sc-r), #000 98%, transparent 100%) top / var(--sc-step) 100% repeat-x,
+      radial-gradient(circle var(--sc-r), #000 98%, transparent 100%) bottom / var(--sc-step) 100% repeat-x,
+      radial-gradient(circle var(--sc-r), #000 98%, transparent 100%) left / 100% var(--sc-step) repeat-y,
+      radial-gradient(circle var(--sc-r), #000 98%, transparent 100%) right / 100% var(--sc-step) repeat-y;
+    -webkit-mask-composite: destination-out, destination-out, destination-out, destination-out;
+    /* Slight random wear via existing roughen filter is already applied below */
+  }
+}
+
+/* Restore solid border – disable mask if it caused border to disappear */
+.h1-line-1::before { -webkit-mask: none; mask: none; }
+
+/* subtle double-hit ghost outline for stamp realism */
+.h1-line-1::after {
+  content: '';
+  position: absolute;
+  inset: -3px -8px; /* match primary box; wider left/right only */
+  border: 3px solid rgba(0, 0, 0, 0.28);
+  border-radius: 4px;
+  transform: translate(1px, 1px); /* reduced ghost offset */
+  pointer-events: none;
+}
+
+/* Apply subtle roughen filter to the stamp and its outlines */
+.h1-line-1,
+.h1-line-1::before,
+.h1-line-1::after {
+  filter: url(#stamp-roughen-subtle);
+}
+
+/* Stars that truly hug the text inside the frame */
+.h1-line-1 .stamp-text {
+  position: relative;
+  display: inline-block;
+  padding: 0 20px; /* move stars outward to match wider frame */
+  line-height: 1;
+}
+.h1-line-1 .stamp-text::before,
+.h1-line-1 .stamp-text::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 14px;  /* 15% bigger stars */
+  height: 14px; /* 15% bigger stars */
+  transform: translateY(-50%);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23000'%3E%3Cpath d='M12 .7l3.1 6.3 7 .9-5 4.9 1.2 6.9L12 16.9 5.7 19.7 6.9 12 2 7.9l7-.9L12 .7z'/%3E%3C/svg%3E") no-repeat center/100% 100%;
+}
+.h1-line-1 .stamp-text::before { left: -3px; }
+.h1-line-1 .stamp-text::after { right: 0; }
+
+/* Keep mobile straight and slightly tighter */
+@media (max-width: 480px) {
+  .h1-line-1 {
+    transform: none;
+    padding: 0.16rem 0.46rem; /* widen mobile horizontally only */
+  }
+  .h1-line-1::before { inset: -3px -8px; border-width: 2px; }
+  .h1-line-1::after { inset: -3px -8px; border-width: 2px; transform: translate(1px, 1px); }
+  /* Mobile readability for lines 2–3 */
+  .h1-line-2, .h1-line-3 { font-size: 0.85em; letter-spacing: 0.015em; }
+  /* Slightly reduce inner padding and star size on mobile */
+  .h1-line-1 .stamp-text { padding: 0 16px; }
+  .h1-line-1 .stamp-text::before { left: -2px; }
+  .h1-line-1 .stamp-text::before,
+  .h1-line-1 .stamp-text::after { width: 13px; height: 13px; }
+  .h1-line-1 .stamp-text::before { width: 13px; height: 13px; }
+}
+
+/* Restore H1 hover checkmark overlay */
 h1:hover {
   border: none;
   background: transparent;
@@ -776,6 +957,12 @@ h1:hover::before {
   position: relative;
   max-width: 600px;
   margin: 2rem auto 0 auto;
+}
+
+/* Desktop-only spacing nudge: more breathing room below headline */
+@media (min-width: 1024px) {
+  .speech-bubble { margin-top: 3.5rem; }
+  .intro-profile-section { margin-top: 2.5rem; }
 }
 
 /* Ensure bubble text is block-level and uses full width */
@@ -1233,10 +1420,16 @@ a.cta-button:hover::after {
 
 .profile-title {
   font-family: 'Inter', sans-serif;
-  font-size: 1.1rem;
-  color: #0f766e;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 700;
   margin: 0 0 1rem 0;
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: #fff;
+  background: #0f766e;
+  border-radius: 9999px;
 }
 
 .contact-link {
@@ -1448,6 +1641,8 @@ strong {
   opacity: 1;
   pointer-events: none;
   z-index: 0;
+  transform: translate3d(0, var(--bg-offset, 0px), 0);
+  will-change: transform;
 }
 
 /* Bubble text should span full width and not be constrained by global p rules */
@@ -1487,7 +1682,7 @@ strong {
 .speech-bubble .speech-bubble-content p {
   display: block !important;
   font-size: 1rem !important;
-  line-height: 1.4 !important;
+  line-height: 1.6 !important; /* increased for better readability */
   text-transform: none !important;
   margin: 0 !important;
 }
@@ -1513,11 +1708,16 @@ strong {
 
 .intro-profile-title {
   font-size: 0.9rem;
-  color: #812D52;
-  font-weight: 600;
+  font-weight: 700;
   margin: 0;
   text-align: left;
-  line-height: 1.2;
+  line-height: 1;
+  display: inline-block;
+  padding: 0.18rem 0.56rem;
+  letter-spacing: 0.02em;
+  color: #fff;
+  background: #0f766e;
+  border-radius: 9999px;
 }
 
 /* Removed conflicting alignment rules */
@@ -1677,4 +1877,9 @@ strong {
 .intro .intro-right .offer-callout p > .handdrawn-underline {
   background-size: 135% 7px !important;  /* thinner stroke, wide length */
   padding-bottom: 16px !important;       /* restore spacing so it doesn't look smaller */
+}
+
+/* Desktop-only: ensure speech bubble sits lower despite later overrides */
+@media (min-width: 1024px) {
+  .speech-bubble { margin-top: 5rem !important; }
 }
