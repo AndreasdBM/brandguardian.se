@@ -42,6 +42,15 @@
 }
 @import url('https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;900&family=Inter:wght@400;500;600;700;800&display=swap');
 
+/* Theme tokens */
+:root {
+  /* Approximated from provided screenshot; easy to tweak */
+  --hero-bg: #D68A5E;
+  --hero-cream: #fff7ec;        /* site cream */
+  --hero-stripe-size: 28px;     /* stripe thickness */
+  --wallpaper-size: 340px;      /* tile size for repeatable wallpaper */
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -757,6 +766,14 @@ h1 br { display: none; }
   position: relative;
   width: fit-content;           /* size to text width */
   margin: 0 auto;               /* center under the stamp */
+  /* 3D extrude effect via layered text-shadow */
+  text-shadow:
+    1px 1px 0 #0f766e,
+    2px 2px 0 #0f766e,
+    3px 3px 0 #0e6b64,
+    4px 4px 0 #0d615b,
+    5px 5px 0 rgba(0,0,0,0.25),
+    6px 6px 0 rgba(0,0,0,0.20);
 }
 
 /* Remove underline for COPY */
@@ -786,6 +803,12 @@ h1 br { display: none; }
 .h1-line-3 { margin-top: 0 !important; padding-top: 0.55rem; }
 .h1-line-4 { margin-top: 0.1rem; }
 
+/* Override font for line 3 only */
+.h1-line-3 {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+}
+
 /* Remove any frames/borders on lines 3–4 */
 .h1-line-3::before, .h1-line-4::before,
 .h1-line-3::after, .h1-line-4::after { content: none; }
@@ -805,17 +828,25 @@ h1 br { display: none; }
   content: '';
   position: absolute;
   inset: -3px -8px; /* widen left/right only (top/bottom unchanged) */
-  border: 3px solid #000;
-  border-radius: 4px;
+  /* Corner-only brackets: 8 small strokes (2 per corner) */
+  border: none;
+  border-radius: 0;
   pointer-events: none;
-  /* Ink spread: very faint outer glow */
-  box-shadow:
-    0 0 10px rgba(0,0,0,0.07),
-    0 2px 8px rgba(0,0,0,0.05),
-    inset 0 0 0 1px rgba(0,0,0,0.5); /* thin inner border */
-  /* Defaults for scallop sizing */
-  --sc-r: 3px;         /* scallop radius */
-  --sc-step: 12px;     /* spacing between scallops */
+  --br-l: 20px;               /* bracket line length (extended) */
+  --br-t: 3px;                /* bracket thickness */
+  background:
+    /* top-left */
+    linear-gradient(#000,#000) top    left / var(--br-l) var(--br-t) no-repeat,
+    linear-gradient(#000,#000) top    left / var(--br-t) var(--br-l) no-repeat,
+    /* top-right */
+    linear-gradient(#000,#000) top    right/ var(--br-l) var(--br-t) no-repeat,
+    linear-gradient(#000,#000) top    right/ var(--br-t) var(--br-l) no-repeat,
+    /* bottom-left */
+    linear-gradient(#000,#000) bottom left / var(--br-l) var(--br-t) no-repeat,
+    linear-gradient(#000,#000) bottom left / var(--br-t) var(--br-l) no-repeat,
+    /* bottom-right */
+    linear-gradient(#000,#000) bottom right/ var(--br-l) var(--br-t) no-repeat,
+    linear-gradient(#000,#000) bottom right/ var(--br-t) var(--br-l) no-repeat;
 }
 
 /* Perforation/scallop mask + worn edge (where supported) */
@@ -844,15 +875,7 @@ h1 br { display: none; }
 .h1-line-1::before { -webkit-mask: none; mask: none; }
 
 /* subtle double-hit ghost outline for stamp realism */
-.h1-line-1::after {
-  content: '';
-  position: absolute;
-  inset: -3px -8px; /* match primary box; wider left/right only */
-  border: 3px solid rgba(0, 0, 0, 0.28);
-  border-radius: 4px;
-  transform: translate(1px, 1px); /* reduced ghost offset */
-  pointer-events: none;
-}
+.h1-line-1::after { content: none; }
 
 /* Apply subtle roughen filter to the stamp and its outlines */
 .h1-line-1,
@@ -922,6 +945,8 @@ h1:hover::before {
   align-items: center;
   justify-content: center;
 }
+
+/* (removed star sparkle hover effect) */
 
 .hero-content {
   text-align: center;
@@ -1634,10 +1659,11 @@ strong {
   content: '';
   position: absolute;
   inset: 0 0 0 0;
-  background-image: url('../images/Background4.png');
+  /* Use the new repeatable wallpaper tile */
+  background-image: url('../images/supposedlyrepeatable7.png');
   background-repeat: repeat;
-  background-size: 100% auto;
-  background-position: center -20px;
+  background-size: var(--wallpaper-size) auto; /* scale tile smaller */
+  background-position: top left;
   opacity: 1;
   pointer-events: none;
   z-index: 0;
