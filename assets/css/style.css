@@ -48,7 +48,7 @@
   --hero-bg: #D68A5E;
   --hero-cream: #fff7ec;        /* site cream */
   --hero-stripe-size: 28px;     /* stripe thickness */
-  --wallpaper-size: 340px;      /* tile size for repeatable wallpaper */
+  --wallpaper-size: 510px;      /* tile size for repeatable wallpaper (50% larger) */
 }
 
 body {
@@ -1660,7 +1660,7 @@ strong {
   position: absolute;
   inset: 0 0 0 0;
   /* Use the new repeatable wallpaper tile */
-  background-image: url('../images/supposedlyrepeatable7.png');
+  background-image: url('../images/supposedlyrepeatable9.png?v=2');
   background-repeat: repeat;
   background-size: var(--wallpaper-size) auto; /* scale tile smaller */
   background-position: top left;
