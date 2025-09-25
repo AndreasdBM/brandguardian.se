@@ -2,9 +2,9 @@
 .intro .intro-right .offer-callout p .angry-underline::after {
   left: 50% !important;
   transform: translateX(-50%) !important;
-  width: 122% !important; /* ~10% less than previous 136% */
-  height: 12px !important;               /* unchanged thickness */
-  bottom: 4px !important;                 /* move slightly closer to the text */
+  width: 108% !important; /* trimmed overshoot */
+  height: 10px !important;               /* slightly thinner */
+  bottom: 2px !important;                /* closer to text */
   transition: width 0.2s ease, bottom 0.2s ease, transform 0.2s ease;
 }
 
@@ -19,13 +19,13 @@
   transform: none; /* avoid baseline shift */
 }
 .intro .intro-right .offer-callout p .angry-underline:hover::after {
-  transform: translateX(-50%) scaleX(1.06);
+  transform: translateX(-50%) scaleX(1.015); /* micro interaction only */
 }
 /* Fresh angry underline below the highlighted text */
 .offer-callout p .angry-underline {
   position: relative;
   display: inline-block;
-  padding-bottom: 14px;               /* space for underline */
+  padding-bottom: 10px;               /* tighter space for underline */
 }
 
 /* Pseudo-element so we can stretch beyond text width cleanly */
@@ -33,10 +33,10 @@
   content: '';
   position: absolute;
   left: 50%;
-  bottom: 2px;                        /* sits just below baseline */
+  bottom: 1px;                        /* sits closer to baseline */
   transform: translateX(-50%);
-  width: 240% !important;             /* stretch horizontally more */
-  height: 12px !important;            /* keep thickness */
+  width: 240% !important;             /* base width; narrowed by specific override above */
+  height: 10px !important;            /* thinner */
   background: url('../images/angry-underline.svg') no-repeat center/100% 100% !important;
   pointer-events: none;
 }
@@ -274,24 +274,58 @@ footer {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 2rem;
-  padding: 2rem 0;
+  gap: 1.5rem;
+  padding: 1rem 1.25rem; /* restore balanced spacing */
   max-width: 1000px;
   margin: 0 auto;
   position: relative;
   transform: translateY(-1rem);
+  background: transparent; /* remove panel look */
+  border-radius: 0;
+  box-shadow: none;
 }
+
+/* Soft drop shadow behind the strip without a visible panel */
+.logo-bar::after { content: none; }
 
 
 .logo-bar img {
-  height: 40px;
+  display: block;
+  height: 40px;               /* unify visual weight */
+  max-width: 140px;
   object-fit: contain;
   filter: grayscale(100%);
-  transition: filter 0.3s ease;
+  opacity: 0.9;
+  transition: filter 0.25s ease, opacity 0.25s ease, transform 0.25s ease;
+  position: relative;          /* enable dot divider pseudo-element */
 }
 
 .logo-bar img:hover {
   filter: grayscale(0%);
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+/* Subtle dividers between logos without changing HTML */
+/* No dividers for now; rely purely on gap for spacing */
+/* Subtle dividers that don't affect centering: transparent base + colored on all but last */
+/* Centered dividers: place a thin line at the midpoint of the flex gap */
+.logo-bar img { border-right: none; }
+.logo-bar img:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: -0.75rem;                 /* half of 1.5rem gap */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 60%;                     /* scale with logo height */
+  background: rgba(0,0,0,0.14);
+}
+
+@media (max-width: 640px) {
+  .logo-bar { gap: 1rem; padding: 0.75rem 1rem; }
+  .logo-bar img { height: 32px; max-width: 120px; }
+  .logo-bar img:not(:last-child)::after { right: -0.5rem; height: 60%; }
 }
 
 /* ====== Clients Section ====== */
@@ -299,7 +333,7 @@ footer {
   padding: 2rem 1rem;
   text-align: center;
   background: transparent;
-  margin: 2rem 0 0 0;
+  margin: 1.6rem 0 0 0; /* nudge closer to photo/title */
   border-radius: 1rem;
   position: relative;
   transform: none;
@@ -320,8 +354,23 @@ footer {
   font-size: 1.5rem;
   font-weight: 700;
   color: #333;
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem; /* tighten space to the logos */
   font-family: 'Inter', sans-serif;
+  position: relative;
+  display: inline-block;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.7), 0 2px 2px rgba(0,0,0,0.06); /* very soft embossed look */
+}
+
+/* Light horizontal rule under the heading */
+.client-heading::after {
+  content: '';
+  display: block;
+  margin: 0.5rem auto 0;
+  width: 180px;
+  max-width: 60%;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, rgba(0,0,0,0), rgba(0,0,0,0.25), rgba(0,0,0,0));
 }
     
 /* Purged handdrawn-underline base and hover visuals */
@@ -453,7 +502,7 @@ footer {
 .content-box {
   background: #fff;
   border-radius: 12px;
-  padding: 2.6rem 2rem 2rem 3.125rem;
+  padding: 2.0rem 1.75rem 1.25rem 2.5rem; /* slightly shorter sheet via reduced vertical padding */
   margin-bottom: 2rem;
   position: relative;
   box-shadow: 
@@ -613,7 +662,15 @@ footer {
   padding: 2.6rem;
   text-align: center;
   width: 100%;
-  max-width: 100%;
+  max-width: 100%;           /* span full background/column width */
+  margin-left: 0;
+  margin-right: 0;
+  /* Segmented frame: dashed lines instead of dots */
+  border-top: 2px dashed rgba(0,0,0,0.25);
+  border-bottom: 2px dashed rgba(0,0,0,0.25);
+  border-left: none;
+  border-right: none;         /* keep only horizontal dashed lines */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 
@@ -755,8 +812,8 @@ h1 br { display: none; }
 /* Add a little extra gap after line 1 only and balance sizes/tracking */
 .h1-line-2 {
   margin-top: 0 !important;
-  padding-top: 0.4rem;
-  font-size: 1.30em; /* increased emphasis */
+  padding-top: 0.3rem; /* slightly less space from line 1 */
+  font-size: 1.65em; /* +10% more (on top of prior increase) */
   letter-spacing: 0.12em; /* slightly wider tracking for longer look */
   font-family: 'Staatliches', sans-serif;
   font-weight: 400;
@@ -766,14 +823,27 @@ h1 br { display: none; }
   position: relative;
   width: fit-content;           /* size to text width */
   margin: 0 auto;               /* center under the stamp */
-  /* 3D extrude effect via layered text-shadow */
+  /* 3D (softer, crisper): thin stroke + shallow shadows for readability */
+  -webkit-text-stroke: 0.6px #000; /* sharpen glyph edges (WebKit) */
   text-shadow:
     1px 1px 0 #0f766e,
-    2px 2px 0 #0f766e,
-    3px 3px 0 #0e6b64,
-    4px 4px 0 #0d615b,
-    5px 5px 0 rgba(0,0,0,0.25),
-    6px 6px 0 rgba(0,0,0,0.20);
+    2px 2px 0 rgba(0,0,0,0.18),
+    3px 3px 0 rgba(0,0,0,0.12);
+}
+
+/* Make the 3D readable at normal zoom on larger screens */
+@media (min-width: 1024px) {
+  .h1-line-2 {
+    -webkit-text-stroke: 0.5px #000;
+    text-shadow:
+      /* small white halo to separate from patterned bg */
+      0 0 1px rgba(255,255,255,0.5),
+      /* shallow teal extrusion */
+      2px 2px 0 #0f766e,
+      /* soft depth layers */
+      3px 3px 0 rgba(0,0,0,0.22),
+      4px 4px 0 rgba(0,0,0,0.16);
+  }
 }
 
 /* Remove underline for COPY */
@@ -792,22 +862,55 @@ h1 br { display: none; }
   display: block;              /* keep normal stacking */
   padding: 0;                  /* no label padding */
   position: static;            /* no positioned container */
-  /* Text-only stamp feel: subtle ink roughness */
-  text-shadow:
-    0.4px 0 rgba(0, 0, 0, 0.25),
-   -0.4px 0 rgba(0, 0, 0, 0.20),
-    0 0.4px rgba(0, 0, 0, 0.20),
-    0 -0.4px rgba(0, 0, 0, 0.18);
-  filter: url(#stamp-roughen-subtle);
 }
-.h1-line-3 { margin-top: 0 !important; padding-top: 0.55rem; }
+.h1-line-3 { margin-top: 0 !important; padding-top: 0.7rem; }
 .h1-line-4 { margin-top: 0.1rem; }
 
 /* Override font for line 3 only */
 .h1-line-3 {
   font-family: 'DM Sans', sans-serif;
   font-weight: 700;
+  /* White text with a solid black underline behind it */
+  color: #ffffff;
+  position: relative;
+  display: inline-block;                   /* limit background to text width */
+  padding: 0.08rem 0.5rem;                 /* small vertical/horizontal padding */
+  /* Full-height highlight behind the text */
+  background: #000000;                      /* spans the full box height */
+  border-radius: 4px;                        /* optional soft corners */
 }
+
+/* Subtle box close around the line with soft side shadows */
+.h1-line-3::before { content: none; }
+
+/* Make line 4 feel distinct (serif for contrast) */
+.h1-line-4 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.02em; /* a touch more tracking for caps-like clarity */
+}
+
+/* --- CTA (right column) spacing & hierarchy tweaks --- */
+/* More air below the question headline */
+.intro-right h2 { margin-bottom: 1rem; line-height: 1.2; }
+
+/* Subline lighter than headline, with breathing room */
+.intro-right .offer-callout p {
+  margin: 0.4rem 0 1rem 0;
+  line-height: 1.35;
+  font-weight: 500;
+  color: #212121;
+}
+
+/* Emphasise the free bit and unify with underline color */
+.intro-right .offer-callout p .angry-underline {
+  font-weight: 700;
+  color: #d97706;
+}
+
+/* Space arrow and button a touch more */
+.arrow { margin: 0.8rem auto 0.45rem auto; }
+.intro-right .cta-container { margin-top: 0.35rem; }
 
 /* Remove any frames/borders on lines 3–4 */
 .h1-line-3::before, .h1-line-4::before,
@@ -827,26 +930,11 @@ h1 br { display: none; }
 .h1-line-1::before {
   content: '';
   position: absolute;
-  inset: -3px -8px; /* widen left/right only (top/bottom unchanged) */
-  /* Corner-only brackets: 8 small strokes (2 per corner) */
-  border: none;
-  border-radius: 0;
+  inset: -3px -8px; /* keep previous extents to include stars */
+  border: 3px solid #000;      /* rounded rectangle frame */
+  border-radius: 10px;         /* soften the corners */
+  background: transparent;
   pointer-events: none;
-  --br-l: 20px;               /* bracket line length (extended) */
-  --br-t: 3px;                /* bracket thickness */
-  background:
-    /* top-left */
-    linear-gradient(#000,#000) top    left / var(--br-l) var(--br-t) no-repeat,
-    linear-gradient(#000,#000) top    left / var(--br-t) var(--br-l) no-repeat,
-    /* top-right */
-    linear-gradient(#000,#000) top    right/ var(--br-l) var(--br-t) no-repeat,
-    linear-gradient(#000,#000) top    right/ var(--br-t) var(--br-l) no-repeat,
-    /* bottom-left */
-    linear-gradient(#000,#000) bottom left / var(--br-l) var(--br-t) no-repeat,
-    linear-gradient(#000,#000) bottom left / var(--br-t) var(--br-l) no-repeat,
-    /* bottom-right */
-    linear-gradient(#000,#000) bottom right/ var(--br-l) var(--br-t) no-repeat,
-    linear-gradient(#000,#000) bottom right/ var(--br-t) var(--br-l) no-repeat;
 }
 
 /* Perforation/scallop mask + worn edge (where supported) */
@@ -883,6 +971,12 @@ h1 br { display: none; }
 .h1-line-1::after {
   filter: url(#stamp-roughen-subtle);
 }
+/* Reset text to crisp (no extra halo) */
+.h1-line-1 { text-shadow: none; }
+/* Ensure no mask/speckle is applied */
+.h1-line-1 .stamp-text { -webkit-mask-image: none; mask-image: none; }
+/* Remove smudge/bleed overlay */
+.h1-line-1::after { content: none !important; background: none !important; filter: none !important; }
 
 /* Stars that truly hug the text inside the frame */
 .h1-line-1 .stamp-text {
@@ -961,7 +1055,7 @@ h1:hover::before {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 1rem 0 1.5rem 0;
+  margin: 0.5rem 0 1rem 0; /* move closer to H1 area */
   position: relative;
   gap: 1.5rem;
   flex-wrap: wrap;
@@ -981,7 +1075,7 @@ h1:hover::before {
 .speech-bubble {
   position: relative;
   max-width: 600px;
-  margin: 2rem auto 0 auto;
+  margin: 1rem auto 0 auto; /* closer to H1 */
 }
 
 /* Desktop-only spacing nudge: more breathing room below headline */
@@ -1660,7 +1754,7 @@ strong {
   position: absolute;
   inset: 0 0 0 0;
   /* Use the new repeatable wallpaper tile */
-  background-image: url('../images/supposedlyrepeatable9.png?v=2');
+  background-image: url('../images/supposedlyrepeatable12.png?v=1');
   background-repeat: repeat;
   background-size: var(--wallpaper-size) auto; /* scale tile smaller */
   background-position: top left;
@@ -1907,5 +2001,5 @@ strong {
 
 /* Desktop-only: ensure speech bubble sits lower despite later overrides */
 @media (min-width: 1024px) {
-  .speech-bubble { margin-top: 5rem !important; }
+  .speech-bubble { margin-top: 1.5rem !important; } /* reduce large desktop offset */
 }
