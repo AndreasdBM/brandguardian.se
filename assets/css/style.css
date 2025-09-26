@@ -1118,7 +1118,8 @@ h1:hover::before {
   position: absolute;
   left: 30%;
   top: 100%;
-  transform: translateX(-50%);
+  /* nudge shadow tail slightly right for better alignment */
+  transform: translateX(calc(-50% + 6px));
   width: 0;
   height: 0;
   border-left: 16px solid transparent;
