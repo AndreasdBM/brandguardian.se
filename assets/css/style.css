@@ -657,6 +657,28 @@ footer {
 
 /* Removed hole mask shadow overlay */
 
+/* White background wrapper for CTA section */
+.cta-wrapper {
+  position: relative;
+  background: transparent;
+  border-radius: 0;
+  /* Revert to normal width (no full-bleed) */
+  left: auto;
+  right: auto;
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* White diagonal strip background */
+.cta-wrapper::before { content: none; }
+
+/* Keep CTA content above the diagonal background */
+.cta-wrapper .cta-box { position: relative; z-index: 1; }
+
 /* CTA box for heading, offer, button */
 .cta-box {
   background: #fff7ec;
@@ -673,6 +695,21 @@ footer {
   border-left: none;
   border-right: none;         /* keep only horizontal dashed lines */
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  position: relative;
+}
+
+/* Gold icon centered on the top border for main page CTA */
+.cta-box::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -55%);
+  width: 28px;
+  height: 28px;
+  background-color: #d4a55f; /* match v2 accent */
+  -webkit-mask: url('../svg/bl-browser-engine-svgrepo-com.svg') center / contain no-repeat;
+  mask: url('../svg/bl-browser-engine-svgrepo-com.svg') center / contain no-repeat;
 }
 
 
@@ -1223,7 +1260,7 @@ h1:hover::before {
 
 .stat-item {
   text-align: center;
-  padding: 2rem 2rem;
+  padding: 0; /* ensure perfect square */
   background: #fff7ec;
   border-radius: 1.5rem;
   box-shadow: 3px 3px 0 #812D52;
@@ -1232,6 +1269,15 @@ h1:hover::before {
   min-width: 120px;
   position: relative;
   overflow: hidden;
+  /* Make square and center content */
+  aspect-ratio: 1 / 1;
+  width: clamp(90px, 13.5vw, 120px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.5rem;
+  box-sizing: border-box;
 }
 
 

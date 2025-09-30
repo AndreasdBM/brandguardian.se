@@ -53,22 +53,54 @@ body {
 .logo-strip img:hover { filter: none; opacity: 1; transform: translateY(-1px); }
 
 .cta-card {
-  background: #fffdf7;
-  border: none; /* remove border */
-  border-radius: 24px;
-  /* layered, soft shadow for lift */
-  box-shadow:
-    0 3px 8px rgba(0,0,0,0.06),
-    0 12px 28px rgba(0,0,0,0.08),
-    0 2px 6px rgba(212,165,95,0.12);
-  padding: clamp(28px, 3.6vw, 44px) clamp(22px, 3.6vw, 40px);
-  max-width: 980px;
-  margin: 12px auto 30px;
-  position: relative; /* enable speech-bubble tail */
-  overflow: visible;
+  /* Subtle paper card */
+  background-color: #fffdf7;
+  background-image:
+    url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'>\
+  <filter id='n'>\
+    <feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='5'/>\
+  </filter>\
+  <rect width='100%' height='100%' filter='url(%23n)' opacity='0.04'/>\
+</svg>"),
+    radial-gradient(120% 90% at 30% 10%, rgba(0,0,0,0.03), rgba(0,0,0,0));
+  background-blend-mode: multiply, normal;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  padding: clamp(16px, 2.6vw, 28px);
+  max-width: 860px;
+  margin: 24px auto 40px;
+  position: relative;
+  overflow: hidden;
 }
-/* Disable previous card tail */
-.cta-card::after { content: none; }
+/* Inner white stroke for definition */
+.cta-card::before { content: ""; position: absolute; inset: 2px; border-radius: 18px; border: 1px solid rgba(255,255,255,0.7); pointer-events: none; }
+
+/* Removed top icon (replaced by hairlines below) */
+
+/* Ensure content sits above the background */
+.cta-card > * { position: relative; z-index: 1; }
+
+/* Ensure diamonds are visible */
+.cta-rule .cta-diamond { display: block; }
+
+/* Make .cta-card full-bleed while content stays centered via .container */
+.hero .container { position: relative; }
+.cta-card { left: auto; right: auto; margin-left: auto; margin-right: auto; width: auto; }
+/* Top/bottom hairline accents inside the card */
+.cta-card::after {
+  content: "";
+  position: absolute;
+  inset: 6px; /* pull in from edges */
+  border-radius: 16px;
+  pointer-events: none;
+  background:
+    linear-gradient(var(--accent), var(--accent)) top / 100% 2px no-repeat,
+    linear-gradient(var(--accent), var(--accent)) bottom / 100% 2px no-repeat;
+  opacity: 0.8;
+  transform: none; /* override earlier transform */
+}
 
 /* Tail emanating from the profile/avatar aiming upward */
 .profile { position: relative; }
@@ -80,18 +112,65 @@ body {
   font-size: clamp(28px, 5.4vw, 50px);
   line-height: 1.22;
   letter-spacing: -0.005em;
-  margin: 0 0 32px;
+  margin: 0 0 12px;
   color: var(--ink);
 }
+/* Subline under CTA question */
+.cta-sub {
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  font-size: clamp(16px, 2.1vw, 20px);
+  line-height: 1.55;
+  color: var(--muted);
+  font-weight: 500;
+  margin: 0 0 26px;
+  max-width: 820px;
+  margin-left: auto;
+  margin-right: auto;
+}
 /* Elegant mustard accent line under CTA headline */
-.cta-question::after { content: ""; display: block; width: 140px; height: 2px; margin: 10px auto 0; border-radius: 2px; background: linear-gradient(90deg, rgba(0,0,0,0), var(--accent), rgba(0,0,0,0)); opacity: 0.75; }
+.cta-question::after { content: none; }
 
-.btn.cta { display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-weight: 800; letter-spacing: 0.06em; text-decoration: none; color: #fff; padding: 16px 28px; border-radius: 9999px; background: linear-gradient(180deg, var(--accent) 0%, var(--accent-deep) 100%); box-shadow: 0 10px 16px rgba(212,165,95,0.36), 0 2px 2px rgba(0,0,0,0.06) inset; border: 1px solid rgba(0,0,0,0.06); min-width: 340px; font-size: 17px; position: relative; overflow: hidden; isolation: isolate; }
+/* Decorative rules above and below CTA content */
+.cta-rule { --diamond: 14px; position: relative; height: 26px; margin: 6px 0 12px; }
+/* Horizontal lines with a gap for the center ornament */
+.cta-rule { background:
+  linear-gradient(var(--accent), var(--accent)) left center / calc(50% - (var(--diamond) / 2 + 10px)) 2px no-repeat,
+  linear-gradient(var(--accent), var(--accent)) right center / calc(50% - (var(--diamond) / 2 + 10px)) 2px no-repeat; }
+/* Default ornament (quill nib) */
+.cta-rule .cta-diamond {
+  position: absolute; left: 50%; top: 50%; width: var(--diamond); height: var(--diamond);
+  transform: translate(-50%, -50%);
+  background: center / contain no-repeat url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D4A55F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M16 3l5 5-9 9-5 2 2-5 9-9z'/><circle cx='12' cy='12' r='1.2'/></svg>");
+}
+.cta-rule--top { --diamond: 18px; margin-top: 4px; margin-bottom: 12px; }
+/* Make the bottom diamond smaller than the top */
+.cta-rule--bottom { --diamond: 10px; margin-top: 16px; margin-bottom: 0; }
+/* Use the same icon as the button in the TOP rule, tinted to accent */
+.cta-rule--top .cta-diamond {
+  background: none;
+  -webkit-mask: url('../svg/bl-browser-engine-svgrepo-com.svg') center / contain no-repeat;
+  mask: url('../svg/bl-browser-engine-svgrepo-com.svg') center / contain no-repeat;
+  background-color: var(--accent);
+}
+
+.btn.cta { display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-weight: 800; letter-spacing: 0.06em; text-decoration: none; color: #fff; padding: 16px 28px; border-radius: 10px; background: linear-gradient(180deg, var(--accent) 0%, var(--accent-deep) 100%); box-shadow: 0 10px 16px rgba(212,165,95,0.36), 0 2px 2px rgba(0,0,0,0.06) inset; border: 1px solid rgba(0,0,0,0.06); min-width: 340px; font-size: 17px; position: relative; overflow: hidden; isolation: isolate; }
 .btn.cta:hover { transform: translateY(-1px); box-shadow: 0 12px 22px rgba(212,165,95,0.42); }
-/* Subtle gloss highlight on the top half */
-.btn.cta::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 58%; border-radius: inherit; background: linear-gradient(180deg, rgba(255,255,255,0.28) 0%, rgba(255,255,255,0.12) 45%, rgba(255,255,255,0) 100%); pointer-events: none; }
-/* Thin inner white border for contrast */
-.btn.cta::after { content: ""; position: absolute; inset: 2px; border-radius: calc(10px - 2px); border: 1px solid rgba(255,255,255,0.55); pointer-events: none; mix-blend-mode: screen; opacity: 0.7; }
+/* Shine sweep on hover */
+.btn.cta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -30%;
+  height: 100%;
+  width: 40%;
+  background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.35) 50%, rgba(255,255,255,0) 100%);
+  transform: skewX(-20deg) translateX(-120%);
+  transition: transform 600ms ease;
+  pointer-events: none;
+}
+.btn.cta:hover::before {
+  transform: skewX(-20deg) translateX(260%);
+}
 /* Button icon placeholder that will load the requested SVG by URL */
 .btn.cta .btn-icon {
   width: 22px;
@@ -111,31 +190,35 @@ body {
 .profile { display: inline-flex; align-items: center; gap: 16px; margin-top: 18px; }
 .avatar { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; border: 3px solid #fff; box-shadow: 0 6px 18px rgba(0,0,0,0.14); }
 .who .name { font-weight: 800; color: var(--ink); font-size: clamp(16px, 2.4vw, 22px); }
-.badge { display: inline-block; margin-top: 6px; padding: 6px 12px; background: var(--accent); color: #fff; border-radius: 999px; font-weight: 700; font-size: 13px; box-shadow: 0 6px 12px rgba(212,165,95,0.35); }
+.badge { display: inline-block; margin-top: 6px; padding: 7px 14px; background: var(--teal); color: #fff; border-radius: 999px; font-weight: 700; font-size: 15px; box-shadow: 0 6px 12px rgba(15,118,110,0.35); }
 
 .sm-hide { display: none; }
 @media (min-width: 640px) { .sm-hide { display: initial; } }
 
 /* Stats section */
 .stats { padding: 14px 0 60px; }
-.stats-grid { display: grid; gap: clamp(18px, 3vw, 28px); grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); align-items: stretch; }
+.stats-grid { display: grid; gap: clamp(16px, 2.25vw, 22px); grid-template-columns: repeat(auto-fit, minmax(195px, 1fr)); align-items: stretch; }
 .stat-card {
   background: #fffdf7;
   border: 2px solid var(--accent);
   border-radius: 16px;
-  padding: clamp(22px, 3.4vw, 36px);
+  padding: clamp(14px, 2.1vw, 22px);
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
 }
 .stat-value {
   font-family: 'Libre Baskerville', Georgia, serif;
   font-weight: 700;
-  font-size: clamp(34px, 6.2vw, 64px);
+  font-size: clamp(30px, 5.2vw, 56px);
   line-height: 1.05;
   color: var(--ink);
-  margin-bottom: 12px;
 }
 .stat-value .suffix { font-size: 0.5em; font-weight: 700; vertical-align: baseline; }
-.stat-label { color: #676767; font-weight: 700; letter-spacing: 0.18em; font-size: clamp(12px, 1.6vw, 16px); line-height: 1.8; }
+.stat-label { color: #676767; font-weight: 700; letter-spacing: 0.16em; font-size: clamp(12px, 1.4vw, 14px); line-height: 1.6; }
 .stat-label span { display: block; }
 
 /* Process list (vertical rule layout) */
