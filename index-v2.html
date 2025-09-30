@@ -1,45 +1,135 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Brand Guardian — Redesign v2</title>
-  <!-- Keep only the fonts you need; trim later -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Staatliches&display=swap" rel="stylesheet" />
+  <title>Copy for Swedish — v2</title>
+  <!-- Typography: serif for headings, Inter for UI/body -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/v2.css" />
+  <meta name="color-scheme" content="light" />
+  <meta name="theme-color" content="#fff7ec" />
 </head>
 <body>
   <main class="page">
-    <header class="site-header">
-      <div class="container">
-        <h1 class="logo">Brand Guardian</h1>
-        <nav class="nav">
-          <a href="#">Hem</a>
-          <a href="#">Tjänster</a>
-          <a href="#">Om mig</a>
-          <a href="#">Kontakt</a>
-        </nav>
+    <header class="brand">
+      <div class="container brand-wrap">
+        <div class="brand-mark" aria-label="Kvalitetssäkrad">
+          <svg class="mark" width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="22" cy="22" r="20" stroke="currentColor" stroke-width="3"/>
+            <path d="M12 22l6 6 14-14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="brand-text">
+            <span class="brand-line-2">KVALITETSSÄKRAD</span>
+          </div>
+        </div>
       </div>
     </header>
 
     <section class="hero">
-      <div class="container">
-        <h2 class="hero-title">Rubrik för Redesign v2</h2>
-        <p class="hero-sub">Starta här. Lägg till sektioner och komponenter fritt utan att påverka nuvarande sida.</p>
-        <div class="hero-actions">
-          <a class="btn primary" href="#">Primär CTA</a>
-          <a class="btn" href="#">Sekundär</a>
+      <div class="container hero-wrap">
+        <h1 class="hero-title">
+          <span class="line">COPY</span>
+          <span class="line">FÖR SVENSKA FÖRETAG</span>
+          <span class="line accent">med globala ambitioner</span>
+        </h1>
+
+        <p class="sublead">Jag hjälper svenska företag att undvika språkliga misstag, förbättra sin kommunikation och bygga <strong>TROVÄRDIGHET</strong> på <span class="u-underline">engelska</span>.</p>
+
+        <div class="logo-strip" aria-label="Clients">
+          <img src="assets/logos/Google_2015_logo.svg" alt="Google" />
+          <img src="assets/logos/Amazon_logo.svg" alt="Amazon" />
+          <img class="invert" src="assets/logos/tiktok-icon-white-1-logo-svgrepo-com.svg" alt="TikTok" />
+          <img src="assets/logos/wix-svgrepo-com.svg" alt="Wix" />
+          <img class="invert" src="assets/logos/Film_i_Väst_logo.svg" alt="Film i Väst" />
+        </div>
+
+        <div class="cta-card">
+          <h2 class="cta-question">Nyfiken på om ni gör bort er på engelska?</h2>
+          <a class="btn cta" href="#contact">Boka en kostnadsfri granskning<span class="btn-icon" aria-hidden="true"></span></a>
+        </div>
+
+        <div class="profile">
+          <img class="avatar" src="assets/images/ANDREASFACE-03-06-2024.jpg" alt="Andreas de Boer Moran"/>
+          <div class="who">
+            <div class="name">Andreas de Boer Moran</div>
+            <div class="badge">Language Specialist</div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <!-- Stats cards -->
+    <section class="stats">
       <div class="container">
-        <h3>Tom sektion</h3>
-        <p>Bygg vidare här. Du kan importera bilder från <code>assets/images/</code> vid behov.</p>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-value">2,5M</div>
+            <div class="stat-label"><span>ORD</span><span>GRANSKADE</span></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">100+</div>
+            <div class="stat-label"><span>NÖJDA</span><span>KUNDER</span></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">9 <span class="suffix">år</span></div>
+            <div class="stat-label"><span>ERFARENHET</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process / Steps (List with vertical rule) -->
+    <section class="process">
+      <div class="container">
+        <h2 class="process-title">My Process</h2>
+        <ol class="process-list">
+          <li class="process-item">
+            <div class="step-num">01</div>
+            <div class="step-body">
+              <h3 class="step-title">Submit your content</h3>
+              <p class="step-text">Upload a sample via my online form.</p>
+            </div>
+          </li>
+          <li class="process-item">
+            <div class="step-num">02</div>
+            <div class="step-body">
+              <h3 class="step-title">Review &amp; analysis</h3>
+              <p class="step-text">I’ll evaluate your English copy.</p>
+            </div>
+          </li>
+          <li class="process-item">
+            <div class="step-num">03</div>
+            <div class="step-body">
+              <h3 class="step-title">Get feedback</h3>
+              <p class="step-text">I’ll send suggestions for improvement.</p>
+            </div>
+          </li>
+          <li class="process-item">
+            <div class="step-num">04</div>
+            <div class="step-body">
+              <h3 class="step-title">Schedule a call</h3>
+              <p class="step-text">We’ll discuss next steps together.</p>
+            </div>
+          </li>
+        </ol>
       </div>
     </section>
   </main>
+  
+  <!-- Why section -->
+  <section class="why">
+    <div class="container why-wrap">
+      <div class="why-copy">
+        <h2 class="why-title">Varför behöver svenska företag språkhjälp?</h2>
+        <p class="why-lead"><em>Sverige är ett land med stor internationell aptit. Denna aptit omfattar allt från populärkultur till företagliga ambitioner.</em></p>
+        <p class="why-text">En obekväm sanning är att svenskar generellt sett inte är riktigt så bra på engelska som de tror att de är. Språkbrott begås regelbundet och helt omedvetet…</p>
+        <a class="btn outline" href="#more">Läs mer</a>
+      </div>
+      <div class="why-illustration" aria-hidden="true">
+        <img class="why-svg" src="assets/svg/list-check-svgrepo-com-gold.svg" alt="" />
+      </div>
+    </div>
+  </section>
 </body>
 </html>
-

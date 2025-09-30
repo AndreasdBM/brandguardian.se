@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 340">
+  <!-- Editable attributes: stroke, stroke-width, rx/ry, positions/sizes -->
+  <g fill="none" stroke="#D4A55F" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Back sheet (offset down-left) -->
+    <rect x="88" y="96" width="218" height="220" rx="28" ry="28"/>
+
+    <!-- Front sheet (primary) -->
+    <rect x="128" y="68" width="228" height="232" rx="28" ry="28"/>
+
+    <!-- Text lines on the front sheet; adjust lengths to taste -->
+    <path d="M168 126 H 286"/>
+    <path d="M168 158 H 276"/>
+    <path d="M168 190 H 286"/>
+    <path d="M168 222 H 270"/>
+
+    <!-- Circle + check overlapped on the right -->
+    <circle cx="360" cy="184" r="72"/>
+    <path d="M336 184 l 20 22 36 -44"/>
+  </g>
+</svg>
