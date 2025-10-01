@@ -1895,8 +1895,8 @@ strong {
 /* Removed conflicting alignment rules */
 
 /* Slight right tilt for profile images */
-.intro-profile-image { transform: rotate(9deg); transform-origin: center; }
-.profile-image { transform: rotate(9deg); transform-origin: center; }
+.intro-profile-image { transform: rotate(20deg); transform-origin: center; }
+.profile-image { transform: rotate(20deg); transform-origin: center; }
 
 /* Revert: center image crop inside circular frames */
 .intro-profile-image, .profile-image { object-position: 50% 50% !important; }
@@ -1923,7 +1923,7 @@ strong {
   height: 110%;
   object-fit: cover;
   object-position: 65% 50%; /* push content to the right */
-  transform: rotate(9deg);
+  transform: rotate(20deg);
 }
 
 /* Remove borders from images themselves since wrapper provides it */
