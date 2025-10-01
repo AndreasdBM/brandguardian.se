@@ -52,30 +52,12 @@ body {
 /* Light up logos on hover: restore original colors and slightly lift */
 .logo-strip img:hover { filter: none; opacity: 1; transform: translateY(-1px); }
 
-.cta-card {
-  /* Subtle paper card */
-  background-color: #fffdf7;
-  background-image:
-    url("data:image/svg+xml;utf8,\
-<svg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'>\
-  <filter id='n'>\
-    <feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='5'/>\
-  </filter>\
-  <rect width='100%' height='100%' filter='url(%23n)' opacity='0.04'/>\
-</svg>"),
-    radial-gradient(120% 90% at 30% 10%, rgba(0,0,0,0.03), rgba(0,0,0,0));
-  background-blend-mode: multiply, normal;
-  border: none;
-  border-radius: 20px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-  padding: clamp(16px, 2.6vw, 28px);
-  max-width: 860px;
-  margin: 24px auto 40px;
-  position: relative;
-  overflow: hidden;
-}
-/* Inner white stroke for definition */
-.cta-card::before { content: ""; position: absolute; inset: 2px; border-radius: 18px; border: 1px solid rgba(255,255,255,0.7); pointer-events: none; }
+/* Section divider (between hero and next section) */
+.section-divider { height: 2px; background: linear-gradient(90deg, rgba(0,0,0,0.12), rgba(0,0,0,0.28), rgba(0,0,0,0.12)); border-radius: 2px; margin: 8px 0 24px; }
+
+/* CTA content only (no box) */
+.cta-card { background: transparent; border: 0; border-radius: 0; box-shadow: none; padding: 0; max-width: 860px; margin: 24px auto 40px; position: relative; overflow: visible; }
+.cta-card::before { content: none; }
 
 /* Removed top icon (replaced by hairlines below) */
 
@@ -88,28 +70,12 @@ body {
 /* Make .cta-card full-bleed while content stays centered via .container */
 .hero .container { position: relative; }
 .cta-card { left: auto; right: auto; margin-left: auto; margin-right: auto; width: auto; }
-/* Micro corner notches (top corners) inside the card */
-.cta-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 20px;
-  pointer-events: none;
-  /* notch sizing */
-  --notch: 12px;     /* length of each notch arm */
-  --thick: 2px;      /* line thickness */
-  --inset: 10px;     /* distance from corner */
-  background:
-    /* top-left horizontal */
-    linear-gradient(var(--accent), var(--accent)) left var(--inset) top var(--inset) / var(--notch) var(--thick) no-repeat,
-    /* top-left vertical */
-    linear-gradient(var(--accent), var(--accent)) left var(--inset) top var(--inset) / var(--thick) var(--notch) no-repeat,
-    /* top-right horizontal */
-    linear-gradient(var(--accent), var(--accent)) right var(--inset) top var(--inset) / var(--notch) var(--thick) no-repeat,
-    /* top-right vertical */
-    linear-gradient(var(--accent), var(--accent)) right var(--inset) top var(--inset) / var(--thick) var(--notch) no-repeat;
-  opacity: 0.7;
-}
+.cta-card::after { content: none; }
+
+/* Divider line + magnifier icon */
+.cta-divider { display: flex; align-items: center; justify-content: center; gap: 14px; margin: 8px auto 4px; color: var(--accent); max-width: 720px; }
+.cta-divider::before, .cta-divider::after { content: ""; height: 2px; background: var(--accent); opacity: 0.7; flex: 1; }
+.cta-divider .loupe { width: 28px; height: 28px; background-color: var(--accent); -webkit-mask: url('../svg/bl-browser-engine-svgrepo-com.svg') center/contain no-repeat; mask: url('../svg/bl-browser-engine-svgrepo-com.svg') center/contain no-repeat; opacity: 0.9; }
 
 /* Tail emanating from the profile/avatar aiming upward */
 .profile { position: relative; }
@@ -136,6 +102,10 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+/* Arched CTA subline */
+.cta-arc { max-width: 760px; margin: 0 auto -20px; line-height: 0; }
+.cta-arc svg { display: block; }
+.cta-arc .arc-text { fill: var(--muted); font-weight: 500; font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; font-size: clamp(16px, 2.1vw, 20px); }
 /* Elegant mustard accent line under CTA headline */
 .cta-question::after { content: none; }
 
@@ -297,3 +267,8 @@ body {
   .why-title, .why-lead, .why-text, .why .btn.outline { grid-column: auto; grid-row: auto; }
   .why-illustration { order: -1; justify-self: center; align-self: center; margin-bottom: 8px; grid-column: 1; grid-row: auto; transform: none; }
 }
+.arrow { font-size: 2rem; line-height: 1; margin: -52px auto 20px; animation: fadeInUp 0.6s ease-out 0.4s both, bounce 1.4s infinite 1s; color: var(--accent); text-align: center; display: block; width: fit-content; }
+/* Pull button closer to the arc/arrow */
+.cta-card .btn.cta { margin-top: -4px; }
+@keyframes bounce { 0%,100%{ transform: translateY(0);} 50%{ transform: translateY(6px);} }
+@keyframes fadeInUp { from{ opacity:0; transform: translateY(16px);} to{ opacity:1; transform: translateY(0);} }

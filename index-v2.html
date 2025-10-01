@@ -46,8 +46,24 @@
 
         <div class="cta-card">
           <h2 class="cta-question">Nyfiken på om ni gör bort er på engelska?</h2>
-          <p class="cta-sub">Låt mig granska ert innehåll helt kostnadsfritt.</p>
-          <a class="btn cta" href="#contact">Boka en granskning<span class="btn-icon" aria-hidden="true"></span></a>
+          <div class="cta-divider" aria-hidden="true"><span class="loupe"></span></div>
+          <!-- Arched subline -->
+          <div class="cta-arc" aria-hidden="true">
+            <svg viewBox="0 0 600 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="cta-arc-title">
+              <title id="cta-arc-title">Låt mig granska ert innehåll helt kostnadsfritt.</title>
+              <defs>
+                <!-- Upward arch curve -->
+                <path id="cta-curve" d="M 30 110 C 180 40 420 40 570 110" />
+              </defs>
+              <text class="arc-text">
+                <textPath href="#cta-curve" startOffset="50%" text-anchor="middle">
+                  Låt mig granska ert innehåll helt kostnadsfritt.
+                </textPath>
+              </text>
+            </svg>
+          </div>
+          <p class="arrow" aria-hidden="true">↓</p>
+          <a class="btn cta" href="#contact">BOKA EN GRANSKNING</a>
         </div>
 
         <div class="profile">
@@ -59,6 +75,9 @@
         </div>
       </div>
     </section>
+
+    <!-- Divider between hero and next section -->
+    <div class="container"><div class="section-divider" aria-hidden="true"></div></div>
 
     <!-- Stats cards -->
     <section class="stats">
