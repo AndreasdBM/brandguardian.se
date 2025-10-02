@@ -35,6 +35,12 @@ body {
 /* Hero */
 .hero { padding: 8px 0 56px; }
 .hero-wrap { text-align: center; }
+/* Section backgrounds: keep original/subtle (no section gradients) */
+.hero { background: none; }
+/* CTA + Profile + Stats section: no gradient */
+.plateau-2 { background: none; }
+/* Process (+ Why) section: no gradient */
+.plateau-3 { background: none; }
 .hero-title { font-family: 'Libre Baskerville', Georgia, serif; font-weight: 700; margin: 0 0 18px; line-height: 1.05; color: var(--ink); }
 .hero-title .line { display: block; font-size: clamp(36px, 7.5vw, 84px); letter-spacing: 0.03em; }
 .hero-title .line:not(.accent) { text-transform: uppercase; }
@@ -54,6 +60,18 @@ body {
 
 /* Section divider (between hero and next section) */
 .section-divider { height: 2px; background: linear-gradient(90deg, rgba(0,0,0,0.12), rgba(0,0,0,0.28), rgba(0,0,0,0.12)); border-radius: 2px; margin: 8px 0 24px; }
+
+/* Full-bleed spacer band between sections (~1cm height) */
+.section-steps {
+  display: block;
+  height: 1cm;
+  /* Light (but not bright) at top → darker at bottom, with a clear top edge */
+  background: linear-gradient(180deg, #f0e2d3 0%, #e8d8c6 55%, #cfae8c 100%);
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  margin-left: -50vw;
+}
 
 /* CTA content only (no box) */
 .cta-card { background: transparent; border: 0; border-radius: 0; box-shadow: none; padding: 0; max-width: 860px; margin: 24px auto 40px; position: relative; overflow: visible; }
@@ -132,24 +150,30 @@ body {
   background-color: var(--accent);
 }
 
-.btn.cta { display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-weight: 800; letter-spacing: 0.06em; text-decoration: none; color: #fff; padding: 16px 28px; border-radius: 10px; background: linear-gradient(180deg, var(--accent) 0%, var(--accent-deep) 100%); box-shadow: 0 10px 16px rgba(212,165,95,0.36), 0 2px 2px rgba(0,0,0,0.06) inset; border: 1px solid rgba(0,0,0,0.06); min-width: 340px; font-size: 17px; position: relative; overflow: hidden; isolation: isolate; }
-.btn.cta:hover { transform: translateY(-1px); box-shadow: 0 12px 22px rgba(212,165,95,0.42); }
-/* Shine sweep on hover */
-.btn.cta::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -30%;
-  height: 100%;
-  width: 40%;
-  background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.35) 50%, rgba(255,255,255,0) 100%);
-  transform: skewX(-20deg) translateX(-120%);
-  transition: transform 600ms ease;
-  pointer-events: none;
+.btn.cta {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+  background-color: #fff7ec;      /* cream surface */
+  padding: 14px 28px;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-shadow: 6px 6px 0 var(--accent);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
 }
-.btn.cta:hover::before {
-  transform: skewX(-20deg) translateX(260%);
+.btn.cta:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0 var(--accent-deep);
+  background-color: #fff7ec;
 }
+/* no shine overlay */
+.btn.cta::before { content: none !important; }
 /* Button icon placeholder that will load the requested SVG by URL */
 .btn.cta .btn-icon {
   width: 22px;
@@ -166,7 +190,7 @@ body {
   opacity: 0.95;
 }
 
-.profile { display: inline-flex; align-items: center; gap: 16px; margin-top: 18px; }
+.profile { display: inline-flex; align-items: center; gap: 16px; margin: 18px 0 28px; }
 .avatar { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; border: 3px solid #fff; box-shadow: 0 6px 18px rgba(0,0,0,0.14); }
 .who .name { font-weight: 800; color: var(--ink); font-size: clamp(16px, 2.4vw, 22px); }
 .badge { display: inline-block; margin-top: 6px; padding: 7px 14px; background: var(--teal); color: #fff; border-radius: 999px; font-weight: 700; font-size: 15px; box-shadow: 0 6px 12px rgba(15,118,110,0.35); }
@@ -176,7 +200,10 @@ body {
 
 /* Stats section */
 .stats { padding: 14px 0 60px; }
-.stats-grid { display: grid; gap: clamp(18px, 3vw, 28px); grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); align-items: stretch; }
+.stats-grid { display: grid; gap: clamp(18px, 3vw, 28px); grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); align-items: stretch; }
+@media (min-width: 640px) {
+  .stats-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
 .stat-card {
   /* Paper box card design */
   background-color: #fffdf7;
@@ -267,8 +294,11 @@ body {
   .why-title, .why-lead, .why-text, .why .btn.outline { grid-column: auto; grid-row: auto; }
   .why-illustration { order: -1; justify-self: center; align-self: center; margin-bottom: 8px; grid-column: 1; grid-row: auto; transform: none; }
 }
-.arrow { font-size: 2rem; line-height: 1; margin: -52px auto 20px; animation: fadeInUp 0.6s ease-out 0.4s both, bounce 1.4s infinite 1s; color: var(--accent); text-align: center; display: block; width: fit-content; }
+.arrow { font-size: 2rem; line-height: 1; margin: -16px auto 20px; animation: fadeInUp 0.6s ease-out 0.4s both, bounce 1.4s infinite 1s; color: var(--accent); text-align: center; display: block; width: fit-content; }
 /* Pull button closer to the arc/arrow */
-.cta-card .btn.cta { margin-top: -4px; }
+.cta-card .btn.cta { margin-top: 14px; }
 @keyframes bounce { 0%,100%{ transform: translateY(0);} 50%{ transform: translateY(6px);} }
 @keyframes fadeInUp { from{ opacity:0; transform: translateY(16px);} to{ opacity:1; transform: translateY(0);} }
+.plateau-2 .container { display: flex; flex-direction: column; align-items: center; gap: 18px; }
+.plateau-2 .cta-card { text-align: center; }
+.plateau-2 .profile { display: flex; align-items: center; justify-content: center; gap: 16px; }
