@@ -231,12 +231,12 @@ footer {
   
   .hero-stats {
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.25rem;
     align-items: center;
   }
   
   .stat-item {
-    min-width: 200px;
+    min-width: 0; /* avoid forcing overflow on narrow parents */
   }
   
   .stat-number {
@@ -1253,7 +1253,8 @@ h1:hover::before {
 .hero-stats {
   display: flex;
   justify-content: center;
-  gap: 3rem;
+  gap: clamp(1rem, 4vw, 3rem);
+  flex-wrap: wrap; /* allow wrapping to prevent overflow */
   margin: 2rem 0 3rem 0;
   animation: fadeInUp 0.8s ease-out 0.4s both;
 }

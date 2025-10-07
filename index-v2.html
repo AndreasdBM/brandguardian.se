@@ -6,6 +6,7 @@
   <title>Copy for Swedish — v2</title>
   <!-- Typography: serif for headings, Inter for UI/body -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/v2.css" />
   <meta name="color-scheme" content="light" />
   <meta name="theme-color" content="#fff7ec" />
@@ -48,31 +49,29 @@
       </div>
     </section>
 
-    <!-- Removed dashed riser between Section 1 and Section 2 -->
+    <!-- Riser between Section 1 (Hero) and Section 2 (CTA+Stats) -->
+    <div class="section-steps" aria-hidden="true"></div>
 
     <!-- Section 2: CTA + Profile + Stats (plateau) -->
     <section class="plateau-2">
       <div class="container">
         <div class="cta-card">
-          <h2 class="cta-question">Nyfiken på om ni gör bort er på engelska?</h2>
+          <h2 class="cta-question">Gör ni bort er på engelska?</h2>
           <div class="cta-divider" aria-hidden="true"><span class="loupe"></span></div>
           <p class="cta-sub">Låt mig granska ert innehåll helt kostnadsfritt.</p>
           <p class="arrow" aria-hidden="true">↓</p>
           <a class="btn cta" href="#contact">BOKA EN GRANSKNING</a>
         </div>
 
-        <div class="profile">
-          <img class="avatar" src="assets/images/ANDREASFACE-03-06-2024.jpg" alt="Andreas de Boer Moran"/>
-          <div class="who">
-            <div class="name">Andreas de Boer Moran</div>
-            <div class="badge">Språkexpert</div>
+        <div class="experience-card">
+          <div class="profile">
+            <img class="avatar" src="assets/images/ANDREASFACE-03-06-2024.jpg" alt="Andreas de Boer Moran"/>
+            <div class="who">
+              <div class="name">Andreas de Boer Moran</div>
+              <div class="badge">Språkexpert</div>
+            </div>
           </div>
-        </div>
-      </div>
-
-      <!-- Stats cards -->
-      <section class="stats">
-        <div class="container">
+          <h3 class="stats-title">Min erfarenhet i siffror</h3>
           <div class="stats-grid">
             <div class="stat-card">
               <span class="corner tl" aria-hidden="true"></span>
@@ -100,7 +99,7 @@
             </div>
           </div>
         </div>
-      </section>
+      </div>
     </section>
 
     <!-- Riser between Section 2 and Section 3 (Process+Why) -->
