@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="512" height="512" aria-hidden="true">
+  <g fill="none" stroke="#d4a55f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Shield outline -->
+    <path d="M12 22c-4.97-1.2-8-6-8-11V5l8-3 8 3v6c0 5-3.03 9.8-8 11z"/>
+    <!-- Check mark -->
+    <path d="M9 12l2.2 2.2L15.5 9.9"/>
+  </g>
+</svg>
