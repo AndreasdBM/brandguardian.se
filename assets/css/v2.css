@@ -33,7 +33,7 @@ html { scroll-behavior: smooth; }
 .container { width: 100%; max-width: var(--container); padding: 0 24px; margin: 0 auto; }
 
 /* Top navigation */
-.topnav { position: sticky; top: 0; z-index: 60; background: rgba(255,255,255,0.8); border-bottom: 1px solid rgba(0,0,0,0.06); backdrop-filter: saturate(130%) blur(8px); box-shadow: 0 6px 18px rgba(0,0,0,0.06); }
+.topnav { position: sticky; top: 0; z-index: 60; background: #fff; border-bottom: 1px solid rgba(0,0,0,0.06); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
 .nav-wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
 .nav-logo { font-weight: 900; letter-spacing: 0.02em; color: var(--ink); text-decoration: none; font-size: 18px; display: inline-flex; align-items: center; gap: 10px; }
 .nav-logo::before { content: ""; width: 12px; height: 12px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 0 2px rgba(15,118,110,0.15); }
@@ -42,7 +42,7 @@ html { scroll-behavior: smooth; }
 .nav-menu a:hover, .nav-menu a:focus-visible { color: var(--teal); }
 .nav-menu a::after { content: ""; position: absolute; left: 10px; right: 10px; bottom: 4px; height: 2px; background: var(--accent); border-radius: 2px; transform: scaleX(0); transform-origin: left; transition: transform .18s ease; }
 .nav-menu a:hover::after, .nav-menu a.active::after { transform: scaleX(1); }
-.nav-menu .nav-cta { color: var(--teal); background: transparent; border: 2px solid var(--teal); border-radius: 999px; padding: 8px 14px; box-shadow: none; transition: background-color .18s ease, color .18s ease, border-color .18s ease; font-weight: 700; }
+.nav-menu .nav-cta { color: var(--teal); background: transparent; border: 2px solid var(--teal); border-radius: 12px; padding: 10px 16px; box-shadow: none; transition: background-color .18s ease, color .18s ease, border-color .18s ease; font-weight: 700; }
 .nav-menu .nav-cta:hover, .nav-menu .nav-cta:focus-visible { background: #fff; color: var(--teal); box-shadow: none; transform: none; }
 .nav-menu .nav-cta:active { transform: none; box-shadow: none; }
 @media (max-width: 720px) { .nav-menu li:not(:last-child) { display: none; } }
@@ -132,6 +132,13 @@ section[id] { scroll-margin-top: 72px; }
   margin: var(--divider-space) 0; /* controls space above/below everywhere */
   opacity: 0.8;
 }
+@media (max-width: 640px) {
+  .section-steps { opacity: 0.5; margin: calc(var(--divider-space) * 0.75) 0; }
+}
+
+/* Smooth collapse/expand for read-more blocks */
+.more { overflow: hidden; max-height: 0; opacity: 0; transition: max-height 260ms ease, opacity 220ms ease; }
+.more.is-open { max-height: 1200px; opacity: 1; }
 
 /* Removed 3D riser variant */
 
@@ -249,7 +256,7 @@ section[id] { scroll-margin-top: 72px; }
   color: var(--teal);
   background-color: #ffffff;
   border: 2px solid var(--teal);
-  border-radius: 6px;
+  border-radius: 12px;
   padding: 14px 28px;
   font-size: clamp(15px, 1.6vw, 20px);
   min-width: 240px;
@@ -606,7 +613,7 @@ button.btn.outline { -webkit-appearance: none; appearance: none; }
 }
 
 /* Sticky CTA */
-.sticky-cta { position: fixed; right: 18px; bottom: 18px; z-index: 50; display: inline-block; text-decoration: none; font-weight: 800; letter-spacing: 0.02em; color: var(--teal); background: #fff; border: 2px solid var(--teal); border-radius: 999px; padding: 12px 18px; box-shadow: 0 10px 26px rgba(0,0,0,0.12); opacity: 0; pointer-events: none; transform: translateY(8px); transition: opacity .2s ease, transform .2s ease; font-size: 15px; }
+.sticky-cta { position: fixed; right: 18px; bottom: 18px; z-index: 50; display: inline-block; text-decoration: none; font-weight: 800; letter-spacing: 0.02em; color: var(--teal); background: #fff; border: 2px solid var(--teal); border-radius: 12px; padding: 12px 18px; box-shadow: 6px 6px 0 #0a5d56; opacity: 0; pointer-events: none; transform: translateY(8px); transition: opacity .2s ease, transform .2s ease; font-size: 15px; }
 .sticky-cta.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
 .experience-card::before { content: none; }
 .experience-card > * { position: relative; z-index: 1; }
