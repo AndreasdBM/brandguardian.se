@@ -89,46 +89,97 @@ section[id] { scroll-margin-top: 72px; }
   margin-top: 0;
   padding-top: 0; /* rely on divider spacing */
 }
-.hero-title { font-family: 'Libre Baskerville', Georgia, serif; font-weight: 700; margin: 0 0 18px; line-height: 1.05; color: var(--ink); }
-.hero-title .line { display: block; font-size: clamp(36px, 7.5vw, 84px); letter-spacing: 0.03em; }
-.hero-title .line:not(.accent) { text-transform: uppercase; }
-.hero-title .accent { color: var(--accent); font-weight: 700; font-size: clamp(28px, 5.2vw, 56px); }
+.hero-title {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-weight: 700;
+  margin: 0 0 16px;
+  line-height: 1.1;
+  color: var(--ink);
+}
 
+.hero-title .line {
+  display: block;
+  margin: 0;
+}
+
+/* Line 2: COPY (largest) */
+.hero-title .line:first-child {
+  font-size: clamp(40px, 7vw, 80px);
+  letter-spacing: 0.02em;
+}
+
+/* Line 3: för SVENSKA MARKNADSTEAM (medium serif, one line) */
 .hero-title .hero-middle {
-  position: relative;
-  display: inline-block;
-  transform: translateX(0.45em);
+  font-size: clamp(26px, 4vw, 46px);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  margin-top: 0.08em;   /* tight to COPY */
 }
 
-.hero-title .hero-for {
-  position: absolute;
-  right: 100%;
-  margin-right: 0.15em;
-  top: 0.1em;
-  transform: none;
-  font-size: 0.75em;
-  font-weight: 600;
-  text-transform: none;
-  letter-spacing: 0.08em;
+/* Line 4: gold line, slightly smaller, extra spacing */
+.hero-title .accent {
+  font-size: clamp(22px, 3.4vw, 40px);
+  color: var(--accent);
+  letter-spacing: 0.06em;
+  margin-top: 0.32em;   /* extra breathing room above gold line */
 }
 
-.sublead { max-width: 780px; margin: 16px auto 28px; font-size: clamp(17px, 2.1vw, 22px); line-height: 1.6; color: var(--muted); }
+.sublead {
+  max-width: 780px;
+  margin: 18px auto 30px;
+  font-size: clamp(17px, 2.1vw, 22px);
+  line-height: 1.6;
+  color: var(--muted);
+  text-align: center;
+}
 .sublead strong { color: var(--ink); letter-spacing: 0.02em; }
 /* Simple underline utility for inline emphasis */
 .u-underline { text-decoration: underline; text-underline-offset: 0.12em; text-decoration-thickness: 0.08em; }
 
 
-.logo-strip { display: flex; gap: clamp(22px, 4.5vw, 48px); justify-content: center; align-items: center; flex-wrap: wrap; margin: 20px 0 38px; }
+.logo-caption {
+  margin: 22px auto 8px;
+  font-size: 12px;
+  letter-spacing: 0.08em;             /* small, refined tracking */
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.55);
+}
+
+.logo-strip {
+  display: flex;
+  gap: clamp(14px, 2.4vw, 26px);
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 10px auto 30px;
+  max-width: 700px;
+}
 /* Keep size; deepen tone for contrast on light background */
 .logo-strip img {
-  height: 40px;                 /* match index logo height */
-  max-width: 140px;             /* cap very wide logos */
+  height: 36px;                 /* base visual height */
+  max-width: 130px;             /* cap very wide logos */
   object-fit: contain;          /* preserve aspect ratio */
-  filter: grayscale(100%) brightness(0.55) contrast(1.15); /* lighter on white */
+  filter: grayscale(100%) brightness(0.7) contrast(1.1); /* subtle greyscale, softer black */
   opacity: 1;
   transition: filter 180ms ease, opacity 180ms ease, transform 180ms ease;
 }
-.logo-strip img.invert { filter: grayscale(100%) brightness(0.55) contrast(1.15); }
+.logo-strip img.invert { filter: grayscale(100%) brightness(0.7) contrast(1.1); }
+
+/* Per-logo visual tweaks for better alignment */
+.logo-strip img:nth-child(1) { /* Google */
+  height: 34px;
+}
+.logo-strip img:nth-child(2) { /* Amazon */
+  height: 38px;
+}
+.logo-strip img:nth-child(3) { /* DB Schenker */
+  height: 34px;
+  padding: 0 6px;
+}
+.logo-strip img:nth-child(6) { /* Film i Väst */
+  height: 34px;
+  padding: 0 4px;
+}
 /* Light up logos on hover: restore original colors and slightly lift */
 .logo-strip img:hover { filter: none; opacity: 1; transform: translateY(-1px); }
 
