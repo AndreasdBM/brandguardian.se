@@ -942,6 +942,12 @@ h1 br { display: none; }
   color: #212121;
 }
 
+.cta-note {
+  margin: 0.25rem 0 0.75rem 0;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
 /* Emphasise the free bit and unify with underline color */
 .intro-right .offer-callout p .angry-underline {
   font-weight: 700;
@@ -1226,6 +1232,12 @@ h1:hover::before {
 
 .speech-bubble .highlight-phrase:hover::after {
   transform: scaleX(1);
+}
+
+.speech-bubble .speech-target {
+  margin-top: 0.4rem;
+  font-size: 0.9rem;
+  color: #4b5563;
 }
 
 .speech-bubble .handwritten {
@@ -1646,6 +1658,24 @@ a.cta-button:hover::after {
 
 .expandable-content {
   margin-top: 1.5rem;
+}
+
+.content-section h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.2rem;
+  color: #111827;
+}
+
+.content-section .content-list {
+  margin: 0 0 1.5rem 1.25rem;
+  padding: 0;
+  list-style: disc;
+  color: #374151;
+}
+
+.content-section .content-list li {
+  margin-bottom: 0.4rem;
 }
 
 .content-preview p {

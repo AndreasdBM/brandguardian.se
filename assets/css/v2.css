@@ -94,10 +94,29 @@ section[id] { scroll-margin-top: 72px; }
 .hero-title .line:not(.accent) { text-transform: uppercase; }
 .hero-title .accent { color: var(--accent); font-weight: 700; font-size: clamp(28px, 5.2vw, 56px); }
 
+.hero-title .hero-middle {
+  position: relative;
+  display: inline-block;
+  transform: translateX(0.45em);
+}
+
+.hero-title .hero-for {
+  position: absolute;
+  right: 100%;
+  margin-right: 0.15em;
+  top: 0.1em;
+  transform: none;
+  font-size: 0.75em;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0.08em;
+}
+
 .sublead { max-width: 780px; margin: 16px auto 28px; font-size: clamp(17px, 2.1vw, 22px); line-height: 1.6; color: var(--muted); }
 .sublead strong { color: var(--ink); letter-spacing: 0.02em; }
 /* Simple underline utility for inline emphasis */
 .u-underline { text-decoration: underline; text-underline-offset: 0.12em; text-decoration-thickness: 0.08em; }
+
 
 .logo-strip { display: flex; gap: clamp(22px, 4.5vw, 48px); justify-content: center; align-items: center; flex-wrap: wrap; margin: 20px 0 38px; }
 /* Keep size; deepen tone for contrast on light background */
