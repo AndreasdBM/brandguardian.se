@@ -76,8 +76,8 @@ section[id] { scroll-margin-top: 72px; }
 .plateau-2 { 
   background: none;
   position: relative;
-  margin-top: -24px; /* pull up toward Section 1 */
-  padding-top: 0; /* rely on divider spacing */
+  margin-top: 0; /* do not pull up now that divider is removed */
+  padding-top: calc(var(--divider-space) * 0.75); /* add breathing room above */
   overflow: visible; /* allow card shadows to render fully */
 }
 
@@ -379,7 +379,6 @@ section[id] { scroll-margin-top: 72px; }
 
 .profile { display: inline-flex; align-items: center; gap: 14px; margin: 0; }
 .avatar { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; border: 2px solid #000; box-shadow: 0 6px 18px rgba(0,0,0,0.14); transform: rotate(15deg); }
-.who {}
 .who .name { font-weight: 800; color: var(--ink); font-size: clamp(16px, 2.4vw, 22px); }
 .badge { display: inline-block; margin-top: 6px; padding: 7px 14px; background: var(--teal); color: #fff; border-radius: 999px; font-weight: 700; font-size: 15px; }
 
@@ -616,17 +615,47 @@ button.btn.outline { -webkit-appearance: none; appearance: none; }
   content: "";
   position: absolute;
   left: 50%;
-  top: -55px;
+  top: -80px;
   transform: translateX(-50%);
   width: 120vw;
-  height: clamp(360px, 52vw, 520px);
+  height: calc(clamp(360px, 52vw, 520px) + 25px);
   background: #e8d6c0;
   border-radius: 0;
   z-index: -1;
   pointer-events: none;
-  /* Straight top, pointed bottom */
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%);
-  clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%);
+  /* Mildly concave-down top edge (polygon approximation for broad support), pointed bottom */
+  -webkit-clip-path: polygon(
+    0% 6%,
+    10% 7.5%,
+    20% 8.5%,
+    30% 9.2%,
+    40% 9.6%,
+    50% 9.8%,
+    60% 9.6%,
+    70% 9.2%,
+    80% 8.5%,
+    90% 7.5%,
+    100% 6%,
+    100% 80%,
+    50% 100%,
+    0% 80%
+  );
+  clip-path: polygon(
+    0% 6%,
+    10% 7.5%,
+    20% 8.5%,
+    30% 9.2%,
+    40% 9.6%,
+    50% 9.8%,
+    60% 9.6%,
+    70% 9.2%,
+    80% 8.5%,
+    90% 7.5%,
+    100% 6%,
+    100% 80%,
+    50% 100%,
+    0% 80%
+  );
 }
 .plateau-2 .profile { display: flex; align-items: center; justify-content: center; gap: 16px; }
 
