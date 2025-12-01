@@ -332,6 +332,54 @@
   })();
 </script>
 <script>
+  // Align the grey process spine with the top of the first gold bar
+  // and the bottom of the last gold bar
+  (function() {
+    function updateSpine() {
+      const section = document.querySelector('.process');
+      if (!section) return;
+      const list = section.querySelector('.process-list');
+      if (!list) return;
+      const items = list.querySelectorAll('.process-item');
+      if (!items.length) return;
+      const firstNum = items[0].querySelector('.step-num');
+      const lastNum = items[items.length - 1].querySelector('.step-num');
+      if (!firstNum || !lastNum) return;
+
+      const listRect = list.getBoundingClientRect();
+      const firstRect = firstNum.getBoundingClientRect();
+      const lastRect = lastNum.getBoundingClientRect();
+
+      // Read computed height of the gold marker (::after) in px
+      const csFirstAfter = window.getComputedStyle(firstNum, '::after');
+      const goldH = parseFloat(csFirstAfter.getPropertyValue('height')) || 20;
+
+      const firstMid = (firstRect.top + firstRect.bottom) / 2 - listRect.top;
+      const lastMid = (lastRect.top + lastRect.bottom) / 2 - listRect.top;
+
+      const offsetTop = Math.max(0, firstMid - goldH / 2);
+      const height = Math.max(0, (lastMid + goldH / 2) - offsetTop);
+
+      section.style.setProperty('--spine-offset-top', offsetTop + 'px');
+      section.style.setProperty('--spine-height', height + 'px');
+      // Keep CSS var for gold height in sync with computed pixels
+      section.style.setProperty('--gold-h', goldH + 'px');
+    }
+
+    window.addEventListener('load', function() {
+      updateSpine();
+      const list = document.querySelector('.process .process-list');
+      if (list && 'ResizeObserver' in window) {
+        const ro = new ResizeObserver(updateSpine);
+        ro.observe(list);
+      }
+      // Additional pass after layout settles
+      setTimeout(updateSpine, 100);
+    });
+    window.addEventListener('resize', updateSpine, { passive: true });
+  })();
+</script>
+<script>
   // Trigger a fast band-limited color-inverting wipe only over the CTA area
   (function() {
     const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;

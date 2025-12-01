@@ -521,21 +521,24 @@ section[id] { scroll-margin-top: 72px; }
 /* Text on teal cards: keep original white */
 
 /* Process list (vertical rule layout) */
-.process { padding: 16px 0 0; }
-.process-title { font-family: 'Libre Baskerville', Georgia, serif; font-weight: 700; font-size: clamp(26px, 4.8vw, 48px); color: var(--ink); margin: 0 0 18px; text-align: left; }
-.process-list { list-style: none; margin: 0; padding: 0; display: grid; gap: clamp(20px, 3vw, 32px); }
-.process-item { display: grid; grid-template-columns: 90px 1fr; align-items: start; column-gap: clamp(14px, 2.6vw, 22px); }
-.step-num { font-family: 'Libre Baskerville', Georgia, serif; font-weight: 700; font-size: clamp(36px, 5.6vw, 60px); color: var(--ink); line-height: 1; text-align: right; padding-right: 10px; }
-.step-body { border-left: 2px solid var(--accent); padding-left: clamp(12px, 2vw, 18px); }
-.step-title { font-family: 'Libre Baskerville', Georgia, serif; font-weight: 700; font-size: clamp(20px, 3.4vw, 34px); line-height: 1.25; margin: 0 0 6px; color: var(--ink); }
+.process { padding: 16px 0 0; --num-col: 72px; --num-gap: 10px; --line-to-text: 14px; --spine-cap: 10px; --spine-w: 1.6px; --gold-h: clamp(16px, 2.5vw, 24px); --spine-offset-top: 0px; --spine-height: 100%; }
+.process-title { font-family: 'Libre Baskerville', Georgia, serif; font-weight: 700; font-size: clamp(28px, 5.8vw, 64px); line-height: 1.08; letter-spacing: -0.01em; color: var(--ink); margin: 0 0 18px; text-align: center; text-rendering: optimizeLegibility; }
+.process-list { list-style: none; margin: 0; padding: 0; display: grid; gap: clamp(20px, 3vw, 32px); position: relative; width: min(70ch, 100%); margin-left: auto; margin-right: auto; background-image: linear-gradient(#D9D4CC, #D9D4CC); background-repeat: no-repeat; background-size: var(--spine-w) var(--spine-height); background-position: calc(var(--num-col) + var(--num-gap)) var(--spine-offset-top); }
+.process-item { display: grid; grid-template-columns: var(--num-col) 1fr; align-items: start; column-gap: var(--num-gap); justify-content: center; width: min(70ch, 100%); margin-left: auto; margin-right: auto; position: relative; }
+.step-num { font-family: 'Libre Baskerville', Georgia, serif; font-weight: 700; font-size: clamp(36px, 5.6vw, 60px); color: var(--ink); line-height: 1; text-align: right; padding-right: 0; width: var(--num-col); justify-self: start; display: inline-flex; justify-content: flex-end; align-items: center; gap: 0; position: relative; font-variant-numeric: lining-nums tabular-nums; font-feature-settings: 'lnum' 1, 'tnum' 1; }
+.step-num::after { content: ""; position: absolute; left: calc(100% + var(--num-gap)); top: 50%; transform: translateY(-50%); width: 2px; height: var(--gold-h); background: var(--accent-deep); border-radius: 2px; z-index: 2; opacity: 1; }
+.step-body { border-left: 0; padding-left: var(--line-to-text); border-top: 0; padding-top: 0; margin-top: 6px; text-align: left; width: auto; justify-self: start; }
+.step-title { font-family: 'Libre Baskerville', Georgia, serif; font-weight: 700; font-size: clamp(22px, 3.6vw, 36px); line-height: 1.2; letter-spacing: -0.005em; margin: 0 0 6px; color: var(--ink); text-rendering: optimizeLegibility; }
 .step-text { margin: 0; font-size: clamp(14px, 1.8vw, 18px); color: #3f3f3f; }
 /* Optional bullets styling for step 2 details */
 .step-bullets { margin: 6px 0 0 1.2em; padding: 0; }
 .step-bullets li { margin: 2px 0; }
 
 @media (max-width: 640px) {
-  .process-item { grid-template-columns: 70px 1fr; }
+  .process-item { grid-template-columns: 1fr; width: 100%; align-items: start; }
   .step-num { font-size: 38px; }
+  .process-list { background-image: none; }
+  .process-list::before, .process-list::after { display: none; }
 }
 
 /* Why section */
@@ -618,7 +621,7 @@ button.btn.outline { -webkit-appearance: none; appearance: none; }
   top: -80px;
   transform: translateX(-50%);
   width: 120vw;
-  height: calc(clamp(360px, 52vw, 520px) + 25px);
+  height: calc(clamp(360px, 52vw, 520px) + 45px);
   background: #e8d6c0;
   border-radius: 0;
   z-index: -1;
@@ -658,6 +661,7 @@ button.btn.outline { -webkit-appearance: none; appearance: none; }
   );
 }
 .plateau-2 .profile { display: flex; align-items: center; justify-content: center; gap: 16px; }
+.plateau-2 .experience-card { margin-top: 40px; }
 
 /* Unified white experience box (photo, name/title, stats) */
 .experience-card {
