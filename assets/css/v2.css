@@ -1,5 +1,5 @@
 :root {
-  --bg: #ffffff;
+  --bg: #fffcf7;
   /* Warm paper surfaces used for cards/buttons */
   --surface: #fff7ec;
   --surface-2: #ffedd7;
@@ -46,6 +46,15 @@ html { scroll-behavior: smooth; }
 .nav-menu .nav-cta:hover, .nav-menu .nav-cta:focus-visible { background: #fff; color: var(--teal); box-shadow: none; transform: none; }
 .nav-menu .nav-cta:active { transform: none; box-shadow: none; }
 @media (max-width: 720px) { .nav-menu li:not(:last-child) { display: none; } }
+
+/* Header profile placed in the top nav */
+.header-profile { display: inline-flex; align-items: center; gap: 10px; transform: translateY(2px); }
+.header-profile .avatar { width: 44px; height: 44px; transform: none; border-radius: 50%; object-fit: cover; border: 2px solid #000; box-shadow: 0 2px 8px rgba(0,0,0,0.12); }
+.header-profile .who .name { font-weight: 800; color: var(--ink); font-size: 14px; line-height: 1.1; }
+.header-profile .badge { margin-top: 2px; padding: 4px 8px; background: var(--teal); color: #fff; border-radius: 999px; font-weight: 700; font-size: 12px; }
+
+/* Slightly taller nav to accommodate profile */
+.nav-wrap { height: 80px; }
 
 /* Offset in-page anchors for sticky nav */
 section[id] { scroll-margin-top: 72px; }
@@ -200,10 +209,12 @@ section[id] { scroll-margin-top: 72px; }
   );
   width: 100%;
   margin: var(--divider-space) 0; /* controls space above/below everywhere */
-  opacity: 0.8;
+  opacity: 0.75;
 }
+/* Tighter variant for bringing sections closer together */
+.section-steps.is-tight { margin: calc(var(--divider-space) * 0.5) 0; }
 @media (max-width: 640px) {
-  .section-steps { opacity: 0.5; margin: calc(var(--divider-space) * 0.75) 0; }
+  .section-steps { opacity: 0.7; margin: calc(var(--divider-space) * 0.75) 0; }
 }
 
 /* Smooth collapse/expand for read-more blocks */
@@ -426,8 +437,8 @@ section[id] { scroll-margin-top: 72px; }
     linear-gradient(rgba(212,165,95,0.65), rgba(212,165,95,0.65)),
     linear-gradient(rgba(212,165,95,0.65), rgba(212,165,95,0.65));
   background-repeat: no-repeat;
-  background-size: 2px 60%, 2px 60%;
-  background-position: 33.33% 20%, 66.66% 20%;
+  background-size: 2px 50%, 2px 50%;
+  background-position: 33.33% 25%, 66.66% 25%;
 }
 
 @media (min-width: 640px) {
@@ -596,6 +607,7 @@ button.btn.outline { -webkit-appearance: none; appearance: none; }
 
 /* Article section (Brand Guardian) */
 .article { padding: 0 0 96px; }
+.article.brand-guardian { margin-top: 12px; }
 .article-title {
   font-family: 'Libre Baskerville', Georgia, serif;
   font-weight: 700;
@@ -718,7 +730,7 @@ button.btn.outline { -webkit-appearance: none; appearance: none; }
 .contact .full { grid-column: 1 / -1; }
 .contact .form-actions { grid-column: 1 / -1; display: flex; justify-content: flex-start; gap: 12px; align-items: center; }
 .contact .hint { color: var(--muted); font-size: 14px; }
-.experience-card .profile { margin: 6px 0 4px; }
+.experience-card .profile { margin: 16px 0 8px; }
 .experience-card .stats-grid { width: 100%; max-width: none; margin: 0; }
 .experience-card .stats-title { margin-top: 4px; }
 
