@@ -562,20 +562,36 @@ button.btn.outline { -webkit-appearance: none; appearance: none; }
 .why-text p { margin: 6px 0 10px; }
 .why .btn.outline { grid-column: 1; grid-row: 4; margin-top: 0; justify-self: start; width: max-content; }
 
-/* Centered layout for info articles (Why + Brand Guardian) without changing structure */
-.why, .article { text-align: center; }
-.why-wrap { grid-template-columns: 1fr; justify-items: center; }
-.why-illustration { grid-column: 1; grid-row: auto; justify-self: center; align-self: center; transform: none; }
-.why .btn.outline { justify-self: center; }
-.brand-guardian .why-wrap { grid-template-columns: 1fr; }
-.brand-guardian .why-illustration { grid-column: 1; grid-row: auto; justify-self: center; align-self: center; transform: none; }
-.brand-guardian .btn.outline { justify-self: center; }
+/* Keep copy left-aligned inside centered layout */
+.why-title, .why-lead, .why-text,
+.brand-guardian .why-title, .brand-guardian .why-lead, .brand-guardian .why-text { text-align: left; }
+
+/* Center the first article block (Why) similarly to Brand Guardian, mirrored:
+   text left, illustration right; keep left rag on copy */
+.why { display: block; }
+.why > .container { margin-left: auto; margin-right: auto; }
+.why-wrap { grid-template-columns: 1.2fr 1fr; }
+.why-illustration { grid-column: 2; grid-row: 1 / span 2; justify-self: start; align-self: start; transform: translate(4px, 20px); }
+.why .btn.outline { justify-self: start; }
+/* Match Brand Guardian text width for cohesion */
+.why .why-text { max-width: 60ch; }
+
+/* Ensure the Brand Guardian article block is centered on the page */
+.article.brand-guardian { display: grid; place-items: center; }
+.article.brand-guardian > .container { margin-left: auto; margin-right: auto; }
 
 @media (max-width: 900px) {
   .why-wrap { grid-template-columns: 1fr; }
   .why-copy { display: block; }
   .why-title, .why-lead, .why-text, .why .btn.outline { grid-column: auto; grid-row: auto; }
-.why-illustration { order: -1; justify-self: center; align-self: center; margin-bottom: 8px; grid-column: 1; grid-row: auto; transform: none; }
+.why-illustration { justify-self: center; align-self: center; margin-bottom: 8px; grid-column: 1; grid-row: auto; transform: none; }
+}
+
+/* Match Brand Guardian: keep first article two-column at narrow widths as well */
+@media (max-width: 900px) {
+  .why .why-wrap { grid-template-columns: 1.2fr 1fr; }
+  .why .why-illustration { grid-column: 2; grid-row: 1 / span 2; justify-self: start; align-self: start; transform: translate(4px, 20px); margin-bottom: 0; }
+  .why .btn.outline { justify-self: start; }
 }
 
 /* Article section (Brand Guardian) */
@@ -599,7 +615,7 @@ button.btn.outline { -webkit-appearance: none; appearance: none; }
 .brand-guardian .why-illustration { grid-column: 1; grid-row: 1 / span 2; justify-self: end; align-self: start; transform: translate(-4px, 20px); }
 .brand-guardian .why-title { grid-column: 2; grid-row: 1; }
 .brand-guardian .why-lead  { grid-column: 2; grid-row: 2; }
-.brand-guardian .why-text  { grid-column: 2; grid-row: 3; }
+.brand-guardian .why-text  { grid-column: 2; grid-row: 3; max-width: 60ch; }
 /* Align the read-more button in Brand Guardian like the first article */
 .brand-guardian .btn.outline { grid-column: 2; grid-row: 4; margin-top: 0; justify-self: start; width: max-content; }
 @media (max-width: 900px) {
