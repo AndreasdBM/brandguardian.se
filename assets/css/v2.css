@@ -562,6 +562,15 @@ button.btn.outline { -webkit-appearance: none; appearance: none; }
 .why-text p { margin: 6px 0 10px; }
 .why .btn.outline { grid-column: 1; grid-row: 4; margin-top: 0; justify-self: start; width: max-content; }
 
+/* Centered layout for info articles (Why + Brand Guardian) without changing structure */
+.why, .article { text-align: center; }
+.why-wrap { grid-template-columns: 1fr; justify-items: center; }
+.why-illustration { grid-column: 1; grid-row: auto; justify-self: center; align-self: center; transform: none; }
+.why .btn.outline { justify-self: center; }
+.brand-guardian .why-wrap { grid-template-columns: 1fr; }
+.brand-guardian .why-illustration { grid-column: 1; grid-row: auto; justify-self: center; align-self: center; transform: none; }
+.brand-guardian .btn.outline { justify-self: center; }
+
 @media (max-width: 900px) {
   .why-wrap { grid-template-columns: 1fr; }
   .why-copy { display: block; }
