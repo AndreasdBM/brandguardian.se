@@ -64,12 +64,25 @@
 
         <p class="logo-caption">KUNDER JAG BRUKAR SKRYTA OM</p>
         <div class="logo-strip" aria-label="Kunder">
-          <img loading="lazy" src="assets/logos/Google_2015_logo.svg" alt="Google" />
-          <img loading="lazy" src="assets/logos/Amazon_logo.svg" alt="Amazon" />
-          <img loading="lazy" src="assets/logos/logo-db-schenker-1.svg" alt="DB Schenker" />
-          <img loading="lazy" class="invert" src="assets/logos/tiktok-icon-white-1-logo-svgrepo-com.svg" alt="TikTok" />
-          <img loading="lazy" src="assets/logos/wix-svgrepo-com.svg" alt="Wix" />
-          <img loading="lazy" class="invert" src="assets/logos/Film_i_Väst_logo.svg" alt="Film i Väst" />
+          <div class="logo-marquee">
+            <div class="logo-track">
+            <img loading="lazy" class="client-logo" src="assets/logos/Google_2015_logo.svg" alt="Google" />
+            <img loading="lazy" class="client-logo" src="assets/logos/Amazon_logo.svg" alt="Amazon" />
+            <img loading="lazy" class="client-logo compact" src="assets/logos/logo-db-schenker-1.svg" alt="DB Schenker" />
+            <img loading="lazy" class="client-logo compact invert" src="assets/logos/tiktok-icon-white-1-logo-svgrepo-com.svg" alt="TikTok" />
+            <img loading="lazy" class="client-logo" src="assets/logos/wix-svgrepo-com.svg" alt="Wix" />
+            <img loading="lazy" class="client-logo compact invert" src="assets/logos/Film_i_Väst_logo.svg" alt="Film i Väst" />
+            </div>
+            <div class="logo-track logo-track--dup" aria-hidden="true">
+              <img loading="lazy" class="client-logo" src="assets/logos/Google_2015_logo.svg" alt="" />
+              <img loading="lazy" class="client-logo" src="assets/logos/Amazon_logo.svg" alt="" />
+              <img loading="lazy" class="client-logo compact" src="assets/logos/logo-db-schenker-1.svg" alt="" />
+              <img loading="lazy" class="client-logo compact invert" src="assets/logos/tiktok-icon-white-1-logo-svgrepo-com.svg" alt="" />
+              <img loading="lazy" class="client-logo" src="assets/logos/wix-svgrepo-com.svg" alt="" />
+              <img loading="lazy" class="client-logo compact invert" src="assets/logos/Film_i_Väst_logo.svg" alt="" />
+            </div>
+          </div>
+        </div>
         </div>
 
         
@@ -97,6 +110,10 @@
               <div class="badge">Språkexpert</div>
             </div>
           </div>
+          <div class="profile-copy">
+            <p class="profile-quote">Jag är en språkkonsult med både engelska och svenska som modersmål och lång erfarenhet av kreativ översättning med fokus på marknadsföringstexter.</p>
+            <p class="profile-quote">Denna specialistkompetens gör mig unikt lämpad för en specifik uppgift: att <span class="profile-highlight">identifiera och åtgärda problem i er engelska copy</span> som svenska copywriters oundvikligen missar – oavsett hur duktiga på engelska de själva anser att de är.</p>
+          </div>
           <h3 class="stats-title">
             <span class="sr-only">Min erfarenhet i siffror</span>
             <svg class="stats-arch" viewBox="0 0 500 120" role="presentation" aria-hidden="true">
@@ -112,7 +129,7 @@
               <span class="corner tr" aria-hidden="true"></span>
               <span class="corner bl" aria-hidden="true"></span>
               <span class="corner br" aria-hidden="true"></span>
-              <div class="stat-value">2,5M</div>
+              <div class="stat-value">3 <span class="suffix">mn</span></div>
               <div class="stat-label"><span>ORD</span><span>GRANSKADE</span></div>
             </div>
             <div class="stat-card">
@@ -120,7 +137,7 @@
               <span class="corner tr" aria-hidden="true"></span>
               <span class="corner bl" aria-hidden="true"></span>
               <span class="corner br" aria-hidden="true"></span>
-              <div class="stat-value">100+</div>
+              <div class="stat-value">100 <span class="suffix suffix-plus">+</span></div>
               <div class="stat-label"><span>NÖJDA</span><span>KUNDER</span></div>
             </div>
             <div class="stat-card">
@@ -302,7 +319,27 @@
       values.forEach(v => {
         const text = v.textContent.trim();
         const suffixSpan = v.querySelector('.suffix');
-        if (text.includes('M')) {
+        const upper = text.toUpperCase();
+        const lower = text.toLowerCase();
+        if (lower.includes(' mn')) {
+          const target = parseFloat(lower.replace('mn','').replace(',','.')) || 0;
+          const suffixHTML = suffixSpan ? ' ' + suffixSpan.outerHTML : ' mn';
+          animateNumber(v, 0, target, 1800, (el, val) => {
+            el.innerHTML = val.toFixed(1).replace('.', ',') + suffixHTML;
+          });
+        } else if (lower.includes('miljoner')) {
+          const target = parseFloat(lower.replace('miljoner','').replace(',','.')) || 0;
+          const suffixHTML = suffixSpan ? ' ' + suffixSpan.outerHTML : ' miljoner';
+          animateNumber(v, 0, target, 1800, (el, val) => {
+            el.innerHTML = val.toFixed(1).replace('.', ',') + suffixHTML;
+          });
+        } else if (upper.includes('MN')) {
+          const target = parseFloat(upper.replace('MN','').replace(',','.')) || 0;
+          const suffixHTML = suffixSpan ? ' ' + suffixSpan.outerHTML : ' MN';
+          animateNumber(v, 0, target, 1800, (el, val) => {
+            el.innerHTML = val.toFixed(1).replace('.', ',') + suffixHTML;
+          });
+        } else if (text.includes('M')) {
           // e.g. "2,5M"
           const target = parseFloat(text.replace('M','').replace(',','.')) || 0;
           animateNumber(v, 0, target, 1800, (el, val) => {
@@ -311,8 +348,9 @@
         } else if (text.endsWith('+')) {
           // e.g. "100+"
           const target = parseInt(text, 10) || 0;
+          const suffixHTML = suffixSpan ? ' ' + suffixSpan.outerHTML : '+';
           animateNumber(v, 0, target, 1600, (el, val) => {
-            el.textContent = Math.floor(val) + '+';
+            el.innerHTML = Math.floor(val) + suffixHTML;
           });
         } else if (suffixSpan) {
           // e.g. "9 års" where suffix is a span
