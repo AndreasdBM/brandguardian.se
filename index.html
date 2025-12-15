@@ -3,422 +3,594 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kvalitetssäkrad copy på engelska</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@600;700&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700;800&display=swap" rel="stylesheet" />
-  <!-- Cache‑bust CSS so GitHub Pages CDN picks up latest styles -->
-  <link rel="stylesheet" href="assets/css/style.css?v=20250923-8" />
-  <script>
-    function toggleContent(button) {
-      const expandableContent = button.closest('.expandable-content');
-      const preview = expandableContent.querySelector('.content-preview');
-      const full = expandableContent.querySelector('.content-full');
-      
-      if (full.style.display === 'none') {
-        preview.style.display = 'none';
-        full.style.display = 'block';
-      } else {
-        preview.style.display = 'block';
-        full.style.display = 'none';
-      }
-    }
-  </script>
+  <title>Brand Guardian – Kvalitetssäkrad engelska för svenska företag</title>
+  <meta name="description" content="Kvalitetssäkrad engelska för svenska företag. Gratis provgranskning av 1000 ord. Bygg trovärdighet, undvik missförstånd och hitta rätt ton." />
+  <meta property="og:title" content="Brand Guardian — Kvalitetssäkrad engelska" />
+  <meta property="og:description" content="Gratis provgranskning av 1000 ord. Bygg trovärdighet på engelska med rätt ton och kultur." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://brandguardian.se/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <!-- Fonts: Inter + Libre Baskerville only -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:wght@500;600&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/v2.css" />
+  <meta name="color-scheme" content="light" />
+  <meta name="theme-color" content="#fffcf7" />
 </head>
-
-<body>
-  <nav class="navbar">
-    <div class="nav-container">
-      <div class="nav-logo">
-        <h2>Brand Guardian</h2>
+ <body>
+  <!-- Top navigation -->
+  <nav class="topnav" aria-label="Huvudnavigation">
+    <div class="container nav-wrap">
+      <div class="header-profile">
+        <img class="avatar" loading="lazy" src="assets/images/ANDREASFACE-03-06-2024.jpg" alt="Andreas de Boer Moran"/>
+        <div class="who">
+          <div class="name">Andreas de Boer Moran</div>
+          <div class="badge">Språkkonsult</div>
+        </div>
       </div>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Öppna meny">
+        <span class="nav-toggle-line"></span>
+      </button>
       <ul class="nav-menu">
-        <li><a href="#home">Hem</a></li>
-        <li><a href="#services">Tjänster</a></li>
         <li><a href="#about">Om mig</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
-        <li><a href="#booking" class="nav-cta">Boka granskning</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#why">Varför anlita en språkkonsult?</a></li>
+        <li><a href="#brand-guardian">Interkulturell Copy Editor</a></li>
+        <li><a class="nav-cta" href="#contact">Boka granskning</a></li>
       </ul>
     </div>
   </nav>
-
-  <!-- Hidden SVG filters for stamp roughening -->
-  <svg aria-hidden="true" focusable="false" width="0" height="0" style="position:absolute;left:-9999px;overflow:hidden">
-    <defs>
-      <!-- Subtle roughen: light edge warp -->
-      <filter id="stamp-roughen-subtle" x="-5%" y="-5%" width="110%" height="110%">
-        <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7" result="noise"/>
-        <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.6" xChannelSelector="R" yChannelSelector="G"/>
-      </filter>
-      <!-- Medium roughen: more visible distortion -->
-      <filter id="stamp-roughen-medium" x="-7%" y="-7%" width="114%" height="114%">
-        <feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="11" result="noise"/>
-        <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.4" xChannelSelector="R" yChannelSelector="G"/>
-      </filter>
-      <!-- Bold roughen: strong edge wobble -->
-      <filter id="stamp-roughen-bold" x="-10%" y="-10%" width="120%" height="120%">
-        <feTurbulence type="fractalNoise" baseFrequency="1.6" numOctaves="2" seed="17" result="noise"/>
-        <feDisplacementMap in="SourceGraphic" in2="noise" scale="3.6" xChannelSelector="R" yChannelSelector="G"/>
-      </filter>
-    </defs>
-  </svg>
-  
-  <div class="intro" id="home">
-    <div class="intro-layout">
-      <!-- Left Column -->
-      <div class="intro-left">
-        <div class="content-box notebook">
-          <div class="holes">
-            <div class="hole" style="top: 80px;"></div>
-            <div class="hole" style="top: 140px;"></div>
-            <div class="hole" style="top: 200px;"></div>
-            <div class="hole" style="top: 260px;"></div>
-            <div class="hole" style="top: 320px;"></div>
-            <div class="hole" style="top: 380px;"></div>
-            <div class="hole" style="top: 440px;"></div>
-            <div class="hole" style="top: 500px;"></div>
-            <div class="hole" style="top: 560px;"></div>
-            <div class="hole" style="top: 620px;"></div>
-            <div class="hole" style="top: 680px;"></div>
-            <div class="hole" style="top: 740px;"></div>
-          </div>
-          
-          <h1>
-            <span class="h1-line-1"><span class="stamp-text">Kvalitetssäkrad</span></span><br>
-            <span class="h1-line-2">COPY</span><br>
-            <span class="h1-line-3">för svenska företag</span><br>
-            <span class="h1-line-4">med global räckvidd</span>
-          </h1>
-          
-          <div class="speech-bubble">
-            <div class="speech-bubble-content">
-              <p>Jag hjälper svenska företag att undvika <span class="highlight-phrase">språkliga snedsteg</span>, förbättra sin kommunikation och bygga <span class="handwritten">trovärdighet</span> på engelska.</p>
-              <p class="speech-target">För marknadschefer, kommunikationschefer och svenska copywriters som skriver på engelska.</p>
-            </div>
-          </div>
-
-          
-          
-          <div class="intro-profile-section">
-            <div class="intro-profile-right">
-              <img src="assets/images/ANDREASFACE-03-06-2024.jpg" alt="Andreas de Boer Moran" class="intro-profile-image" />
-              <div class="intro-profile-info">
-                <h3>Andreas de Boer Moran</h3>
-                <p class="intro-profile-title">Språkexpert</p>
-              </div>
-            </div>
-          </div>
-          
-          <section class="clients-section">
-            <h2 class="client-heading">Kunder jag brukar skryta om:</h2>
-            <div class="logo-bar">
-              <img src="assets/logos/Google_2015_logo.svg" alt="Google" />
-              <img src="assets/logos/Amazon_logo.svg" alt="Amazon" />
-              <img src="assets/logos/logo-db-schenker-1.svg" alt="DB Schenker" />
-              <img src="assets/logos/tiktok-icon-white-1-logo-svgrepo-com.svg" alt="TikTok" />
-              <img src="assets/logos/wix-svgrepo-com.svg" alt="Wix" />
-              <img src="assets/logos/Film_i_Väst_logo.svg" alt="Film i Väst" />
-            </div>
-            
-          </section>
-        </div>
-      </div>
-      
-      <!-- Right Column -->
-      <div class="intro-right">
-        <div class="cta-wrapper" id="booking">
-          <div class="cta-box">
-            <h2>Nyfiken på om ni gör bort er på engelska?</h2>
-            <div class="offer-callout">
-              <p>
-                Jag granskar cirka 1&nbsp;000 ord –<br>
-                till exempel er “About us”-sida –<br>
-                <span class="angry-underline">helt kostnadsfritt</span>
-              </p>
-            </div>
-            <p class="cta-note">Inga förpliktelser. Svar inom 1 arbetsdag.</p>
-            <p class="arrow">↓</p>
-            <div class="cta-container">
-              <a href="#kontakt" class="cta-button">BOKA GRANSKNING</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="hero-stats">
-      <div class="stat-item">
-        <span class="stat-number">2,5M</span>
-        <span class="stat-label">ord granskade</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-number">100+</span>
-        <span class="stat-label">nöjda kunder</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-number">9 års</span>
-        <span class="stat-label">erfarenhet</span>
-      </div>
-    </div>
-  </div>
-
-  <section class="how-it-works" id="services">
-    <h2>Så här fungerar det</h2>
-    <div class="steps">
-      <div class="step">
-        <div class="step-number">1</div>
-        <div class="step-icon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="2">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-            <polyline points="14,2 14,8 20,8"/>
-            <line x1="16" y1="13" x2="8" y2="13"/>
-            <line x1="16" y1="17" x2="8" y2="17"/>
-            <polyline points="10,9 9,9 8,9"/>
+  <main class="page">
+    <header class="brand">
+      <div class="container brand-wrap">
+        <div class="brand-mark" aria-label="Kvalitetssäkrad">
+          <svg class="mark" width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="22" cy="22" r="20" stroke="currentColor" stroke-width="3"/>
+            <path d="M12 22l6 6 14-14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
+          <div class="brand-text">
+            <span class="brand-line-2">KVALITETSSÄKRAD</span>
+          </div>
         </div>
-        <h3>Skicka innehållet</h3>
-        <p>Lämna över er text, webbplats eller marknadsmaterial som ni vill ha granskat.</p>
       </div>
-      <div class="step">
-        <div class="step-number">2</div>
-        <div class="step-icon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="2">
-            <circle cx="11" cy="11" r="8"/>
-            <path d="M21 21l-4.35-4.35"/>
-          </svg>
+    </header>
+
+    <section class="hero" id="home">
+      <div class="container hero-wrap">
+        <h1 class="hero-title">
+          <span class="line">COPY</span>
+          <span class="line hero-middle">för SVENSKA MARKNADSTEAM</span>
+          <span class="line accent">med global räckvidd</span>
+        </h1>
+
+        <p class="sublead">Jag hjälper svenska marknadschefer, kommunikationschefer och copywriters att undvika språkliga snedsteg, förbättra sin kommunikation och bygga <strong>trovärdighet</strong> på <span class="u-underline">engelska</span>.</p>
+
+        <p class="logo-caption">KUNDER JAG BRUKAR SKRYTA OM</p>
+        <div class="logo-strip" aria-label="Kunder">
+          <div class="logo-marquee">
+            <div class="logo-track">
+            <img loading="lazy" class="client-logo" src="assets/logos/Google_2015_logo.svg" alt="Google" />
+            <img loading="lazy" class="client-logo" src="assets/logos/Amazon_logo.svg" alt="Amazon" />
+            <img loading="lazy" class="client-logo compact" src="assets/logos/logo-db-schenker-1.svg" alt="DB Schenker" />
+            <img loading="lazy" class="client-logo compact invert" src="assets/logos/tiktok-icon-white-1-logo-svgrepo-com.svg" alt="TikTok" />
+            <img loading="lazy" class="client-logo" src="assets/logos/wix-svgrepo-com.svg" alt="Wix" />
+            <img loading="lazy" class="client-logo compact invert" src="assets/logos/Film_i_Väst_logo.svg" alt="Film i Väst" />
+            </div>
+            <div class="logo-track logo-track--dup" aria-hidden="true">
+              <img loading="lazy" class="client-logo" src="assets/logos/Google_2015_logo.svg" alt="" />
+              <img loading="lazy" class="client-logo" src="assets/logos/Amazon_logo.svg" alt="" />
+              <img loading="lazy" class="client-logo compact" src="assets/logos/logo-db-schenker-1.svg" alt="" />
+              <img loading="lazy" class="client-logo compact invert" src="assets/logos/tiktok-icon-white-1-logo-svgrepo-com.svg" alt="" />
+              <img loading="lazy" class="client-logo" src="assets/logos/wix-svgrepo-com.svg" alt="" />
+              <img loading="lazy" class="client-logo compact invert" src="assets/logos/Film_i_Väst_logo.svg" alt="" />
+            </div>
+          </div>
         </div>
-        <h3>Grundlig granskning</h3>
-        <p>Jag analyserar språket, grammatiken och tonen för att säkerställa professionell kommunikation.</p>
-      </div>
-      <div class="step">
-        <div class="step-number">3</div>
-        <div class="step-icon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="2">
-            <path d="M9 12l2 2 4-4"/>
-            <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3"/>
-            <path d="M3 12c1 0 3-1 3-3s-2-3-3-3-3 1-3 3 2 3 3 3"/>
-            <path d="M12 3c0 1-1 3-3 3s-3-2-3-3 1-3 3-3 3 2 3 3"/>
-            <path d="M12 21c0-1 1-3 3-3s3 2 3 3-1 3-3 3-3-2-3-3"/>
-          </svg>
         </div>
-        <h3>Förbättringsförslag</h3>
-        <p>Ni får detaljerade kommentarer och förslag på förbättringar som stärker er trovärdighet.</p>
+
+        
       </div>
-    </div>
-  </section>
-
-  <div class="profile-section" id="about">
-    <img src="assets/images/ANDREASFACE-03-06-2024.jpg" alt="Andreas de Boer Moran – språkexpert" class="profile-image" />
-    <div class="profile-info">
-      <h3>Andreas de Boer Moran</h3>
-      <p class="profile-title">Språkexpert</p>
-      <a href="#kontakt" class="contact-link">Kontakta mig</a>
-    </div>
-  </div>
-
-  <div class="content-section" id="why">
-    <h2>Varför behöver svenska företag språkhjälp?</h2>
-    <p class="lead">Sverige är ett land med stor internationell aptit. Denna aptit omfattar allt från populärkultur till företagliga ambitioner.</p>
-    
-    <div class="expandable-content">
-      <div class="content-preview">
-        <p>En obekväm sanning är att svenskar generellt sett inte är riktigt så bra på engelska som de tror att de är. Språkbrott begås regelbundet och helt omedvetet...</p>
-        <button class="read-more-btn" onclick="toggleContent(this)">Läs mer</button>
-      </div>
-      <div class="content-full" style="display: none;">
-        <p>En obekväm sanning är att svenskar generellt sett inte är riktigt så bra på engelska som de tror att de är. Språkbrott begås regelbundet och helt omedvetet – det kan handla om ordspråk som nästan använts rätt, ord i fel sammanhang, betoningar som hamnar fel i en mening, eller ord som böjs på sätt de aldrig borde.</p>
-        <p>Svenska copywriters, marknadschefer och kommunikatörer är inte undantagna från detta goda språk­liga självförtroende. De skulle till och med kunna vara hårdare drabbade än genomsnittet. Det kan ju bli så när man dagligen jobbar med kommunikation.</p>
-        <button class="read-less-btn" onclick="toggleContent(this)">Läs mindre</button>
-      </div>
-    </div>
-
-    <h3>Vanliga språkliga snedsteg jag hittar</h3>
-    <ul class="content-list">
-      <li>Direktöversatta ordspråk som inte finns på engelska.</li>
-      <li>Falska vänner – ord som betyder något helt annat än på svenska.</li>
-      <li>Tonfall som låter för internt, stelt eller “svengelskt”.</li>
-      <li>Call to actions som blir otydliga för internationella läsare.</li>
-    </ul>
-  </div>
-
-  <p>”Ja, det kanske du har rätt i, men det gäller inte mig,” tänker du (särskilt om du är copywriter). “Jag har ju sett alla säsonger av Friends och OC. Jag har till och med läst Hemingway på engelska, och jag fick VG+ i engelska på gymnasiet,” och så vidare.</p>
-
-  <p>Problemet är att det är omöjligt att identifiera och undvika misstag man inte vet att man gör. Och vet du vad? Det är helt okej. Det är inte rimligt att förvänta sig modersmåls­kompetens av någon som inte har engelska som modersmål. I vardagliga sammanhang kan det till och med vara charmigt att prata svengelska utan att veta om det.</p>
-
-  <p>I affärssammanhang däremot – det är en annan femma.</p>
-
-  <p>Engelska­kompetensen i ditt marknadsföringsteam kan var väldigt hög – men problem som svensktalande oundvikligen är blinda för, både grövre och mer subtila, är smärtsamt uppenbara för dina engelsktalande intressenter och samarbetspartners.</p>
-
-  <p>Det kan alltså vara så att din copy på engelska nästan håller måttet – men “nästan” håller inte måttet – inte i professionella sammanhang.</p>
-
-  <p>När du kommunicerar på den internationella marknaden kan det vara helt avgörande att du uppfattas som seriös, trovärdig och kompetent – och att du faktiskt kommunicerar det du tror att du kommunicerar.</p>
-
-  <p>Du betalar bra pengar för din copy – och dina copywriters, interna som externa, ägnar tid och tankekraft åt att skriva texter som fungerar för dig. Så snubbla inte på mållinjen.</p>
-
-  <p>Om du har svenska copywriters som skriver copy på engelska så måste du ha en Brand Guardian som kan validera dina texter.</p>
-
-  <p><strong>Skaffa dig en Brand Guardian.</strong></p>
-
-      <h2>Vad är en Brand Guardian?</h2>
-
-      <p>Som Brand Guardian lär jag känna ert varumärke. Jag gör mig införstådd med era marknadsföringsmål. Jag granskar sedan era marknadsföringstexter på engelska och säkerställer delvis att ni kommunicerar på korrekt engelska, men också till att ni uppfattas så som ni vill uppfattas, med hänsyn till ton och målgrupp OCH att era texter håller en inhemsk nivå.</p>
-
-      <p>Jag är vad man skulle kunna kalla för bikulturell; till en tredjedel britt, en tredjedel amerikan och en tredjedel svensk (det blir kanske trikulturell), vilket innebär att jag har en fot i två världar kulturellt – både den engelskspråkiga och den svenska.</p>
-
-      <p>I snart ett decennium har jag specialiserat mig på att hjälpa företag att kommunicera med en internationell publik. Jag har lokaliserat och redigerat närmare 2.5 miljoner källord av copy och andra typer av marknadsföringstexter åt företag som bland andra, Google, TikTok, Amazon, Wix och Film i Väst.</p>
-
-      <p>I kombination med min erfarenhet, har jag alltså lite av en superkraft: jag kan skriva copy på modersmålsnivå, både på svenska och engelska.</p>
-
-      <p><strong>Ta kontakt med mig.</strong><br>
-        Jag granskar cirka 1000 ord, till exempel er “About You”-sida, helt kostnadsfritt.
-      </p>
-
-      <p>Om jag identifierar några problem så beskriver jag precis vad problemen är och varför det behöver åtgärdas på ett lättbegripligt sätt – sedan kommer jag med konkreta förslag på hur texten kan förbättras.</p>
-
-      <p>Om ni tycker att mina förbättringsförslag låter rimliga så hjälper jag er gärna vidare.</p>
     </section>
 
-    <footer id="kontakt">
-      <p>Kontakta mig: <a href="mailto:andreas@brandguardian.se">andreas@brandguardian.se</a></p>
-    </footer>
-
-    <!-- trigger rebuild -->
     
-    <script>
-      // Counter animation for stats
-      function animateCounter(element, start, end, duration, suffix = '') {
-        const startTime = performance.now();
-        
-        function updateCounter(currentTime) {
-          const elapsed = currentTime - startTime;
-          const progress = Math.min(elapsed / duration, 1);
-          
-          // Easing function for smooth animation
-          const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-          const current = Math.floor(start + (end - start) * easeOutQuart);
-          
-          element.textContent = current.toLocaleString('sv-SE') + suffix;
-          
-          if (progress < 1) {
-            requestAnimationFrame(updateCounter);
-          }
-        }
-        
-        requestAnimationFrame(updateCounter);
+
+    <!-- Section 2: CTA + Profile + Stats (plateau) -->
+    <section class="plateau-2">
+      <div class="container">
+        <div class="cta-card">
+          <h2 class="cta-question">Gör ni bort er på engelska?</h2>
+          <div class="cta-divider" aria-hidden="true"></div>
+          <p class="cta-sub">Låt mig granska ert innehåll helt kostnadsfritt.</p>
+          <a class="btn cta" href="#contact">Boka granskning</a>
+          <p class="arrow" aria-hidden="true">↓</p>
+        </div>
+
+        <div class="experience-card" id="about">
+          <div class="profile">
+            <img class="avatar" loading="lazy" src="assets/images/ANDREASFACE-03-06-2024.jpg" alt="Andreas de Boer Moran"/>
+            <div class="who">
+              <div class="name">Andreas de Boer Moran</div>
+              <div class="badge">Språkkonsult</div>
+            </div>
+          </div>
+          <div class="profile-copy">
+            <p class="profile-quote">Jag är en språkkonsult med både engelska och svenska som modersmål och lång erfarenhet av kreativ översättning med fokus på marknadsföringstexter.</p>
+            <p class="profile-quote">Denna specialistkompetens gör mig unikt lämpad för en specifik uppgift: att <span class="profile-highlight">identifiera och åtgärda problem i er engelska copy</span> som svenska copywriters oundvikligen missar – oavsett hur duktiga på engelska de själva anser att de är.</p>
+          </div>
+          <h3 class="stats-title">
+            <span class="sr-only">Min erfarenhet i siffror</span>
+            <svg class="stats-arch" viewBox="0 0 500 120" role="presentation" aria-hidden="true">
+              <path id="stats-arch-path" d="M20 100 Q250 82 480 100" fill="none" />
+              <text>
+                <textPath href="#stats-arch-path" startOffset="50%" text-anchor="middle">Min erfarenhet i siffror</textPath>
+              </text>
+            </svg>
+          </h3>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span class="corner tl" aria-hidden="true"></span>
+              <span class="corner tr" aria-hidden="true"></span>
+              <span class="corner bl" aria-hidden="true"></span>
+              <span class="corner br" aria-hidden="true"></span>
+              <div class="stat-value">3 <span class="suffix">mn</span></div>
+              <div class="stat-label"><span>ORD</span><span>GRANSKADE</span></div>
+            </div>
+            <div class="stat-card">
+              <span class="corner tl" aria-hidden="true"></span>
+              <span class="corner tr" aria-hidden="true"></span>
+              <span class="corner bl" aria-hidden="true"></span>
+              <span class="corner br" aria-hidden="true"></span>
+              <div class="stat-value">100 <span class="suffix suffix-plus">+</span></div>
+              <div class="stat-label"><span>NÖJDA</span><span>KUNDER</span></div>
+            </div>
+            <div class="stat-card">
+              <span class="corner tl" aria-hidden="true"></span>
+              <span class="corner tr" aria-hidden="true"></span>
+              <span class="corner bl" aria-hidden="true"></span>
+              <span class="corner br" aria-hidden="true"></span>
+              <div class="stat-value">9 <span class="suffix">års</span></div>
+              <div class="stat-label"><span>ERFARENHET</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Riser between Section 2 and Section 3 (Process+Why) -->
+    <div class="section-steps" aria-hidden="true"></div>
+
+    
+  </main>
+
+  <!-- Section 3: Process + Why (plateau) -->
+  <section class="plateau-3">
+    <section class="process" id="process">
+      <div class="container">
+        <h2 class="process-title">Hur jag arbetar</h2>
+        <ol class="process-list">
+          <li class="process-item">
+            <div class="step-num">01</div>
+            <div class="step-body">
+              <h3 class="step-title">Kostnadsfri första granskning</h3>
+              <p class="step-text">Skicka mig en sida text (upp till 1 000 ord) som ni vill att jag granskar.</p>
+              <p class="step-text">Granskningen är helt kostnadsfri och ger er en tydlig bild av hur jag arbetar och vilken nivå er engelska copy håller.</p>
+            </div>
+          </li>
+          <li class="process-item">
+            <div class="step-num">02</div>
+            <div class="step-body">
+              <h3 class="step-title">Återkoppling</h3>
+              <p class="step-text">Jag granskar texten i detalj och levererar en rapport där jag tydligt redogör för:</p>
+              <ul class="step-bullets">
+                <li>vilka problem jag identifierat</li>
+                <li>vad som inte fungerar och varför</li>
+                <li>konkreta förbättringsförslag</li>
+                <li>resonemanget bakom varje ändring</li>
+              </ul>
+            </div>
+          </li>
+          <li class="process-item">
+            <div class="step-num">03</div>
+            <div class="step-body">
+              <h3 class="step-title">Avstämning och behovsanalys</h3>
+              <p class="step-text">Om ni är nöjda med mina förbättringsförslag och vill att jag granskar mer av ert innehåll diskuterar vi omfattning och tidsram för nästa leverans.</p>
+              <p class="step-text">Inför ett större samarbete sätter jag mig in i ert varumärke, er Tone of Voice och era kommunikativa mål, så att alla förslag ligger i linje med hur ni vill uppfattas.</p>
+            </div>
+          </li>
+          <li class="process-item">
+            <div class="step-num">04</div>
+            <div class="step-body">
+              <h3 class="step-title">Löpande samarbete</h3>
+              <p class="step-text">Vid större projekt eller återkommande behov etablerar vi ett löpande arbetssätt.</p>
+              <p class="step-text">Leveranser kan ske enligt ett överenskommet  schema och arbetsättet kan anpassas efter era interna processer.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Divider between Process and Why -->
+    <div class="section-steps" aria-hidden="true"></div>
+
+    <!-- Why section -->
+    <section class="why" id="why">
+      <div class="container why-wrap">
+        <div class="why-copy">
+          <h2 class="why-title">Varför anlita en språkkonsult?</h2>
+          <p class="why-lead"><em>Sverige är i mångt och mycket ett land som blickar utåt.</em></p>
+          <div class="why-text">
+            <p>Populärkultur exporteras och importeras ledigt till och från den engelskspråkiga världen och utländska marknader är en självklar del av svenska företags tillväxtstrategier.</p>
+            <p>Denna internationella inställning har gjort svenskarna särskilt mottagliga för det engelska språket.</p>
+            <p>Och svenskar är duktiga på engelska – särskilt om man jämför med hur det ser ut i många andra länder. Men som min engelska pappa gärna anmärker: “de air inte sow duk-tigga som de troor att de air.”</p>
+            <p>Den goda nyheten är att ingen förväntar sig modersmålskompetens av dig som inte använder engelska till vardags – och som inte vuxit upp med språket, eller i en engelskspråkig kultur. Det hade varit helt orimligt. Och man kan inte hjälpa att man begår misstag som man inte vet att man begår.</p>
+            <p>Det är till och med charmigt att prata lite svengelska utan att veta om det själv. I vardagliga sammanhang.</p>
+            <div id="why-more" class="more">
+              <p>När man kommunicerar med kunder och intressenter ser kraven däremot lite annorlunda ut. Och häri ligger problemet: årtionden av popkulturellt inflytande och internationell företagskultur har gett svenska kommunikatörer en självdestruktiv övertro på den egna engelskakompetensen.</p>
+              <p>Även välkända svenska företag publicerar (förvånansvärt nog) regelbundet innehåll på engelska som helt enkelt inte håller måttet – och som allt för ofta faktiskt är helt oseriöst kvalitetsmässigt.</p>
+              <p>Inte sällan rör det sig om grundläggande grammatiska fel, men man behöver inte göra grova misstag för att göra ett oseriöst intryck. Det kan, till exempel, handla om uttryck och ordspråk som <em>nästan</em> används i rätt sammanhang, meningar som följer svensk språklogik, eller en betoning som hamnar fel i en ordföljd.</p>
+              <p>Oavsett hur språkkunning man tror att man  är så kommer man, som svensk, alltid göra misstag på engelska som man inte är kulturellt eller språkligt utrustad att identifiera.</p>
+              <p>Dessa misstag är emellertid pinsamt uppenbara för engelskspråkiga mottagare.</p>
+              <p>Konsekvensen blir skadat anseende och minskad trovärdighet, vilket innebär förlorade affärsmöjligheter.</p>
+              <p>Företag investerar stora summor i sin marknadsföring och copywriters lägger ner möda och tankekraft på sin copy, så varför riskera att snubbla på mållinjen?</p>
+              <p>Om du är en innehållsskapare som skriver copy på engelska eller en marknadschef som ansvarar för internationella kampanjer så behöver du en interkulturell copy editor som kan korrekturläsa och redigera dina texter.</p>
+            </div>
+          </div>
+          <button class="btn outline read-more-btn" data-target="why-more" aria-expanded="false">Läs mer</button>
+        </div>
+        <div class="why-illustration" aria-hidden="true">
+          <img class="why-svg" loading="lazy" src="assets/svg/list-check-svgrepo-com-gold.svg" alt="" />
+        </div>
+      </div>
+    </section>
+    
+    <!-- Divider between Why and Article (tightened) -->
+    <div class="section-steps is-tight" aria-hidden="true"></div>
+
+    <!-- New Article: Brand Guardian (match first article layout) -->
+    <section class="article brand-guardian" id="brand-guardian">
+      <div class="container why-wrap">
+        <div class="why-copy">
+          <h2 class="why-title">Vad är en interkulturell Copy Editor?</h2>
+          <p class="why-lead"><em>Som interkulturell Copy Editor (eller Brand Guardian) lär jag känna ett varumärke – jag gör mig införstådd med marknadsföringsmål, vilken ton ni vill förmedla och vilken målgrupp ni vill nå.</em></p>
+          <div class="why-text">
+            <p>Sedan säkerställer jag dels att ni kommunicerar på korrekt engelska – grammatiskt, syntaktiskt och semantiskt – men också till att ni uppfattas så som ni vill uppfattas: att varumärkets personlighet och budskap förmedlas med förtroendeingivande precision, samt att materialet har den avsedda effekten hos mottagaren.</p>
+            <p>Sist men inte minst ser jag till att era texter uppnår modersmålsnivå. Det här kriteriet är svårast att uppfylla men är helt avgörande för att etablera trovärdighet hos en engelsktalande publik.</p>
+            <div id="bg-more" class="more">
+              <p>Era mål kan vara väl definierade, målgruppen tydligt kartlagd, strategin glasklar och det kreativa konceptet strålande, men om teamet består av svenskar, med svenska som modersmål, så saknar ni kompetensen som krävs för att kvalitetssäkra slutprodukten.</p>
+              <p>Denna uppgift kräver gedigen erfarenhet av kreativ översättning, copyredigering och engelskspråkig kommunikation, samt ett interkulturellt perspektiv, rotat i en interkulturell bakgrund.</p>
+              <p>Det är denna spetskompetens en interkulturell copy editor kan erbjuda.</p>
+            </div>
+          </div>
+          <button class="btn outline read-more-btn" data-target="bg-more" aria-expanded="false">Läs mer</button>
+        </div>
+        <div class="why-illustration" aria-hidden="true">
+          <img class="why-svg" loading="lazy" src="assets/svg/shield-check-gold.svg" alt="" />
+        </div>
+      </div>
+    </section>
+
+    
+
+    <!-- Sticky CTA (appears on scroll) -->
+    <a href="#contact" class="sticky-cta" aria-label="Boka granskning">Boka granskning</a>
+  </section>
+  
+  <!-- Contact footer -->
+  <footer id="contact" class="contact">
+    <div class="container">
+      <h2 class="process-title" style="text-align:center">Boka granskning</h2>
+      <p class="contact-kicker">Skicka in valfritt innehåll för en kostnadsfri första granskning.</p>
+      <form id="contact-form" class="contact-form" novalidate>
+        <div class="field">
+          <label for="name">Namn</label>
+          <input id="name" name="name" type="text" autocomplete="name" required />
+        </div>
+        <div class="field">
+          <label for="email">E‑post</label>
+          <input id="email" name="email" type="email" autocomplete="email" required />
+        </div>
+        <div class="field full">
+          <label for="url">Webbplats eller sida att granska (valfritt)</label>
+          <input id="url" name="url" type="url" inputmode="url" placeholder="https://…" />
+        </div>
+        <div class="field full">
+          <label for="message">Meddelande</label>
+          <textarea id="message" name="message" placeholder="Kort om era behov och vad ni vill få granskat" required></textarea>
+        </div>
+        <p class="privacy-note">Din information används endast för att svara på din förfrågan och delas aldrig.</p>
+        <div class="form-actions">
+          <button class="btn cta" type="submit">Boka granskning</button>
+          <span class="hint">eller maila direkt: <a href="mailto:andreas@brandguardian.se">andreas@brandguardian.se</a></span>
+        </div>
+      </form>
+    </div>
+  </footer>
+<script>
+  // Mobile nav toggle
+  (function() {
+    const toggle = document.querySelector('.nav-toggle');
+    const menu = document.querySelector('.nav-menu');
+    if (!toggle || !menu) return;
+    function closeMenu() {
+      menu.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+    toggle.addEventListener('click', () => {
+      const open = !menu.classList.contains('is-open');
+      if (open) {
+        menu.classList.add('is-open');
+        toggle.setAttribute('aria-expanded', 'true');
+      } else {
+        closeMenu();
       }
-      
-      // Counter animation for millions (0.0 to 2.5)
-      function animateCounterMillions(element, start, end, duration) {
-        const startTime = performance.now();
-        
-        function updateCounter(currentTime) {
-          const elapsed = currentTime - startTime;
-          const progress = Math.min(elapsed / duration, 1);
-          
-          // Easing function for smooth animation
-          const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-          const current = start + (end - start) * easeOutQuart;
-          
-          // Format as decimal with 1 decimal place, then add M
-          element.textContent = current.toFixed(1).replace('.', ',') + 'M';
-          
-          if (progress < 1) {
-            requestAnimationFrame(updateCounter);
-          }
-        }
-        
-        requestAnimationFrame(updateCounter);
+    });
+    menu.addEventListener('click', (e) => {
+      if (e.target.closest('a')) closeMenu();
+    });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 720) closeMenu();
+    }, { passive: true });
+  })();
+</script>
+<script>
+  // Animate v2 stat cards when visible
+  (function() {
+    const grid = document.querySelector('.stats-grid');
+    if (!grid) return;
+
+    function animateNumber(el, start, end, duration, formatter) {
+      const t0 = performance.now();
+      function frame(now) {
+        const p = Math.min((now - t0) / duration, 1);
+        const eased = 1 - Math.pow(1 - p, 4);
+        const value = start + (end - start) * eased;
+        formatter(el, value);
+        if (p < 1) requestAnimationFrame(frame);
       }
-      
-      // Smooth counter animation for whole numbers with decimal precision
-      function animateCounterSmooth(element, start, end, duration, suffix = '') {
-        const startTime = performance.now();
-        
-        function updateCounter(currentTime) {
-          const elapsed = currentTime - startTime;
-          const progress = Math.min(elapsed / duration, 1);
-          
-          // Linear easing for more consistent speed
-          const current = start + (end - start) * progress;
-          
-          // Show as whole number but with smooth decimal progression
-          element.textContent = Math.floor(current) + suffix;
-          
-          if (progress < 1) {
-            requestAnimationFrame(updateCounter);
-          }
+      requestAnimationFrame(frame);
+    }
+
+    function startCounters(container) {
+      const values = container.querySelectorAll('.stat-value');
+      values.forEach(v => {
+        const text = v.textContent.trim();
+        const suffixSpan = v.querySelector('.suffix');
+        const upper = text.toUpperCase();
+        const lower = text.toLowerCase();
+        if (lower.includes(' mn')) {
+          const target = parseFloat(lower.replace('mn','').replace(',','.')) || 0;
+          const suffixHTML = suffixSpan ? ' ' + suffixSpan.outerHTML : ' mn';
+          animateNumber(v, 0, target, 1800, (el, val) => {
+            el.innerHTML = val.toFixed(1).replace('.', ',') + suffixHTML;
+          });
+        } else if (lower.includes('miljoner')) {
+          const target = parseFloat(lower.replace('miljoner','').replace(',','.')) || 0;
+          const suffixHTML = suffixSpan ? ' ' + suffixSpan.outerHTML : ' miljoner';
+          animateNumber(v, 0, target, 1800, (el, val) => {
+            el.innerHTML = val.toFixed(1).replace('.', ',') + suffixHTML;
+          });
+        } else if (upper.includes('MN')) {
+          const target = parseFloat(upper.replace('MN','').replace(',','.')) || 0;
+          const suffixHTML = suffixSpan ? ' ' + suffixSpan.outerHTML : ' MN';
+          animateNumber(v, 0, target, 1800, (el, val) => {
+            el.innerHTML = val.toFixed(1).replace('.', ',') + suffixHTML;
+          });
+        } else if (text.includes('M')) {
+          // e.g. "2,5M"
+          const target = parseFloat(text.replace('M','').replace(',','.')) || 0;
+          animateNumber(v, 0, target, 1800, (el, val) => {
+            el.textContent = val.toFixed(1).replace('.', ',') + 'M';
+          });
+        } else if (text.endsWith('+')) {
+          // e.g. "100+"
+          const target = parseInt(text, 10) || 0;
+          const suffixHTML = suffixSpan ? ' ' + suffixSpan.outerHTML : '+';
+          animateNumber(v, 0, target, 1600, (el, val) => {
+            el.innerHTML = Math.floor(val) + suffixHTML;
+          });
+        } else if (suffixSpan) {
+          // e.g. "9 års" where suffix is a span
+          const target = parseInt(text, 10) || 0;
+          const suffixHTML = ' ' + suffixSpan.outerHTML;
+          animateNumber(v, 0, target, 1600, (el, val) => {
+            el.innerHTML = Math.floor(val) + suffixHTML;
+          });
         }
-        
-        requestAnimationFrame(updateCounter);
+      });
+    }
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          startCounters(e.target);
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.4, rootMargin: '0px 0px -80px 0px' });
+
+    io.observe(grid);
+  })();
+</script>
+<script>
+  // Align the grey process spine with the top of the first gold bar
+  // and the bottom of the last gold bar
+  (function() {
+    function updateSpine() {
+      const section = document.querySelector('.process');
+      if (!section) return;
+      const list = section.querySelector('.process-list');
+      if (!list) return;
+      const items = list.querySelectorAll('.process-item');
+      if (!items.length) return;
+      const firstNum = items[0].querySelector('.step-num');
+      const lastNum = items[items.length - 1].querySelector('.step-num');
+      if (!firstNum || !lastNum) return;
+
+      const listRect = list.getBoundingClientRect();
+      const firstRect = firstNum.getBoundingClientRect();
+      const lastRect = lastNum.getBoundingClientRect();
+
+      // Read computed height of the gold marker (::after) in px
+      const csFirstAfter = window.getComputedStyle(firstNum, '::after');
+      const goldH = parseFloat(csFirstAfter.getPropertyValue('height')) || 20;
+
+      const firstMid = (firstRect.top + firstRect.bottom) / 2 - listRect.top;
+      const lastMid = (lastRect.top + lastRect.bottom) / 2 - listRect.top;
+
+      const offsetTop = Math.max(0, firstMid - goldH / 2);
+      const height = Math.max(0, (lastMid + goldH / 2) - offsetTop);
+
+      section.style.setProperty('--spine-offset-top', offsetTop + 'px');
+      section.style.setProperty('--spine-height', height + 'px');
+      // Keep CSS var for gold height in sync with computed pixels
+      section.style.setProperty('--gold-h', goldH + 'px');
+    }
+
+    window.addEventListener('load', function() {
+      updateSpine();
+      const list = document.querySelector('.process .process-list');
+      if (list && 'ResizeObserver' in window) {
+        const ro = new ResizeObserver(updateSpine);
+        ro.observe(list);
       }
-      
-      // Intersection Observer to trigger animation when stats come into view
-      const observerOptions = {
-        threshold: 0.5,
-        rootMargin: '0px 0px -100px 0px'
-      };
-      
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const statNumbers = entry.target.querySelectorAll('.stat-number');
-            
-            // Animate each stat with different values and durations
-            statNumbers.forEach((stat, index) => {
-              const originalText = stat.textContent;
-              
-              if (originalText.includes('2,5M')) {
-                animateCounterMillions(stat, 0, 2.5, 2000);
-              } else if (originalText.includes('100+')) {
-                animateCounterSmooth(stat, 0, 100, 2000, '+');
-              } else if (originalText.includes('9 års')) {
-                animateCounterSmooth(stat, 0, 9, 2000, ' års');
-              }
-            });
-            
-            // Stop observing after animation
-            observer.unobserve(entry.target);
-          }
+      // Additional pass after layout settles
+      setTimeout(updateSpine, 100);
+    });
+    window.addEventListener('resize', updateSpine, { passive: true });
+  })();
+</script>
+<script>
+  // Trigger a fast band-limited color-inverting wipe only over the CTA area
+  (function() {
+    const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) return;
+    const cta = document.querySelector('.cta-card');
+    if (!cta || !('IntersectionObserver' in window)) return;
+    const once = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          // Create a fixed overlay band aligned to the CTA's vertical bounds
+          const rect = cta.getBoundingClientRect();
+          const band = document.createElement('div');
+          band.className = 'invert-wipe-band';
+          band.style.top = Math.max(0, rect.top - 12) + 'px';
+          band.style.height = (rect.height + 24) + 'px';
+          document.body.appendChild(band);
+          band.addEventListener('animationend', () => band.remove(), { once: true });
+          once.unobserve(cta);
+        }
+      });
+    }, { threshold: 0.5, rootMargin: '0px 0px -80px 0px' });
+    once.observe(cta);
+  })();
+</script>
+<script>
+  // Läs mer / Läs mindre toggle with smooth transition
+  (function() {
+    function toggleMore(more, btn) {
+      const open = more.classList.contains('is-open');
+      if (!open) {
+        more.classList.add('is-open');
+        btn.setAttribute('aria-expanded', 'true');
+        btn.textContent = 'Läs mindre';
+      } else {
+        more.classList.remove('is-open');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.textContent = 'Läs mer';
+      }
+    }
+    document.addEventListener('click', function(e) {
+      const btn = e.target.closest('.read-more-btn');
+      if (!btn) return;
+      const id = btn.getAttribute('data-target');
+      if (!id) return;
+      const more = document.getElementById(id);
+      if (!more) return;
+      toggleMore(more, btn);
+    });
+  })();
+</script>
+<script>
+  // Sticky CTA visibility on scroll
+  (function() {
+    const sticky = document.querySelector('.sticky-cta');
+    if (!sticky) return;
+    let scrolledPastHero = false;
+    function onScroll() {
+      const y = window.scrollY || document.documentElement.scrollTop;
+      scrolledPastHero = y > 480;
+      update();
+    }
+    function update() {
+      if (scrolledPastHero && !contactVisible) sticky.classList.add('show');
+      else sticky.classList.remove('show');
+    }
+    let contactVisible = false;
+    const contact = document.getElementById('contact');
+    if (contact && 'IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          contactVisible = e.isIntersecting;
+          update();
         });
-      }, observerOptions);
-      
-      // Start observing the stats section
-      const statsSection = document.querySelector('.hero-stats');
-      if (statsSection) {
-        observer.observe(statsSection);
+      }, { threshold: 0.1, rootMargin: '0px 0px -10% 0px' });
+      io.observe(contact);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+</script>
+<script>
+  // Scrollspy: highlight active nav link
+  (function() {
+    const nav = document.querySelector('.topnav');
+    if (!nav) return;
+    const links = Array.from(nav.querySelectorAll('.nav-menu a[href^="#"]'));
+    const map = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
+    const ids = Array.from(map.keys());
+    const sections = ids
+      .map(id => document.getElementById(id))
+      .filter(Boolean);
+    if (!sections.length) return;
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const id = e.target.id;
+          links.forEach(a => a.classList.remove('active'));
+          const link = map.get(id);
+          if (link) link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0.01 });
+    sections.forEach(s => io.observe(s));
+  })();
+</script>
+<script>
+  // Simple mailto handler for contact form
+  (function() {
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (!form.reportValidity || form.reportValidity()) {
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const url = document.getElementById('url').value.trim();
+        const message = document.getElementById('message').value.trim();
+        const subject = encodeURIComponent('Boka granskning – ' + (name || '')); 
+        const bodyLines = [
+          'Namn: ' + name,
+          'E‑post: ' + email,
+          url ? ('URL: ' + url) : '',
+          '',
+          message
+        ].filter(Boolean);
+        const body = encodeURIComponent(bodyLines.join('\n'));
+        window.location.href = 'mailto:andreas@brandguardian.se?subject=' + subject + '&body=' + body;
       }
-
-      // Subtle parallax for hero wallpaper (respects reduced motion)
-      (function() {
-        const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (prefersReducedMotion) return;
-        const intro = document.querySelector('.intro');
-        if (!intro) return;
-        let ticking = false;
-
-        function updateParallax() {
-          const rect = intro.getBoundingClientRect();
-          const viewportH = window.innerHeight || document.documentElement.clientHeight;
-          // Offset based on section's center relative to viewport center
-          const midDelta = (rect.top + rect.height / 2) - (viewportH / 2);
-          const offset = -midDelta * 0.09; // slightly stronger: ~9% of movement
-          intro.style.setProperty('--bg-offset', offset.toFixed(2) + 'px');
-          ticking = false;
-        }
-
-        function onScroll() {
-          if (!ticking) {
-            window.requestAnimationFrame(updateParallax);
-            ticking = true;
-          }
-        }
-
-        updateParallax();
-        window.addEventListener('scroll', onScroll, { passive: true });
-        window.addEventListener('resize', updateParallax, { passive: true });
-      })();
-    </script>
-  </body>
+    });
+  })();
+</script>
+</body>
 </html>
