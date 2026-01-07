@@ -89,3 +89,285 @@
 ::1 - - [07/Jan/2026 16:37:09] "GET /assets/css/v2.css HTTP/1.1" 304 -
 ::1 - - [07/Jan/2026 16:37:35] "GET / HTTP/1.1" 304 -
 ::1 - - [07/Jan/2026 16:37:35] "GET /assets/css/v2.css HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:39:22] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:39:22] "GET /assets/css/v2.css HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:41:51] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:41:51] "GET /assets/css/v2.css HTTP/1.1" 200 -
+::1 - - [07/Jan/2026 16:43:17] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:43:17] "GET /assets/css/v2.css HTTP/1.1" 200 -
+::1 - - [07/Jan/2026 16:43:18] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:43:18] "GET /assets/css/v2.css HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:44:16] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:44:16] "GET /assets/css/v2.css HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:44:17] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:44:17] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:44:17] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:44:17] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:44:34] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:44:34] "GET /assets/css/v2.css HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:46:05] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:46:05] "GET /assets/css/v2.css HTTP/1.1" 200 -
+::1 - - [07/Jan/2026 16:46:06] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:46:06] "GET /assets/css/v2.css HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:46:06] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:46:06] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:46:50] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:46:50] "GET /assets/css/v2.css HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:46:50] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:46:51] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:46:52] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:46:53] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:46:54] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:46:54] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:46:55] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:46:56] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:46:56] "GET /assets/css/v2.css HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:46:59] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:46:59] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:46:59] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:47:00] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:49:27] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:49:27] "GET /assets/css/v2.css HTTP/1.1" 200 -
+::1 - - [07/Jan/2026 16:49:28] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:49:28] "GET /assets/css/v2.css HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:49:28] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:49:28] "GET /assets/css/v2.css HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:49:29] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:49:29] "GET /assets/css/v2.css HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:49:29] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:49:38] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:49:38] "GET /assets/css/v2.css HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:49:38] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:49:39] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:49:39] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:49:39] "GET /assets/css/v2.css HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:51:23] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:51:23] "GET /assets/css/v2.css HTTP/1.1" 200 -
+::1 - - [07/Jan/2026 16:51:24] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:51:24] "GET /assets/css/v2.css HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:52:03] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:52:03] "GET /assets/css/v2.css HTTP/1.1" 200 -
+::1 - - [07/Jan/2026 16:52:28] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:52:28] "GET /assets/css/v2.css HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:52:41] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:52:41] "GET /assets/css/v2.css HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:52:42] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:52:42] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:52:42] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:52:47] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:52:47] "GET /assets/css/v2.css HTTP/1.1" 200 -
+::1 - - [07/Jan/2026 16:52:47] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:52:47] "GET /assets/css/v2.css HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:53:23] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:53:23] "GET /assets/css/v2.css HTTP/1.1" 200 -
+::1 - - [07/Jan/2026 16:53:24] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:53:24] "GET /assets/css/v2.css HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:53:30] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:53:30] "GET /assets/css/v2.css HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:53:30] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:53:30] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:53:31] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:54:29] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:54:29] "GET /assets/css/v2.css HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:54:30] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:54:47] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:54:47] "GET /assets/css/v2.css HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:54:49] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:54:49] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:54:49] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:54:50] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:56:55] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:56:55] "GET /assets/css/v2.css HTTP/1.1" 200 -
+::1 - - [07/Jan/2026 16:59:04] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 16:59:04] "GET /assets/css/v2.css HTTP/1.1" 200 -
+::1 - - [07/Jan/2026 17:00:04] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 17:00:04] "GET /assets/css/v2.css HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 17:00:33] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 17:00:33] "GET /assets/css/v2.css HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 17:05:06] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 17:05:07] "GET /assets/css/v2.css HTTP/1.1" 200 -
+::1 - - [07/Jan/2026 17:05:10] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 17:05:10] "GET /assets/css/v2.css HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 17:05:15] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 17:05:15] "GET /assets/css/v2.css HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 17:05:16] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 17:05:16] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 17:05:16] "GET /assets/css/v2.css HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 17:05:16] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 17:05:16] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 17:05:17] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 17:05:17] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 17:05:17] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 17:05:17] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 17:05:17] "GET /assets/css/v2.css HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 17:05:17] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 17:05:17] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 17:05:30] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 17:05:30] "GET /assets/css/v2.css HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 17:05:31] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 17:07:04] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 17:07:04] "GET /assets/css/v2.css HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 17:07:08] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 17:07:29] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 17:07:29] "GET /assets/css/v2.css HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 17:07:32] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 17:07:38] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 17:16:18] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 17:16:18] "GET /assets/css/v2.css HTTP/1.1" 200 -
+::1 - - [07/Jan/2026 17:16:20] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:03:05] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:03:05] "GET /assets/css/v2.css HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:05:32] code 404, message File not found
+::1 - - [07/Jan/2026 19:05:32] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [07/Jan/2026 19:07:26] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:07:26] code 404, message File not found
+::1 - - [07/Jan/2026 19:07:26] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [07/Jan/2026 19:07:27] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:07:27] code 404, message File not found
+::1 - - [07/Jan/2026 19:07:27] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [07/Jan/2026 19:08:27] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:08:27] code 404, message File not found
+::1 - - [07/Jan/2026 19:08:27] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [07/Jan/2026 19:08:27] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:08:27] code 404, message File not found
+::1 - - [07/Jan/2026 19:08:27] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [07/Jan/2026 19:08:32] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:08:32] code 404, message File not found
+::1 - - [07/Jan/2026 19:08:32] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [07/Jan/2026 19:08:32] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:08:32] code 404, message File not found
+::1 - - [07/Jan/2026 19:08:32] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [07/Jan/2026 19:10:00] code 404, message File not found
+::1 - - [07/Jan/2026 19:10:00] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [07/Jan/2026 19:12:17] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:12:17] code 404, message File not found
+::1 - - [07/Jan/2026 19:12:17] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [07/Jan/2026 19:12:18] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:12:18] code 404, message File not found
+::1 - - [07/Jan/2026 19:12:18] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [07/Jan/2026 19:12:56] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:12:56] code 404, message File not found
+::1 - - [07/Jan/2026 19:12:56] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [07/Jan/2026 19:12:57] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:12:57] code 404, message File not found
+::1 - - [07/Jan/2026 19:12:57] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [07/Jan/2026 19:15:18] "GET / HTTP/1.1" 200 -
+::1 - - [07/Jan/2026 19:15:18] code 404, message File not found
+::1 - - [07/Jan/2026 19:15:18] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [07/Jan/2026 19:15:18] "GET /assets/css/v2.css?v=2 HTTP/1.1" 200 -
+::1 - - [07/Jan/2026 19:15:18] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:15:18] code 404, message File not found
+::1 - - [07/Jan/2026 19:15:18] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [07/Jan/2026 19:15:18] "GET /assets/css/v2.css?v=2 HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:15:30] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:15:30] "GET /assets/css/v2.css?v=2 HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:15:30] code 404, message File not found
+::1 - - [07/Jan/2026 19:15:30] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [07/Jan/2026 19:16:27] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:16:27] code 404, message File not found
+::1 - - [07/Jan/2026 19:16:27] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [07/Jan/2026 19:16:27] "GET /assets/css/v2.css?v=2 HTTP/1.1" 200 -
+::1 - - [07/Jan/2026 19:17:17] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:17:17] code 404, message File not found
+::1 - - [07/Jan/2026 19:17:17] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [07/Jan/2026 19:17:17] "GET /assets/css/v2.css?v=2 HTTP/1.1" 200 -
+::1 - - [07/Jan/2026 19:17:18] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:17:18] code 404, message File not found
+::1 - - [07/Jan/2026 19:17:18] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [07/Jan/2026 19:17:18] "GET /assets/css/v2.css?v=2 HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:17:54] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:17:54] code 404, message File not found
+::1 - - [07/Jan/2026 19:17:54] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [07/Jan/2026 19:17:54] "GET /assets/css/v2.css?v=2 HTTP/1.1" 200 -
+::1 - - [07/Jan/2026 19:19:37] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:19:37] code 404, message File not found
+::1 - - [07/Jan/2026 19:19:37] "GET /assets/css/v2.css?v=2 HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:19:37] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [07/Jan/2026 19:19:37] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:19:38] code 404, message File not found
+::1 - - [07/Jan/2026 19:19:38] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [07/Jan/2026 19:19:46] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:19:46] code 404, message File not found
+::1 - - [07/Jan/2026 19:19:46] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [07/Jan/2026 19:19:54] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:19:54] code 404, message File not found
+::1 - - [07/Jan/2026 19:19:54] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [07/Jan/2026 19:19:54] "GET /assets/css/v2.css?v=2 HTTP/1.1" 200 -
+::1 - - [07/Jan/2026 19:19:55] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:19:55] code 404, message File not found
+::1 - - [07/Jan/2026 19:19:55] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [07/Jan/2026 19:19:55] "GET /assets/css/v2.css?v=2 HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:20:07] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:20:07] "GET /assets/css/v2.css?v=2 HTTP/1.1" 200 -
+::1 - - [07/Jan/2026 19:20:07] code 404, message File not found
+::1 - - [07/Jan/2026 19:20:07] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [07/Jan/2026 19:20:07] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:20:07] code 404, message File not found
+::1 - - [07/Jan/2026 19:20:07] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [07/Jan/2026 19:20:07] "GET /assets/css/v2.css?v=2 HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:20:43] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:20:43] code 404, message File not found
+::1 - - [07/Jan/2026 19:20:43] "GET /assets/css/v2.css?v=2 HTTP/1.1" 200 -
+::1 - - [07/Jan/2026 19:20:43] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [07/Jan/2026 19:20:44] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:20:44] code 404, message File not found
+::1 - - [07/Jan/2026 19:20:44] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [07/Jan/2026 19:20:44] "GET /assets/css/v2.css?v=2 HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:20:46] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:20:46] code 404, message File not found
+::1 - - [07/Jan/2026 19:20:46] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [07/Jan/2026 19:20:46] "GET /assets/css/v2.css?v=2 HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:20:46] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:20:46] code 404, message File not found
+::1 - - [07/Jan/2026 19:20:46] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [07/Jan/2026 19:21:24] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:21:24] "GET /assets/css/v2.css?v=2 HTTP/1.1" 200 -
+::1 - - [07/Jan/2026 19:21:24] code 404, message File not found
+::1 - - [07/Jan/2026 19:21:24] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [07/Jan/2026 19:21:25] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:21:25] code 404, message File not found
+::1 - - [07/Jan/2026 19:21:25] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [07/Jan/2026 19:21:25] "GET /assets/css/v2.css?v=2 HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:22:16] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:22:16] code 404, message File not found
+::1 - - [07/Jan/2026 19:22:16] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [07/Jan/2026 19:22:16] "GET /assets/css/v2.css?v=2 HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:22:16] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:22:16] code 404, message File not found
+::1 - - [07/Jan/2026 19:22:16] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [07/Jan/2026 19:22:17] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:22:17] code 404, message File not found
+::1 - - [07/Jan/2026 19:22:17] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [07/Jan/2026 19:22:18] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:22:18] code 404, message File not found
+::1 - - [07/Jan/2026 19:22:18] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [07/Jan/2026 19:22:20] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:22:20] code 404, message File not found
+::1 - - [07/Jan/2026 19:22:20] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [07/Jan/2026 19:22:21] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:22:21] code 404, message File not found
+::1 - - [07/Jan/2026 19:22:21] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [07/Jan/2026 19:22:26] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:22:26] code 404, message File not found
+::1 - - [07/Jan/2026 19:22:26] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [07/Jan/2026 19:22:26] "GET /assets/css/v2.css?v=2 HTTP/1.1" 200 -
+::1 - - [07/Jan/2026 19:22:26] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:22:26] code 404, message File not found
+::1 - - [07/Jan/2026 19:22:26] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [07/Jan/2026 19:22:26] "GET /assets/css/v2.css?v=2 HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:23:33] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:23:33] code 404, message File not found
+::1 - - [07/Jan/2026 19:23:33] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [07/Jan/2026 19:23:33] "GET /assets/css/v2.css?v=2 HTTP/1.1" 200 -
+::1 - - [07/Jan/2026 19:23:33] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:23:33] code 404, message File not found
+::1 - - [07/Jan/2026 19:23:33] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [07/Jan/2026 19:23:33] "GET /assets/css/v2.css?v=2 HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:23:34] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:23:34] code 404, message File not found
+::1 - - [07/Jan/2026 19:23:34] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [07/Jan/2026 19:23:34] "GET /assets/css/v2.css?v=2 HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:23:34] "GET / HTTP/1.1" 304 -
+::1 - - [07/Jan/2026 19:23:34] code 404, message File not found
+::1 - - [07/Jan/2026 19:23:34] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [07/Jan/2026 19:23:34] "GET /assets/css/v2.css?v=2 HTTP/1.1" 304 -
