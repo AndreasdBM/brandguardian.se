@@ -23,7 +23,7 @@
   <nav class="topnav" aria-label="Huvudnavigation">
     <div class="container nav-wrap">
       <div class="header-profile">
-        <img class="avatar" loading="lazy" src="assets/images/andreas-profile-2.jpg" alt="Andreas de Boer Moran"/>
+          <img class="avatar" loading="lazy" src="assets/images/andreas profile 7 copy.jpg" alt="Andreas de Boer Moran"/>
         <div class="who">
           <div class="name">Andreas de Boer Moran</div>
           <div class="badge">Språkkonsult</div>
@@ -108,7 +108,7 @@
 
         <div class="experience-card" id="about">
           <div class="profile">
-            <img class="avatar" loading="lazy" src="assets/images/andreas-profile-2.jpg" alt="Andreas de Boer Moran"/>
+              <img class="avatar" loading="lazy" src="assets/images/andreas profile 7 copy.jpg" alt="Andreas de Boer Moran"/>
             <div class="who">
               <div class="name">Andreas de Boer Moran</div>
               <div class="badge">Språkkonsult</div>
@@ -265,7 +265,7 @@
           <button class="btn outline read-more-btn" data-target="bg-more" aria-expanded="false">Läs mer</button>
         </div>
         <div class="why-illustration" aria-hidden="true">
-          <img class="why-svg" loading="lazy" src="assets/svg/shield-check-gold.svg" alt="" />
+          <img class="why-svg" loading="lazy" src="assets/svg/13345343271673529871.svg" alt="" />
         </div>
       </div>
     </section>
@@ -280,7 +280,7 @@
   <footer id="contact" class="contact">
     <div class="container">
       <h2 class="process-title" style="text-align:center">Boka granskning</h2>
-      <p class="contact-kicker">Skicka in valfritt innehåll för en kostnadsfri första granskning.</p>
+      <p class="contact-kicker">Skicka in en sida eller ett dokument (max 1&nbsp;000 ord) för en kostnadsfri första granskning.</p>
       <form id="contact-form" class="contact-form" novalidate>
         <div class="field">
           <label for="name">Namn</label>
@@ -293,6 +293,11 @@
         <div class="field full">
           <label for="url">Webbplats eller sida att granska (valfritt)</label>
           <input id="url" name="url" type="url" inputmode="url" placeholder="https://…" />
+        </div>
+        <div class="field full">
+          <label for="attachment">Bilaga (valfritt)</label>
+          <input id="attachment" name="attachment" type="file" accept=".pdf,.doc,.docx,.txt" />
+          <span class="hint">Bifoga filen i ditt e‑postprogram när formuläret öppnas.</span>
         </div>
         <div class="field full">
           <label for="message">Meddelande</label>
@@ -516,27 +521,61 @@
   (function() {
     const sticky = document.querySelector('.sticky-cta');
     if (!sticky) return;
-    let scrolledPastHero = false;
+    const cta = document.querySelector('.cta-card');
+    const contact = document.getElementById('contact');
+    let ctaPassed = false;
+    let contactVisible = false;
+
+    function update() {
+      const show = ctaPassed && !contactVisible;
+      sticky.classList.toggle('show', show);
+    }
+
+    if ('IntersectionObserver' in window) {
+      if (cta) {
+        const ctaObserver = new IntersectionObserver((entries) => {
+          entries.forEach(e => {
+            if (e.isIntersecting) {
+              ctaPassed = false;
+            } else if (e.boundingClientRect.bottom < 0) {
+              ctaPassed = true;
+            }
+            update();
+          });
+        }, { threshold: 0 });
+        ctaObserver.observe(cta);
+      }
+
+      if (contact) {
+        const contactObserver = new IntersectionObserver((entries) => {
+          entries.forEach(e => {
+            contactVisible = e.isIntersecting;
+            update();
+          });
+        }, { threshold: 0.1, rootMargin: '0px 0px -10% 0px' });
+        contactObserver.observe(contact);
+      }
+
+      update();
+      return;
+    }
+
     function onScroll() {
-      const y = window.scrollY || document.documentElement.scrollTop;
-      scrolledPastHero = y > 480;
+      if (cta) {
+        const rect = cta.getBoundingClientRect();
+        ctaPassed = rect.bottom < 0;
+      } else {
+        ctaPassed = false;
+      }
+      if (contact) {
+        const rect = contact.getBoundingClientRect();
+        contactVisible = rect.top < window.innerHeight && rect.bottom > 0;
+      } else {
+        contactVisible = false;
+      }
       update();
     }
-    function update() {
-      if (scrolledPastHero && !contactVisible) sticky.classList.add('show');
-      else sticky.classList.remove('show');
-    }
-    let contactVisible = false;
-    const contact = document.getElementById('contact');
-    if (contact && 'IntersectionObserver' in window) {
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-          contactVisible = e.isIntersecting;
-          update();
-        });
-      }, { threshold: 0.1, rootMargin: '0px 0px -10% 0px' });
-      io.observe(contact);
-    }
+
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
   })();
@@ -564,6 +603,46 @@
       });
     }, { rootMargin: '-40% 0px -55% 0px', threshold: 0.01 });
     sections.forEach(s => io.observe(s));
+  })();
+</script>
+<script>
+  // Hide top nav after the hero; show again near the top
+  (function() {
+    const nav = document.querySelector('.topnav');
+    if (!nav) return;
+    const menu = nav.querySelector('.nav-menu');
+    const hero = document.querySelector('.hero');
+    let ticking = false;
+    let heroVisible = true;
+
+    function update() {
+      const menuOpen = menu && menu.classList.contains('is-open');
+      nav.classList.toggle('is-hidden', !menuOpen && !heroVisible);
+      ticking = false;
+    }
+
+    if ('IntersectionObserver' in window && hero) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          heroVisible = e.isIntersecting;
+          update();
+        });
+      }, { threshold: 0 });
+      io.observe(hero);
+      update();
+      return;
+    }
+
+    const showAt = hero ? hero.offsetHeight : 240;
+    function onScroll() {
+      heroVisible = (window.scrollY || document.documentElement.scrollTop) < showAt;
+      if (!ticking) {
+        window.requestAnimationFrame(update);
+        ticking = true;
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
   })();
 </script>
 <script>
