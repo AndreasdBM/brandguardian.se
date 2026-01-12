@@ -280,7 +280,7 @@ section[id] { scroll-margin-top: 72px; }
   position: fixed;
   left: 0;
   right: 0;
-  background: rgba(15, 118, 110, 0.12);
+  background: transparent;
   pointer-events: none;
   z-index: 40;
   animation: invert-wipe 480ms ease-out forwards;
