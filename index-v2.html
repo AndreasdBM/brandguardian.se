@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:wght@500;600&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/v2.css?v=6" />
+  <link rel="stylesheet" href="assets/css/v2.css?v=7" />
   <meta name="color-scheme" content="light" />
   <meta name="theme-color" content="#fffcf7" />
 </head>
@@ -36,7 +36,7 @@
       <ul class="nav-menu">
         <li><a href="#about">Om mig</a></li>
         <li><a href="#process">Process</a></li>
-        <li><a href="#why">Varför</a></li>
+        <li><a href="#why">Varför anlita mig?</a></li>
         <li><a href="#brand-guardian">Interkulturell copyredigerare</a></li>
         <li><a class="nav-cta" href="#contact">Boka granskning</a></li>
       </ul>
@@ -89,31 +89,37 @@
           </div>
         </div>
         <section class="testimonials" aria-label="Omdömen">
-          <div class="testimonial-grid">
-            <figure class="testimonial">
-              <blockquote>Det var ett nöje att samarbeta med Andreas i samband med ett uppdrag för en större kund. Han levererade genomgående utmärkta resultat och imponerade med sin språkliga säkerhet och känsla för detaljer. Andreas var också lyhörd och snabb i sin kommunikation, vilket gjorde samarbetet enkelt och effektivt. Hans professionalism bidrog i hög grad till ett lyckat slutresultat.</blockquote>
-              <figcaption>
-                <span class="testimonial-name">SILVIA GÓMEZ</span>
-                <span class="testimonial-role">Quality Manager, LQS</span>
-                <span class="testimonial-org">Lionbridge</span>
-              </figcaption>
-            </figure>
-            <figure class="testimonial">
-              <blockquote>Det är alltid ett nöje att samarbeta med Andreas. Han har en positiv inställning, är lätt att kommunicera med och levererar framför allt texter av hög kvalitet. Andreas är flexibel och anpassar sig till korta och föränderliga deadlines. Han är en sällsynt tillgång inom lokaliseringsbranschen.</blockquote>
-              <figcaption>
-                <span class="testimonial-name">Alex Varilone</span>
-                <span class="testimonial-role">Senior Content Manager, Language Services</span>
-                <span class="testimonial-org">Jellyfish.com</span>
-              </figcaption>
-            </figure>
-            <figure class="testimonial">
-              <blockquote>Under det senaste året har Andreas visat sig vara en pålitlig och professionell språkexpert som konsekvent levererar resultat av hög kvalitet enligt fastställt schema. Han svarar snabbt på kommunikation och är alltid tillmötesgående.</blockquote>
-              <figcaption>
-                <span class="testimonial-name">Sophie van Everdingen</span>
-                <span class="testimonial-role">Language Production Manager</span>
-                <span class="testimonial-org">Alpha CRC</span>
-              </figcaption>
-            </figure>
+          <div class="testimonial-carousel">
+            <button class="testimonial-nav prev" type="button" aria-label="Föregående omdöme">‹</button>
+            <div class="testimonial-viewport">
+              <div class="testimonial-grid">
+                <figure class="testimonial">
+                  <blockquote>Det var ett nöje att samarbeta med Andreas i samband med ett uppdrag för en större kund. Han levererade genomgående utmärkta resultat och imponerade med sin språkliga säkerhet och känsla för detaljer. Andreas var också lyhörd och snabb i sin kommunikation, vilket gjorde samarbetet enkelt och effektivt. Hans professionalism bidrog i hög grad till ett lyckat slutresultat.</blockquote>
+                  <figcaption>
+                    <span class="testimonial-name">SILVIA GÓMEZ</span>
+                    <span class="testimonial-role">Quality Manager, LQS</span>
+                    <span class="testimonial-org highlight-lionbridge">Lionbridge</span>
+                  </figcaption>
+                </figure>
+                <figure class="testimonial">
+                  <blockquote>Det är alltid ett nöje att samarbeta med Andreas. Han har en positiv inställning, är lätt att kommunicera med och levererar framför allt texter av hög kvalitet. Andreas är flexibel och anpassar sig till korta och föränderliga deadlines. Han är en sällsynt tillgång inom lokaliseringsbranschen.</blockquote>
+                  <figcaption>
+                    <span class="testimonial-name">Alex Varilone</span>
+                    <span class="testimonial-role">Senior Content Manager, Language Services</span>
+                    <span class="testimonial-org highlight">Jellyfish.com</span>
+                  </figcaption>
+                </figure>
+                <figure class="testimonial">
+                  <blockquote>Under det senaste året har Andreas visat sig vara en pålitlig och professionell språkexpert som konsekvent levererar resultat av hög kvalitet enligt fastställt schema. Han svarar snabbt på kommunikation och är alltid tillmötesgående.</blockquote>
+                  <figcaption>
+                    <span class="testimonial-name">Sophie van Everdingen</span>
+                    <span class="testimonial-role">Language Production Manager</span>
+                    <span class="testimonial-org highlight-alpha">Alpha CRC</span>
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+            <button class="testimonial-nav next" type="button" aria-label="Nästa omdöme">›</button>
           </div>
         </section>
         
@@ -663,6 +669,112 @@
         window.location.href = 'mailto:andreas@brandguardian.se?subject=' + subject + '&body=' + body;
       }
     });
+  })();
+</script>
+<script>
+  (function() {
+    const root = document.querySelector('.testimonials');
+    if (!root) return;
+    const track = root.querySelector('.testimonial-grid');
+    const prev = root.querySelector('.testimonial-nav.prev');
+    const next = root.querySelector('.testimonial-nav.next');
+    if (!track) return;
+
+    const mq = window.matchMedia('(max-width: 900px)');
+    const original = track.innerHTML;
+    let index = 0;
+    let timer = null;
+
+    function setTransition(enabled) {
+      track.style.transition = enabled ? 'transform 360ms ease' : 'none';
+    }
+
+    function update() {
+      track.style.transform = `translateX(${-index * 100}%)`;
+    }
+
+    function onTransitionEnd(e) {
+      if (e.target !== track) return;
+      if (!mq.matches) return;
+      const total = track.children.length;
+      if (index === total - 1) {
+        setTransition(false);
+        index = 1;
+        update();
+        track.getBoundingClientRect();
+        requestAnimationFrame(() => setTransition(true));
+      } else if (index === 0) {
+        setTransition(false);
+        index = total - 2;
+        update();
+        track.getBoundingClientRect();
+        requestAnimationFrame(() => setTransition(true));
+      }
+    }
+
+    function setupMobile() {
+      track.innerHTML = original;
+      const items = Array.from(track.children);
+      if (items.length < 2) return false;
+      const first = items[0].cloneNode(true);
+      const last = items[items.length - 1].cloneNode(true);
+      track.insertBefore(last, items[0]);
+      track.appendChild(first);
+      index = 1;
+      setTransition(true);
+      update();
+      return true;
+    }
+
+    function teardown() {
+      track.innerHTML = original;
+      track.style.transform = '';
+      track.style.transition = '';
+      index = 0;
+    }
+
+    function start() {
+      stop();
+      timer = window.setInterval(() => {
+        if (!mq.matches) return;
+        index += 1;
+        update();
+      }, 8000);
+    }
+
+    function stop() {
+      if (timer) {
+        window.clearInterval(timer);
+        timer = null;
+      }
+    }
+
+    function apply() {
+      if (!mq.matches) {
+        stop();
+        teardown();
+        return;
+      }
+      setupMobile();
+      start();
+    }
+
+    function step(dir) {
+      if (!mq.matches) return;
+      index += dir;
+      update();
+      start();
+    }
+
+    track.addEventListener('transitionend', onTransitionEnd);
+    if (prev) prev.addEventListener('click', () => step(-1));
+    if (next) next.addEventListener('click', () => step(1));
+    if (mq.addEventListener) {
+      mq.addEventListener('change', apply);
+    } else if (mq.addListener) {
+      mq.addListener(apply);
+    }
+    apply();
   })();
 </script>
 </body>
