@@ -567,27 +567,41 @@
   })();
 </script>
 <script>
-  // Simple mailto handler for contact form
-  (function() {
-    const form = document.getElementById('contact-form');
+  // Contact form -> POST to /api/contact (Resend)
+  (function () {
+    const form = document.getElementById("contact-form");
     if (!form) return;
-    form.addEventListener('submit', function(e) {
+
+    form.addEventListener("submit", async function (e) {
       e.preventDefault();
-      if (!form.reportValidity || form.reportValidity()) {
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const url = document.getElementById('url').value.trim();
-        const message = document.getElementById('message').value.trim();
-        const subject = encodeURIComponent('Boka granskning – ' + (name || '')); 
-        const bodyLines = [
-          'Namn: ' + name,
-          'E‑post: ' + email,
-          url ? ('URL: ' + url) : '',
-          '',
-          message
-        ].filter(Boolean);
-        const body = encodeURIComponent(bodyLines.join('\n'));
-        window.location.href = 'mailto:andreas@brandguardian.se?subject=' + subject + '&body=' + body;
+
+      if (form.reportValidity && !form.reportValidity()) return;
+
+      const payload = {
+        name: document.getElementById("name").value.trim(),
+        email: document.getElementById("email").value.trim(),
+        url: document.getElementById("url").value.trim(),
+        message: document.getElementById("message").value.trim(),
+      };
+
+      try {
+        const res = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+
+        const data = await res.json().catch(() => ({}));
+
+        if (!res.ok) {
+          alert("Något gick fel. Försök igen eller mejla direkt.\n\n" + (data.details || data.error || ""));
+          return;
+        }
+
+        form.reset();
+        alert("Tack! Din förfrågan är skickad. Jag återkommer snart.");
+      } catch (err) {
+        alert("Nätverksfel. Försök igen eller mejla direkt.");
       }
     });
   })();
