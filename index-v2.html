@@ -567,14 +567,18 @@
   })();
 </script>
 <script>
-  // Contact form -> POST to /api/contact (Resend)
+  // Contact form -> POST to /api/contact (Resend) with visible feedback
   (function () {
     const form = document.getElementById("contact-form");
     if (!form) return;
 
+    const btn = form.querySelector('button[type="submit"]');
+    const originalBtnText = btn ? btn.textContent : "";
+
     form.addEventListener("submit", async function (e) {
       e.preventDefault();
 
+      // Browser validation
       if (form.reportValidity && !form.reportValidity()) return;
 
       const payload = {
@@ -584,6 +588,13 @@
         message: document.getElementById("message").value.trim(),
       };
 
+      console.log("Submitting contact form payload:", payload);
+
+      if (btn) {
+        btn.disabled = true;
+        btn.textContent = "Skickar…";
+      }
+
       try {
         const res = await fetch("/api/contact", {
           method: "POST",
@@ -592,16 +603,28 @@
         });
 
         const data = await res.json().catch(() => ({}));
+        console.log("API response:", res.status, data);
 
         if (!res.ok) {
-          alert("Något gick fel. Försök igen eller mejla direkt.\n\n" + (data.details || data.error || ""));
+          alert(
+            "Något gick fel när formuläret skulle skickas.\n\n" +
+              "Status: " + res.status + "\n" +
+              (data?.error ? ("Fel: " + data.error + "\n") : "") +
+              (data?.details ? ("Detaljer: " + data.details) : "")
+          );
           return;
         }
 
+        alert("Tack! Ditt meddelande är skickat.");
         form.reset();
-        alert("Tack! Din förfrågan är skickad. Jag återkommer snart.");
       } catch (err) {
-        alert("Nätverksfel. Försök igen eller mejla direkt.");
+        console.error("Network/JS error:", err);
+        alert("Nätverksfel. Öppna Console (F12) och testa igen.");
+      } finally {
+        if (btn) {
+          btn.disabled = false;
+          btn.textContent = originalBtnText || "Boka granskning";
+        }
       }
     });
   })();
