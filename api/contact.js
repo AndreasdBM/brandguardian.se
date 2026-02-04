@@ -19,7 +19,7 @@ export default async function handler(req, res) {
 
     // IMPORTANT:
     // Use a verified "from" in Resend
-    const from = "Brand Guardian <onboarding@resend.dev>";
+    const from = "Brand Guardian <contact@send.brandguardian.se>";
     const to = ["andreas@brandguardian.se"];
 
     const subject = `Boka granskning – ${name}`;
