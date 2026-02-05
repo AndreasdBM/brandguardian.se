@@ -321,7 +321,7 @@
           <textarea id="message" name="message" placeholder="Kort om era behov och vad ni vill få granskat" required></textarea>
         </div>
         <p class="privacy-note">Din information används endast för att svara på din förfrågan och delas aldrig.</p>
-        <p id="form-status" class="hint" aria-live="polite"></p>
+        <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
         <div class="form-actions">
           <button class="btn cta" type="submit">Boka granskning</button>
           <span class="hint">eller maila direkt: <a href="mailto:andreas@brandguardian.se">andreas@brandguardian.se</a></span>
@@ -648,59 +648,64 @@
   })();
 </script>
 <script>
-  (function() {
-    const form = document.getElementById('contact-form');
-    if (!form) return;
-    form.addEventListener("submit", async function (e) {
-  e.preventDefault();
+(() => {
+  const form = document.getElementById("contact-form");
+  if (!form) return;
 
-  const statusEl = document.getElementById("form-status");
-  const btn = form.querySelector('button[type="submit"]');
-  const originalBtnText = btn.textContent;
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-  statusEl.textContent = "";
+    const statusEl = document.getElementById("form-status");
+    const btn = form.querySelector('button[type="submit"]');
+    const originalBtnText = btn ? btn.textContent : "";
 
-  // Client-side validation (no silent failure)
-  if (!form.checkValidity()) {
-    statusEl.textContent = "Fyll i obligatoriska fält (namn, e-post och meddelande).";
-    return;
-  }
+    if (statusEl) statusEl.textContent = "";
 
-  const payload = {
-    name: document.getElementById("name").value.trim(),
-    email: document.getElementById("email").value.trim(),
-    url: document.getElementById("url").value.trim(),
-    message: document.getElementById("message").value.trim(),
-  };
-
-  btn.disabled = true;
-  btn.textContent = "Skickar…";
-
-  try {
-    const res = await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
-
-    const text = await res.text();
-
-    if (!res.ok) {
-      throw new Error(text);
+    // Show real validation messages in the UI
+    if (form.reportValidity && !form.reportValidity()) {
+      if (statusEl) statusEl.textContent = "Fyll i obligatoriska fält (namn, e-post och meddelande).";
+      return;
     }
 
-    statusEl.textContent = "Tack! Din förfrågan har skickats.";
-    form.reset();
-  } catch (err) {
-    console.error(err);
-    statusEl.textContent =
-      "Något gick fel. Försök igen eller maila direkt till andreas@brandguardian.se.";
-  } finally {
-    btn.disabled = false;
-    btn.textContent = originalBtnText;
-  }
-});
-  })();
+    const payload = {
+      name: document.getElementById("name")?.value.trim() || "",
+      email: document.getElementById("email")?.value.trim() || "",
+      url: document.getElementById("url")?.value.trim() || "",
+      message: document.getElementById("message")?.value.trim() || "",
+      // honeypot if you added it:
+      website: document.querySelector('input[name="website"]')?.value || ""
+    };
+
+    try {
+      if (btn) {
+        btn.disabled = true;
+        btn.textContent = "Skickar…";
+      }
+
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const text = await res.text();
+
+      if (!res.ok) throw new Error(text || `HTTP ${res.status}`);
+
+      if (statusEl) statusEl.textContent = "Tack! Din förfrågan har skickats.";
+      form.reset();
+    } catch (err) {
+      console.error("Form submit failed:", err);
+      if (statusEl) statusEl.textContent =
+        "Något gick fel. Försök igen eller maila direkt till andreas@brandguardian.se.";
+    } finally {
+      if (btn) {
+        btn.disabled = false;
+        btn.textContent = originalBtnText;
+      }
+    }
+  });
+})();
 </script>
 <script>
   (function() {
