@@ -656,14 +656,19 @@
     e.preventDefault();
 
     const statusEl = document.getElementById("form-status");
+    console.log("SUBMIT FIRED", { statusEl });
+    if (statusEl) statusEl.textContent = "Skickar…";
     const btn = form.querySelector('button[type="submit"]');
     const originalBtnText = btn ? btn.textContent : "";
 
     if (statusEl) statusEl.textContent = "";
 
     // Show real validation messages in the UI
-    if (form.reportValidity && !form.reportValidity()) {
-      if (statusEl) statusEl.textContent = "Fyll i obligatoriska fält (namn, e-post och meddelande).";
+    if (!form.checkValidity()) {
+      if (statusEl)
+        statusEl.textContent =
+          "Fyll i obligatoriska fält (namn, e-post och meddelande).";
+      form.reportValidity && form.reportValidity();
       return;
     }
 
