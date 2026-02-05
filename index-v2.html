@@ -321,6 +321,7 @@
           <textarea id="message" name="message" placeholder="Kort om era behov och vad ni vill få granskat" required></textarea>
         </div>
         <p class="privacy-note">Din information används endast för att svara på din förfrågan och delas aldrig.</p>
+        <p id="form-status" class="hint" aria-live="polite"></p>
         <div class="form-actions">
           <button class="btn cta" type="submit">Boka granskning</button>
           <span class="hint">eller maila direkt: <a href="mailto:andreas@brandguardian.se">andreas@brandguardian.se</a></span>
@@ -650,25 +651,55 @@
   (function() {
     const form = document.getElementById('contact-form');
     if (!form) return;
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      if (!form.reportValidity || form.reportValidity()) {
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const url = document.getElementById('url').value.trim();
-        const message = document.getElementById('message').value.trim();
-        const subject = encodeURIComponent('Boka granskning – ' + (name || ''));
-        const bodyLines = [
-          'Namn: ' + name,
-          'E‑post: ' + email,
-          url ? ('URL: ' + url) : '',
-          '',
-          message
-        ].filter(Boolean);
-        const body = encodeURIComponent(bodyLines.join('\n'));
-        window.location.href = 'mailto:andreas@brandguardian.se?subject=' + subject + '&body=' + body;
-      }
+    form.addEventListener("submit", async function (e) {
+  e.preventDefault();
+
+  const statusEl = document.getElementById("form-status");
+  const btn = form.querySelector('button[type="submit"]');
+  const originalBtnText = btn.textContent;
+
+  statusEl.textContent = "";
+
+  // Client-side validation (no silent failure)
+  if (!form.checkValidity()) {
+    statusEl.textContent = "Fyll i obligatoriska fält (namn, e-post och meddelande).";
+    return;
+  }
+
+  const payload = {
+    name: document.getElementById("name").value.trim(),
+    email: document.getElementById("email").value.trim(),
+    url: document.getElementById("url").value.trim(),
+    message: document.getElementById("message").value.trim(),
+  };
+
+  btn.disabled = true;
+  btn.textContent = "Skickar…";
+
+  try {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
     });
+
+    const text = await res.text();
+
+    if (!res.ok) {
+      throw new Error(text);
+    }
+
+    statusEl.textContent = "Tack! Din förfrågan har skickats.";
+    form.reset();
+  } catch (err) {
+    console.error(err);
+    statusEl.textContent =
+      "Något gick fel. Försök igen eller maila direkt till andreas@brandguardian.se.";
+  } finally {
+    btn.disabled = false;
+    btn.textContent = originalBtnText;
+  }
+});
   })();
 </script>
 <script>
