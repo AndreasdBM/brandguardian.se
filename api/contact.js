@@ -16,7 +16,7 @@ export default async function handler(req, res) {
     }
 
     const payload = {
-      from: "Brand Guardian <onboarding@resend.dev>",
+      from: "Brand Guardian <andreas@brandguardian.se>",
       to: ["andreas@brandguardian.se"],
       subject: `Boka granskning – ${name}`,
       text: `
